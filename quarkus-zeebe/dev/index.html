@@ -1,0 +1,2790 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quarkus Zeebe :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-zeebe/dev/index.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-zeebe" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Zeebe</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Quarkus Zeebe</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Zeebe</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Zeebe</a></li>
+    <li><a href="index.html">Quarkus Zeebe</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">dev</button>
+  <div class="version-menu">
+        <a class="version is-current" href="index.html">dev</a>
+        <a class="version" href="../0.x/index.html">0.x</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-zeebe/edit/main/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Quarkus Zeebe</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quarkus <a href="https://docs.camunda.io/docs/components/zeebe/zeebe-overview/">Zeebe</a> extension. Zeebe&#8217;s cloud-native design provides the performance, resilience, and security enterprises need to future-proof their process orchestration efforts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>io.quarkiverse.zeebe:quarkus-zeebe</code> extension first to your build file.</p>
+</div>
+<div class="paragraph">
+<p>For instance, with Maven, add the following dependency to your POM file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.zeebe&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-zeebe&lt;/artifactId&gt;
+    &lt;version&gt;1.2.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_upgrade"><a class="anchor" href="#_upgrade"></a>Upgrade</h3>
+<div class="quoteblock">
+<blockquote>
+In version <code>&gt;=0.8.0</code> we replaced <code>@ZeebeWorker</code> with <code>@JobWorker</code> annotation.
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+In version <code>&gt;=0.7.0</code> we removed the hazelcast dependency and <a href="https://github.com/camunda-community-hub/zeebe-simple-monitor">zeebe-simple-monitor</a>
+for test and dev services. Now we do use <a href="https://github.com/camunda-community-hub/zeebe-test-container">zeebe-test-container</a> with <a href="https://github.com/camunda-community-hub/zeebe-test-container#debug-exporter">debug exporter</a>
+and <a href="https://github.com/lorislab/zeebe-dev-monitor">zeebe-dev-monitor</a>. In test module we remove our assert API and switch to Camunda <a href="https://github.com/camunda/zeebe-process-test/blob/main/assertions/src/main/java/io/camunda/zeebe/process/test/assertions/BpmnAssert.java">BpmnAssert</a>
+from <a href="https://github.com/camunda/zeebe-process-test">zeebe-process-test</a>. Test api migration: <code>io.quarkiverse.zeebe.test.BpmnAssert</code> &#8594; <code>io.camunda.zeebe.process.test.assertions.BpmnAssert</code>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_exemplary_setup_for_your_local_development"><a class="anchor" href="#_exemplary_setup_for_your_local_development"></a>Exemplary Setup for your local development</h3>
+<div class="paragraph">
+<p>Generally speaking there are three ways to configure your quarkus project to speak with camunda:
+- Local dev instance with dev services
+- Shared local dev instance
+- Direct interaction with Camunda SaaS/ on-premise</p>
+</div>
+<div class="paragraph">
+<p>You can see some exemplary configurations for each of the setups below. Please note that these are only exemplary and can be adapted to your needs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_local_dev_instance_with_dev_services"><a class="anchor" href="#_local_dev_instance_with_dev_services"></a>Local dev instance with dev services</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># enable auto load bpmn resources
+quarkus.zeebe.resources.enabled=true
+# src/main/resources/bpmn
+quarkus.zeebe.resources.location=bpmn
+# Enable zeebe Dev Service:
+quarkus.zeebe.devservices.enabled=true
+# only start devservices, if no running docker container is found
+quarkus.zeebe.devservices.shared=true
+# zeebe service name
+quarkus.zeebe.devservices.service-name=zeebe_broker
+# enable reusable zeebe test-container (https://www.testcontainers.org/features/reuse/)
+quarkus.zeebe.devservices.reuse=false
+# enable zeebe monitor Dev Service:
+quarkus.zeebe.devservices.monitor.enabled=true
+# zeebe monitor service name
+quarkus.zeebe.devservices.monitor.service-name=zeebe-dev-monitor
+# enable reusable zeebe test-container (https://www.testcontainers.org/features/reuse/)
+quarkus.zeebe.devservices.monitor.reuse=false
+# enable hot restart for bpmn subdirectories changes
+quarkus.zeebe.dev-mode.watch-bpmn-dir=true
+# enable hot restart for bpmn files changes
+quarkus.zeebe.dev-mode.watch-bpmn-files=true
+# enable hot restart for job worker changes
+quarkus.zeebe.dev-mode.watch-job-worker=true</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_shared_local_dev_instance"><a class="anchor" href="#_shared_local_dev_instance"></a>Shared local dev instance</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.zeebe.client.broker.gateway-address=localhost:26500
+# If you are sure that there is already an instance running, yu can directly deactivate it
+quarkus.zeebe.devservices.enabled=false
+quarkus.zeebe.devservices.shared=true
+quarkus.zeebe.devservices.monitor.serviceName=zeebe-dev-monitor
+quarkus.zeebe.devservices.serviceName=zeebe_broker</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_direct_interaction_with_camunda_cloud_live_instance"><a class="anchor" href="#_direct_interaction_with_camunda_cloud_live_instance"></a>Direct interaction with Camunda Cloud live instance</h4>
+<div class="paragraph">
+<p>Preferably you would be using a dev instance of Camunda and not your production process engine ;)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Disable local dev services
+quarkus.zeebe.devservices.enabled=false
+
+# Enter your cloud credentials from the zeebe portal
+quarkus.zeebe.client.broker.gateway-address=
+# Specify a cluster id.
+quarkus.zeebe.client.cloud.cluster-id=
+# Specify a client id.
+quarkus.zeebe.client.cloud.client-id=
+# Specify a client secret to request an access token.
+quarkus.zeebe.client.cloud.client-secret=
+# Specify a cloud region.
+quarkus.zeebe.client.cloud.region=
+quarkus.zeebe.client.cloud.base-url=zeebe.camunda.io
+quarkus.zeebe.client.cloud.auth-url=https://login.cloud.camunda.io/oauth/token
+quarkus.zeebe.client.cloud.port=443
+
+# Make sure you are disabling plaintext security, otherwise connection will fail
+quarkus.zeebe.client.security.plaintext=false</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_metrics"><a class="anchor" href="#_metrics"></a>Metrics</h3>
+<div class="paragraph">
+<p>Whether <code>zeebe</code> metrics is enabled or not is done by <code>quarkus.zeebe.metrics.enabled</code> build time property.
+The default is <code>true</code>, but shown here to indicate how it can be disabled.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.zeebe.metrics.enabled=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can access the following metrics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>camunda.job.invocations</code>: Number of invocations of job workers (tagging the job type)</p>
+</li>
+<li>
+<p><code>activated</code>: The job was activated and started to process an item</p>
+</li>
+<li>
+<p><code>completed</code>: The processing was completed successfully</p>
+</li>
+<li>
+<p><code>failed</code>: The processing failed with some exception</p>
+</li>
+<li>
+<p><code>bpmn-error</code>: The processing completed by throwing an ZeebeBpmnError (which means there was no technical problem)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs"># TYPE camunda_job_invocations counter
+# HELP camunda_job_invocations
+camunda_job_invocations_total{action="activated",type="gateway-empty-data"} 1.0
+camunda_job_invocations_total{action="completed",type="gateway-show-data"} 2.0
+camunda_job_invocations_total{action="activated",type="gateway-show-data"} 2.0
+camunda_job_invocations_total{action="completed",type="gateway-read-data"} 2.0</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_micrometer"><a class="anchor" href="#_micrometer"></a>Micrometer</h4>
+<div class="paragraph">
+<p>If you already have your Quarkus project configured, you can add the <code>quarkus-micrometer-registry-prometheus</code> extension to your project.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-micrometer-registry-prometheus&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://quarkus.io/guides/telemetry-micrometer-tutorial">Quarkus Micrometer</a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tracing"><a class="anchor" href="#_tracing"></a>Tracing</h3>
+<div class="paragraph">
+<p>Whether <code>zeebe</code> tracing is enabled or not is done by <code>quarkus.zeebe.tracing.enabled</code> build time property. The default is <code>true</code>, but shown here to indicate how it can be disabled.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.zeebe.tracing.enabled=true</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/opentelemetry.png" alt="OpenTelemetry">
+</div>
+</div>
+<div class="sect3">
+<h4 id="_opentelemetry"><a class="anchor" href="#_opentelemetry"></a>OpenTelemetry</h4>
+<div class="paragraph">
+<p>If you already have your Quarkus project configured, you can add the <code>quarkus-opentelemetry-exporter-otlp</code> extension to your project.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-opentelemetry-exporter-otlp&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/quarkiverse/quarkus-zeebe/tree/main/examples/opentelemetry">Zeebe OpenTelemetry Example</a></p>
+</li>
+<li>
+<p><a href="https://quarkus.io/guides/opentelemetry">Quarkus OpenTelemetry</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dev_services"><a class="anchor" href="#_dev_services"></a>Dev-Services</h3>
+<div class="paragraph">
+<p>Dev Services for Zeebe is automatically enabled unless:
+* <code>quarkus.zeebe.devservices.enabled</code> is set to false
+* <code>quarkus.zeebe.broker.gateway-address</code> is configured</p>
+</div>
+<div class="paragraph">
+<p>Dev Service for Zeebe relies on Docker to start the broker. If your environment does not support Docker, you will need
+to start the broker manually, or connect to an already running broker. You can configure the broker address using
+<code>quarkus.zeebe.broker.gateway-address</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/devservice.svg" alt="Test">
+</div>
+</div>
+<div class="paragraph">
+<p>To activate <a href="https://github.com/lorislab/zeebe-dev-monitor">Zeebe-Dev-Monitor</a> Dev Service use this configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.zeebe.devservices.enabled=true
+quarkus.zeebe.devservices.monitor.enabled=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Property <code>qquarkus.zeebe.devservices.monitor.enabled=true</code> will activate the debug exporter.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_jobworker"><a class="anchor" href="#_jobworker"></a>@JobWorker</h3>
+<div class="paragraph">
+<p>You need to configure the job type via the <code>JobWorker</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type = "my-job")
+public void executeMyJob() {
+    // handles jobs of type 'my-job'
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t specify the <code>type</code> the method name is use as default:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker
+public void test() {
+        // handles jobs of type 'test'
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or you can set a default job type:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.zeebe.client.job.default-type=test</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variables"><a class="anchor" href="#_variables"></a>Variables</h3>
+<div class="paragraph">
+<p>You can specify that you only want to fetch some variables or when executing a job, which can decrease load and improve
+performance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type="test", fetchVariables={"var1", "var2"})
+public void test(final JobClient client, final ActivatedJob job) {
+    String var1 = (String) job.getVariablesAsMap().get("var1");
+    System.out.println(var1);
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variable"><a class="anchor" href="#_variable"></a>@Variable</h3>
+<div class="paragraph">
+<p>By using the <code>@Variable</code> annotation there is a shortcut to make variable retrieval simpler, including the type cast:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type="test")
+public void test(final JobClient client, final ActivatedJob job, @Variable String var1) {
+    System.out.println(var1);
+    // ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With <code>@Variable</code> or <code>fetchVariables</code> you limit which variables are loaded from the workflow engine.
+You can also override this with <code>fetchAllVariables</code> and force that all variables are loaded anyway:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type="test", fetchAllVariables=true)
+public void test(final JobClient client, final ActivatedJob job) {
+    String var1 = (String) job.getVariablesAsMap().get("var1");
+    System.out.println(var1);
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variablesastype"><a class="anchor" href="#_variablesastype"></a>@VariablesAsType</h3>
+<div class="paragraph">
+<p>You can also use your own class into which the process variables are mapped to (comparable with getVariablesAsType() in
+the Java Client API). Therefore, use the <code>@VariablesAsType</code> annotation. In the below example, Parameter refers to your own class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type = "job1")
+public void job1(@VariablesAsType Parameter p) {
+    System.out.println(p.getValue());
+    p.setValue(1);
+    // ... custom code
+    return param;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fetch_variables_via_job"><a class="anchor" href="#_fetch_variables_via_job"></a>Fetch variables via <code>Job</code></h3>
+<div class="paragraph">
+<p>You can access variables of a process via the ActivatedJob object, which is passed into the method if it is a parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type="test")
+public void test(final ActivatedJob job) {
+    String var1 = (String) job.getVariablesAsMap().get("var1");
+    System.out.println(var1);
+    // ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_customheader"><a class="anchor" href="#_customheader"></a>@CustomHeader</h3>
+<div class="paragraph">
+<p>You can use the <code>@CustomHeader</code> annotation for a parameter to retrieve custom header for a job:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type = "job1")
+public void job1(@VariablesAsType Parameter p, @CustomHeader String header1, @CustomHeader("custom-header") String header2) {
+    System.out.println(header1);
+    System.out.println(header2);
+    System.out.println(p.getValue());
+    p.setValue(1);
+    // ... custom code
+    return param;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_customheaders"><a class="anchor" href="#_customheaders"></a>@CustomHeaders</h3>
+<div class="paragraph">
+<p>You can use the <code>@CustomHeaders</code> annotation for a parameter to retrieve custom headers for a job:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type = "job1")
+public void job1(@VariablesAsType Parameter p, @CustomHeaders Map&lt;String, String&gt; headers) {
+    System.out.println(headers.get("header1"));
+    System.out.println(headers.get("custom-header"));
+    System.out.println(p.getValue());
+    p.setValue(1);
+    // ... custom code
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_auto_completing_jobs"><a class="anchor" href="#_auto_completing_jobs"></a>Auto-completing jobs</h3>
+<div class="paragraph">
+<p>By default, the autoComplete attribute is set to true for any job worker. In this case, the Quarkus extension will take
+care about job completion for you:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type = "job1")
+public void job1(final ActivatedJob job) {
+    // ... custom code ...
+    // no need to call client.newCompleteCommand()...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the code within the handler method needs to be synchronously executed, as the completion will be triggered
+right after the method has finished.</p>
+</div>
+<div class="paragraph">
+<p>When using autoComplete you can:
+* Return a Map, String, InputStream, or Object, which then will be added to the process variables
+* Throw a <code>ZeebeBpmnError</code> which results in a BPMN error being sent to Zeebe
+* Throw any other Exception that leads in a failure handed over to Zeebe</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type = "job1")
+public Map&lt;String, Object&gt; job1(final ActivatedJob job) {
+    // ... custom code ...
+    if (ok) {
+       return responseMap;
+    } else {
+       throw new ZeebeBpmnError("Error code", "Error message");
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_programmatically_completing_jobs"><a class="anchor" href="#_programmatically_completing_jobs"></a>Programmatically completing jobs</h3>
+<div class="paragraph">
+<p>Your job worker code can also complete the job itself. This gives you more control about when exactly you want to
+complete the job (e.g. allowing the completion to be moved to reactive callbacks):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type = "job1")
+public void job1(final JobClient client, final ActivatedJob job) {
+    // ... custom code ...
+    client.newCompleteCommand(job.getKey()).send()
+        .exceptionally( throwable -&gt; { throw new RuntimeException("Could not complete job " + job, throwable); });
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ideally, you don&#8217;t use blocking behavior like <code>send().join()</code>, as this is blocking call to wait for the issues command
+to be executed on the workflow engine. While this is very straightforward to use and produces easy-to-read code,
+blocking code is limited in terms of scalability.</p>
+</div>
+<div class="paragraph">
+<p>That&#8217;s why the worker above showed a different pattern (using exceptionally), often you might also want to use the
+whenComplete callback:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java"> client.newCompleteCommand(job.getKey()).send()
+        .whenComplete((result, exception) -&gt; {});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This registers a callback to be executed if the command on the workflow engine was executed or resulted in an exception.
+This allows for parallelism. This is discussed in more detail in
+<a href="https://blog.bernd-ruecker.com/writing-good-workers-for-camunda-cloud-61d322cad862">this blog post about writing good workers for Camunda Cloud</a>.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+Note that when completing jobs programmatically, you must specify <code>autoComplete = false</code>. Otherwise, there is a race
+condition between your programmatic job completion and the Quarkus extension integration job completion, this can
+lead to unpredictable results.
+</blockquote>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_throwing_zeebebpmnerror"><a class="anchor" href="#_throwing_zeebebpmnerror"></a>Throwing <code>ZeebeBpmnError</code></h3>
+<div class="paragraph">
+<p>Whenever your code hits a problem that should lead to a <a href="https://docs.camunda.io/docs/reference/bpmn-processes/error-events/error-events/">BPMN error</a> being raised, you can simply throw a ZeebeBpmnError
+providing the error code used in BPMN:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type = "job1")
+public Map&lt;String, Object&gt; job1(final ActivatedJob job) {
+    // ... custom code ...
+    if (ok) {
+       return responseMap;
+    } else {
+       throw new ZeebeBpmnError("Error code", "Error message");
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_non_blocking_methods"><a class="anchor" href="#_non_blocking_methods"></a>Non-blocking Methods</h3>
+<div class="paragraph">
+<p>By default, a scheduled method is executed on the main executor for blocking tasks. As a result, a technology that is
+designed to run on a <code>Vert.x</code> event loop (such as Hibernate Reactive) cannot be used inside the method body. For this
+reason, a job worker method that returns <code>java.util.concurrent.CompletionStage&lt;?&gt;</code> or <code>io.smallrye.mutiny.Uni&lt;Void&gt;</code>
+or is annotated with <code>@io.smallrye.common.annotation.NonBlocking</code> is executed on the Vert.x event loop.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@JobWorker(type = "job1")
+public Uni&lt;Void&gt; job1(final ActivatedJob job) {
+    // ... custom code ...
+    // no need to call client.newCompleteCommand()...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The return type <code>Uni&lt;Void&gt;</code> instructs the job worker to execute the method on the Vert.x event loop.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing"><a class="anchor" href="#_testing"></a>Testing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use the test extension, add this dependency to the project:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.zeebe&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-zeebe-test&lt;/artifactId&gt;
+    &lt;version&gt;{version}&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/testing.svg" alt="Test">
+</div>
+</div>
+<div class="paragraph">
+<p>To use the <code>ZeebeClient</code> and <code>BpmnAssert</code> in the tests use the <code>@QuarkusTestResource(ZeebeTestResource.class)</code> and enable this configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.zeebe.devservices.enabled=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Test example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.quarkiverse.zeebe.test.ZeebeTestResource;
+import io.quarkus.test.common.QuarkusTestResource;
+import io.camunda.zeebe.client.ZeebeClient;
+
+@QuarkusTest
+@QuarkusTestResource(ZeebeTestResource.class)
+public class BaseTest {
+
+    @InjectZeebeClient
+    ZeebeClient client;
+
+    @Test
+    public void startProcessTest() {
+        ProcessInstanceEvent event = client.newCreateInstanceCommand()
+                .bpmnProcessId("test").latestVersion()
+                .variables(Map.of("k","v")).send().join();
+
+        ProcessInstanceAssert a = BpmnAssert.assertThat(event);
+        await().atMost(7, SECONDS).untilAsserted(a::isCompleted);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can reuse the test for the integration test.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.quarkus.test.junit.QuarkusIntegrationTest;
+
+@QuarkusIntegrationTest
+public class BaseIT extends BaseTest {
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information check examples in the <code>integration-tests</code> directory in this repo.</p>
+</div>
+<div class="sect2">
+<h3 id="_testing_with_embedded_engine"><a class="anchor" href="#_testing_with_embedded_engine"></a>Testing with embedded engine</h3>
+<div class="quoteblock">
+<blockquote>
+The Zeebe process test embedded engine requires Java version &gt;= 17
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.quarkiverse.zeebe.test.ZeebeTestEmbeddedResource;
+import io.quarkus.test.common.QuarkusTestResource;
+import io.camunda.zeebe.client.ZeebeClient;
+
+@QuarkusTest
+@QuarkusTestResource(ZeebeTestEmbeddedResource.class)
+public class BaseTest {
+
+    @InjectZeebeClient
+    ZeebeClient client;
+
+    @Test
+    public void startProcessTest() {
+        ProcessInstanceEvent event = client.newCreateInstanceCommand()
+                .bpmnProcessId("test").latestVersion()
+                .variables(Map.of("k","v")).send().join();
+
+        ProcessInstanceAssert a = BpmnAssert.assertThat(event);
+        await().atMost(7, SECONDS).untilAsserted(a::isCompleted);
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="extension-configuration-reference"><a class="anchor" href="#extension-configuration-reference"></a>Extension Configuration Reference</h2>
+<div class="sectionbody">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-zeebe_configuration"></a><a href="#quarkus-zeebe_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.enabled"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.enabled">quarkus.zeebe.devservices.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If DevServices has been explicitly enabled or disabled. DevServices is generally enabled by default, unless there is an existing configuration present.</p>
+</div>
+<div class="paragraph">
+<p>When DevServices is enabled Quarkus will attempt to automatically configure and start a database when running in Dev or Test mode and when Docker is running.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.port"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.port">quarkus.zeebe.devservices.port</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Optional fixed port the dev service will listen to.</p>
+</div>
+<div class="paragraph">
+<p>If not defined, the port will be chosen randomly.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_PORT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.shared"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.shared">quarkus.zeebe.devservices.shared</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Indicates if the Zeebe server managed by Quarkus Dev Services is shared. When shared, Quarkus looks for running containers using label-based service discovery. If a matching container is found, it is used, and so a second one is not started. Otherwise, Dev Services for Zeebe starts a new container.</p>
+</div>
+<div class="paragraph">
+<p>The discovery uses the <code>quarkus-dev-service-zeebe</code> label. The value is configured using the <code>service-name</code> property.</p>
+</div>
+<div class="paragraph">
+<p>Container sharing is only used in dev mode.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_SHARED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.service-name"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.service-name">quarkus.zeebe.devservices.service-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The value of the <code>quarkus-dev-service-zeebe</code> label attached to the started container. This property is used when <code>shared</code> is set to <code>true</code>. In this case, before starting a container, Dev Services for Zeebe looks for a container with the <code>quarkus-dev-service-zeebe</code> label set to the configured value. If found, it will use this container instead of starting a new one. Otherwise, it starts a new container with the <code>quarkus-dev-service-zeebe</code> label set to the specified value.</p>
+</div>
+<div class="paragraph">
+<p>This property is used when you need multiple shared Zeebe servers.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_SERVICE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>zeebe</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.image-name"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.image-name">quarkus.zeebe.devservices.image-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The container image name to use, for container based DevServices providers.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_IMAGE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.reuse"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.reuse">quarkus.zeebe.devservices.reuse</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Helper to define the stop strategy for containers created by DevServices. In particular, we don&#8217;t want to actually stop the containers when they have been flagged for reuse, and when the Testcontainers configuration has been explicitly set to allow container reuse. To enable reuse, ass <code>testcontainers.reuse.enable=true</code> in your <code>.testcontainers.properties</code> file, to be stored in your home.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_REUSE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.monitor.enabled"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.monitor.enabled">quarkus.zeebe.devservices.monitor.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable dev monitor for dev-services.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_MONITOR_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.monitor.port"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.monitor.port">quarkus.zeebe.devservices.monitor.port</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Optional fixed port the dev monitor will listen to.</p>
+</div>
+<div class="paragraph">
+<p>If not defined, the port will be chosen randomly.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_MONITOR_PORT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.monitor.image-name"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.monitor.image-name">quarkus.zeebe.devservices.monitor.image-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The container image name to use, for container based zeebe simple monitor.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_MONITOR_IMAGE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>ghcr.io/lorislab/zeebe-dev-monitor:8.3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.monitor.service-name"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.monitor.service-name">quarkus.zeebe.devservices.monitor.service-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The value of the <code>quarkus-dev-service-zeebe</code> label attached to the started container. This property is used when <code>shared</code> is set to <code>true</code>. In this case, before starting a container, Dev Services for Zeebe looks for a container with the <code>quarkus-dev-service-zeebe</code> label set to the configured value. If found, it will use this container instead of starting a new one. Otherwise, it starts a new container with the <code>quarkus-dev-service-zeebe</code> label set to the specified value.</p>
+</div>
+<div class="paragraph">
+<p>This property is used when you need multiple shared Zeebe servers.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_MONITOR_SERVICE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>zeebe-dev-monitor</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.monitor.reuse"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.monitor.reuse">quarkus.zeebe.devservices.monitor.reuse</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Helper to define the stop strategy for containers created by DevServices. In particular, we don&#8217;t want to actually stop the containers when they have been flagged for reuse, and when the Testcontainers configuration has been explicitly set to allow container reuse. To enable reuse, ass <code>testcontainers.reuse.enable=true</code> in your <code>.testcontainers.properties</code> file, to be stored in your home.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_MONITOR_REUSE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.test.receiver-port"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.test.receiver-port">quarkus.zeebe.devservices.test.receiver-port</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Optional fixed debug export receiver port the dev service will listen to.</p>
+</div>
+<div class="paragraph">
+<p>If not defined, the port will be chosen randomly.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_TEST_RECEIVER_PORT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.test.exporter"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.test.exporter">quarkus.zeebe.devservices.test.exporter</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Disable or enable debug exporter for the test.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_TEST_EXPORTER</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.debug-exporter.enabled"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.debug-exporter.enabled">quarkus.zeebe.devservices.debug-exporter.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable debug exporter.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_DEBUG_EXPORTER_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.devservices.debug-exporter.receiver-port"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.devservices.debug-exporter.receiver-port">quarkus.zeebe.devservices.debug-exporter.receiver-port</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Fixed debug export receiver port the localhost service will listen to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEVSERVICES_DEBUG_EXPORTER_RECEIVER_PORT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>8080</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.dev-mode.watch-bpmn-files"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.dev-mode.watch-bpmn-files">quarkus.zeebe.dev-mode.watch-bpmn-files</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Observe changes in the bpmn files.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEV_MODE_WATCH_BPMN_FILES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.dev-mode.watch-bpmn-dir"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.dev-mode.watch-bpmn-dir">quarkus.zeebe.dev-mode.watch-bpmn-dir</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Observe changes in the bpmn directory and subdirectories.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEV_MODE_WATCH_BPMN_DIR</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.dev-mode.watch-job-worker"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.dev-mode.watch-job-worker">quarkus.zeebe.dev-mode.watch-job-worker</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Observe changes in the job worker.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_DEV_MODE_WATCH_JOB_WORKER</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.resources.enabled"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.resources.enabled">quarkus.zeebe.resources.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether an auto scan BPMN process folder. Default true</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_RESOURCES_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.resources.location"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.resources.location">quarkus.zeebe.resources.location</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>BPMN process root folder. Default bpmn</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_RESOURCES_LOCATION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>bpmn</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.metrics.enabled"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.metrics.enabled">quarkus.zeebe.metrics.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether a metrics is enabled in case the micrometer or micro-profile metrics extension is present.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_METRICS_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.health.enabled"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.health.enabled">quarkus.zeebe.health.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether a health check is published in case the smallrye-health extension is present.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_HEALTH_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-zeebe_quarkus.zeebe.tracing.enabled"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.tracing.enabled">quarkus.zeebe.tracing.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether an opentracing is published in case the smallrye-opentracing extension is present.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_TRACING_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.broker.gateway-address"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.broker.gateway-address">quarkus.zeebe.client.broker.gateway-address</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Zeebe gateway address. Default: localhost:26500</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_BROKER_GATEWAY_ADDRESS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>localhost:26500</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.broker.keep-alive"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.broker.keep-alive">quarkus.zeebe.client.broker.keep-alive</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Client keep alive duration</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_BROKER_KEEP_ALIVE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-zeebe" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>PT45S</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.cloud.cluster-id"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.cloud.cluster-id">quarkus.zeebe.client.cloud.cluster-id</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Cloud cluster ID</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_CLOUD_CLUSTER_ID</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.cloud.client-id"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.cloud.client-id">quarkus.zeebe.client.cloud.client-id</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Cloud client secret ID</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_CLOUD_CLIENT_ID</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.cloud.client-secret"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.cloud.client-secret">quarkus.zeebe.client.cloud.client-secret</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Specify a client secret to request an access token.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_CLOUD_CLIENT_SECRET</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.cloud.region"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.cloud.region">quarkus.zeebe.client.cloud.region</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Cloud region</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_CLOUD_REGION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>bru-2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.cloud.base-url"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.cloud.base-url">quarkus.zeebe.client.cloud.base-url</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Cloud base URL</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_CLOUD_BASE_URL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>zeebe.camunda.io</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.cloud.auth-url"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.cloud.auth-url">quarkus.zeebe.client.cloud.auth-url</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Cloud authorization server URL</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_CLOUD_AUTH_URL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code><a href="https://login.cloud.camunda.io/oauth/token" class="bare">https://login.cloud.camunda.io/oauth/token</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.cloud.port"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.cloud.port">quarkus.zeebe.client.cloud.port</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Cloud port</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_CLOUD_PORT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>443</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.cloud.credentials-cache-path"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.cloud.credentials-cache-path">quarkus.zeebe.client.cloud.credentials-cache-path</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Cloud credentials cache path</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_CLOUD_CREDENTIALS_CACHE_PATH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.oauth.client-id"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.oauth.client-id">quarkus.zeebe.client.oauth.client-id</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>OAuth client secret ID</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_OAUTH_CLIENT_ID</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.oauth.client-secret"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.oauth.client-secret">quarkus.zeebe.client.oauth.client-secret</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Specify a client secret to request an access token.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_OAUTH_CLIENT_SECRET</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.oauth.auth-url"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.oauth.auth-url">quarkus.zeebe.client.oauth.auth-url</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Authorization server URL</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_OAUTH_AUTH_URL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code><a href="https://login.cloud.camunda.io/oauth/token" class="bare">https://login.cloud.camunda.io/oauth/token</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.oauth.credentials-cache-path"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.oauth.credentials-cache-path">quarkus.zeebe.client.oauth.credentials-cache-path</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Credentials cache path</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_OAUTH_CREDENTIALS_CACHE_PATH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.oauth.connect-timeout"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.oauth.connect-timeout">quarkus.zeebe.client.oauth.connect-timeout</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>OAuth connect timeout</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_OAUTH_CONNECT_TIMEOUT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-zeebe" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>PT5S</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.oauth.read-timeout"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.oauth.read-timeout">quarkus.zeebe.client.oauth.read-timeout</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>OAuth read timeout</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_OAUTH_READ_TIMEOUT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-zeebe" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>PT5S</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.oauth.token-audience"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.oauth.token-audience">quarkus.zeebe.client.oauth.token-audience</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Zeebe token audience</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_OAUTH_TOKEN_AUDIENCE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.auto-complete.max-retries"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.auto-complete.max-retries">quarkus.zeebe.client.auto-complete.max-retries</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Maximum retries for the auto-completion command.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_AUTO_COMPLETE_MAX_RETRIES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>20</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.auto-complete.retry-delay"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.auto-complete.retry-delay">quarkus.zeebe.client.auto-complete.retry-delay</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Maximum retries for the auto-completion command.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_AUTO_COMPLETE_RETRY_DELAY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>50</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.auto-complete.exp-backoff-factor"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.auto-complete.exp-backoff-factor">quarkus.zeebe.client.auto-complete.exp-backoff-factor</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Sets the backoff supplier. The supplier is called to determine the retry delay after each failed request; the worker then waits until the returned delay has elapsed before sending the next request. Note that this is used only for the polling mechanism - failures in the JobHandler should be handled there, and retried there if need be. Sets the backoff multiplication factor. The previous delay is multiplied by this factor. Default is 1.5.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_AUTO_COMPLETE_EXP_BACKOFF_FACTOR</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">double</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>1.5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.auto-complete.exp-jitter-factor"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.auto-complete.exp-jitter-factor">quarkus.zeebe.client.auto-complete.exp-jitter-factor</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Sets the jitter factor. The next delay is changed randomly within a range of &#43;/- this factor. For example, if the next delay is calculated to be 1s and the jitterFactor is 0.1 then the actual next delay can be somewhere between 0.9 and 1.1s. Default is 0.2</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_AUTO_COMPLETE_EXP_JITTER_FACTOR</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">double</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>0.2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.auto-complete.exp-max-delay"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.auto-complete.exp-max-delay">quarkus.zeebe.client.auto-complete.exp-max-delay</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Sets the maximum retry delay. Note that the jitter may push the retry delay over this maximum. Default is 1000ms.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_AUTO_COMPLETE_EXP_MAX_DELAY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>1000</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.auto-complete.exp-min-delay"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.auto-complete.exp-min-delay">quarkus.zeebe.client.auto-complete.exp-min-delay</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Sets the minimum retry delay. Note that the jitter may push the retry delay below this minimum. Default is 50ms.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_AUTO_COMPLETE_EXP_MIN_DELAY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>50</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.message.time-to-live"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.message.time-to-live">quarkus.zeebe.client.message.time-to-live</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Client message time to live duration.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_MESSAGE_TIME_TO_LIVE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-zeebe" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>PT1H</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.security.plaintext"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.security.plaintext">quarkus.zeebe.client.security.plaintext</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Client security plaintext flag.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_SECURITY_PLAINTEXT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.security.cert-path"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.security.cert-path">quarkus.zeebe.client.security.cert-path</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Specify a path to a certificate with which to validate gateway requests.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_SECURITY_CERT_PATH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.security.override-authority"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.security.override-authority">quarkus.zeebe.client.security.override-authority</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Overrides the authority used with TLS virtual hosting. Specifically, to override hostname verification in the TLS handshake. It does not change what host is actually connected to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_SECURITY_OVERRIDE_AUTHORITY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.max-jobs-active"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.max-jobs-active">quarkus.zeebe.client.job.max-jobs-active</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Client worker maximum active jobs.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_MAX_JOBS_ACTIVE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>32</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.worker-execution-threads"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.worker-execution-threads">quarkus.zeebe.client.job.worker-execution-threads</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Client worker number of threads</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_WORKER_EXECUTION_THREADS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.worker-name"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.worker-name">quarkus.zeebe.client.job.worker-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Client worker default name</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_WORKER_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>default</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.request-timeout"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.request-timeout">quarkus.zeebe.client.job.request-timeout</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Zeebe client request timeout configuration.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_REQUEST_TIMEOUT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-zeebe" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>PT45S</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.default-type"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.default-type">quarkus.zeebe.client.job.default-type</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Client worker global type</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_DEFAULT_TYPE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.timeout"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.timeout">quarkus.zeebe.client.job.timeout</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Client job timeout</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_TIMEOUT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-zeebe" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>PT5M</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.pool-interval"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.pool-interval">quarkus.zeebe.client.job.pool-interval</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Client job pool interval</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_POOL_INTERVAL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-zeebe" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>PT0.100S</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.exp-backoff-factor"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.exp-backoff-factor">quarkus.zeebe.client.job.exp-backoff-factor</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Sets the backoff supplier. The supplier is called to determine the retry delay after each failed request; the worker then waits until the returned delay has elapsed before sending the next request. Note that this is used only for the polling mechanism - failures in the JobHandler should be handled there, and retried there if need be. Sets the backoff multiplication factor. The previous delay is multiplied by this factor. Default is 1.6.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_EXP_BACKOFF_FACTOR</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">double</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>1.6</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.exp-jitter-factor"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.exp-jitter-factor">quarkus.zeebe.client.job.exp-jitter-factor</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Sets the jitter factor. The next delay is changed randomly within a range of &#43;/- this factor. For example, if the next delay is calculated to be 1s and the jitterFactor is 0.1 then the actual next delay can be somewhere between 0.9 and 1.1s. Default is 0.1</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_EXP_JITTER_FACTOR</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">double</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>0.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.exp-max-delay"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.exp-max-delay">quarkus.zeebe.client.job.exp-max-delay</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Sets the maximum retry delay. Note that the jitter may push the retry delay over this maximum. Default is 5000ms.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_EXP_MAX_DELAY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>5000</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.job.exp-min-delay"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.job.exp-min-delay">quarkus.zeebe.client.job.exp-min-delay</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Sets the minimum retry delay. Note that the jitter may push the retry delay below this minimum. Default is 50ms.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_JOB_EXP_MIN_DELAY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>50</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.tracing.attributes"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.tracing.attributes">quarkus.zeebe.client.tracing.attributes</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>List of span names</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_TRACING_ATTRIBUTES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.enabled"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.enabled">quarkus.zeebe.client.workers."workers".enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Zeebe worker enable or disable flag.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_WORKERS__WORKERS__ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.name"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.name">quarkus.zeebe.client.workers."workers".name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Zeebe worker handler name.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_WORKERS__WORKERS__NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.timeout"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.timeout">quarkus.zeebe.client.workers."workers".timeout</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Zeebe worker timeout.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_WORKERS__WORKERS__TIMEOUT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.max-jobs-active"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.max-jobs-active">quarkus.zeebe.client.workers."workers".max-jobs-active</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Zeebe worker maximum jobs active.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_WORKERS__WORKERS__MAX_JOBS_ACTIVE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.request-timeout"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.request-timeout">quarkus.zeebe.client.workers."workers".request-timeout</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Zeebe worker request timeout.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_WORKERS__WORKERS__REQUEST_TIMEOUT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.poll-interval"></a><code><a href="#quarkus-zeebe_quarkus.zeebe.client.workers.-workers-.poll-interval">quarkus.zeebe.client.workers."workers".poll-interval</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Zeebe worker poll interval.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ZEEBE_CLIENT_WORKERS__WORKERS__POLL_INTERVAL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+</tbody>
+</table>
+<div id="duration-note-anchor-quarkus-zeebe" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">About the Duration format</div>
+<div class="paragraph">
+<p>To write duration values, use the standard <code>java.time.Duration</code> format.
+See the <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Duration.html#parse(java.lang.CharSequence)">Duration#parse() javadoc</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>You can also use a simplified format, starting with a number:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the value is only a number, it represents time in seconds.</p>
+</li>
+<li>
+<p>If the value is a number followed by <code>ms</code>, it represents time in milliseconds.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In other cases, the simplified format is translated to the <code>java.time.Duration</code> format for parsing:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the value is a number followed by <code>h</code>, <code>m</code>, or <code>s</code>, it is prefixed with <code>PT</code>.</p>
+</li>
+<li>
+<p>If the value is a number followed by <code>d</code>, it is prefixed with <code>P</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

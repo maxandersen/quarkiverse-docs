@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Developer reference :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-github-action/dev/developer-reference.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-github-action" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">GitHub Action</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="create-github-action.html">Create your first GitHub Action</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="developer-reference.html">Developer reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="testing.html">Testing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="push-to-production.html">Push to production</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">GitHub Action</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">GitHub Action</a></li>
+    <li><a href="developer-reference.html">Developer reference</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-github-action/edit/main/docs/modules/ROOT/pages/developer-reference.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Developer reference</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here is all you need to know to develop GitHub Actions with Quarkus GitHub Action.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_routing"><a class="anchor" href="#_routing"></a>Routing</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_action_methods"><a class="anchor" href="#_action_methods"></a>Action methods</h3>
+<div class="paragraph">
+<p>An action method is a method that is going to be executed when the GitHub Action is executed.</p>
+</div>
+<div class="paragraph">
+<p>You can have several action methods, in which case they will be executed in no particular order.</p>
+</div>
+<div class="paragraph">
+<p>You can also name your action methods to be able to trigger a specific method by passing an input to the action.</p>
+</div>
+<div class="paragraph">
+<p>An action method is a method of a public class and is annotated with <code>@io.quarkiverse.githubaction.Action</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyAction {
+
+    @Action
+    void action() {
+        // do something
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As explained above, you can have several action methods, and they can be in several classes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyAction1 {
+
+    @Action
+    void action1() {
+        // do something
+    }
+
+    @Action
+    void action2() {
+        // do something
+    }
+}
+
+public class MyAction2 {
+
+    @Action
+    void action3() {
+        // do something
+    }
+
+    @Action
+    void action4() {
+        // do something
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When executing the action, <code>action1()</code>, <code>action2()</code>, <code>action3()</code>, and <code>action4()</code> will be executed in no particular order.</p>
+</div>
+<div class="paragraph">
+<p>With this kind of setup, you can call your action with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">      - name: Run my action
+        uses: my/action-github-repository@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_named_actions"><a class="anchor" href="#_named_actions"></a>Named actions</h3>
+<div class="paragraph">
+<p>It might be practical for you to develop one GitHub Action for several related purposes.
+Quarkus GitHub Action comes with a nice feature for that: named actions.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyAction1 {
+
+    @Action("action1")
+    void action1() {
+        // do something
+    }
+
+    @Action("action2")
+    void action2() {
+        // do something
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then specifically get <code>action1()</code> to run with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">      - name: Run my action
+        uses: my/action-github-repository@main
+        with:
+          action: action1 <i class="conum" data-value="1"></i><b>(1)</b>
+          github-token: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>action</code> is a special input that is used to route the action to the named action method, here <code>action1</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_parameter_injection"><a class="anchor" href="#_parameter_injection"></a>Parameter injection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Most of the other features of Quarkus GitHub Action are handled via parameter injection:
+you can inject parameters of different types into your action methods,
+Quarkus GitHub Action will automatically pass the parameters, properly initialized.</p>
+</div>
+<div class="paragraph">
+<p>You can of course pass several of the following parameter types to the action methods.</p>
+</div>
+<div class="sect2">
+<h3 id="_inputs"><a class="anchor" href="#_inputs"></a>Inputs</h3>
+<div class="paragraph">
+<p>Inputs are values that are passed from the GitHub workflow to the GitHub Action, for instance with the following step:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">      - name: Run my action
+        uses: my/action-github-repository@main
+        with:
+          my-input: "My value"
+          github-token: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is required to declare the inputs in the <code>action.yml</code> descriptor:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">name: 'My Action'
+description: 'Description of my action'
+inputs:
+  my-input:
+    description: 'My input'
+    required: true <i class="conum" data-value="1"></i><b>(1)</b>
+    default: 'My default value' <i class="conum" data-value="2"></i><b>(2)</b>
+
+# ... rest of the descriptor ...</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>An input can be required or optional (optional by default).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>An input can have a default value.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Getting the <code>my-input</code> input from an action method is easy:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @Action
+    void action(Inputs inputs) {
+        String myInput = inputs.getRequired("my-input");
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Inputs</code> offers all sorts of utility methods such as <code>get(String)</code> which returns an <code>Optional</code>, <code>getRequired(String)</code> which makes sure the input is provided, <code>getBoolean(String)</code>, <code>getLong(String)</code>, <code>getInteger(String)</code>&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>You can also get all the inputs as a <code>Map&lt;String, String&gt;</code> with <code>all()</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Contributions are welcome to add more utility methods to <code>Inputs</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can find more information about inputs in <a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs">the GitHub Actions documentation</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_context"><a class="anchor" href="#_context"></a>Context</h3>
+<div class="paragraph">
+<p>A GitHub action is executed within a context, which provides all sorts of information about the execution environment of the action.</p>
+</div>
+<div class="paragraph">
+<p>To access the context, inject a <code>Context</code> instance into your action method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @Action
+    void action(Context context) {
+        String runnerOs = context.getRunnerOs(); <i class="conum" data-value="1"></i><b>(1)</b>
+
+        context.print(); <i class="conum" data-value="2"></i><b>(2)</b>
+    }</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Get the GitHub Actions runner operating system.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Print all the available values. Useful to discover what is provided by the context.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_commands"><a class="anchor" href="#_commands"></a>Commands</h3>
+<div class="paragraph">
+<p>GitHub Actions provides various commands which allows you to interact with the workflow run.</p>
+</div>
+<div class="paragraph">
+<p>For instance, you can set output variables, attach a job summary&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>All these commands are made available through a <code>io.quarkiverse.githubaction.Commands</code> instance,
+that you can inject into your action methods.</p>
+</div>
+<div class="sect3">
+<h4 id="_outputs"><a class="anchor" href="#_outputs"></a>Outputs</h4>
+<div class="paragraph">
+<p>Outputs are an important part of GitHub Actions.
+They are used to export values from an action
+so that they can be consumed in further steps.</p>
+</div>
+<div class="paragraph">
+<p>The first step in defining an output is to modify the <code>action.yml</code> descriptor to declare the output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">outputs:
+  my-output:
+    value: ${{ steps.action.outputs.my-output }}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is required because we use a composite action.
+The output from the inner step needs to be mapped to an output of the action.</p>
+</div>
+<div class="paragraph">
+<p>Next step is to actually produce the output in your action method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @Action
+    void action(Commands commands) {
+        commands.setOutput("my-output", "My value");
+    }</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can produce several outputs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>And finally you can consume the output in another step of a GitHub Actions workflow:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">    steps:
+      - name: Run my action
+        id: my-action
+        uses: my/action-github-repository@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Display output
+        run: |
+          echo "${{steps.my-action.outputs.my-output}}"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_job_summary"><a class="anchor" href="#_job_summary"></a>Job summary</h4>
+<div class="paragraph">
+<p>A job summary is a Markdown content that you can attach to workflow run summary page.
+It can be used to provide an execution report for instance.</p>
+</div>
+<div class="paragraph">
+<p>Adding a job summary is easy:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @Action
+    void action(Commands commands) {
+        commands.jobSummary("# Markdown content"); <i class="conum" data-value="1"></i><b>(1)</b>
+        commands.appendJobSummary("Some additional content"); <i class="conum" data-value="2"></i><b>(2)</b>
+        commands.removeJobSummary(); <i class="conum" data-value="3"></i><b>(3)</b>
+    }</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Set the job summary to <code># Markdown content</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Append <code>Some additional content</code> to a potentially preexisting job summary.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Remove the job summary. Not extremely useful but it is there just in case.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_other_commands"><a class="anchor" href="#_other_commands"></a>Other commands</h4>
+<div class="paragraph">
+<p>There are several other commands available such as <code>saveState</code>, <code>environmentVariable</code> or <code>systemPath</code>.</p>
+</div>
+<div class="paragraph">
+<p>Have a look at the <code>Commands</code> interface and Javadoc to learn more about them.
+The Javadoc contains pointers to the corresponding GitHub Actions documentation sections.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_github_clients"><a class="anchor" href="#_github_clients"></a>GitHub clients</h3>
+<div class="paragraph">
+<p>One common use case of GitHub Actions is to perform calls on the GitHub REST or GraphQL APIs.</p>
+</div>
+<div class="paragraph">
+<p>Quarkus GitHub Action has this use case covered and you can inject in your action methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An authenticated <code>GitHub</code> client (from the <a href="https://github.com/hub4j/github-api">Hub4j GitHub API</a>)</p>
+</li>
+<li>
+<p>An authenticated <code>DynamicGraphQLClient</code> client (from <a href="https://smallrye.io/smallrye-graphql/">SmallRye GraphQL</a>)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Injecting a REST GitHub client</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">    @Action
+    void action(GitHub gitHub) throws IOException {
+        gitHub.getRepository("another/repository");
+    }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Injecting a GraphQL client</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">    @Action
+    void action(DynamicGraphQLClient graphqlClient) throws ExecutionException, InterruptedException {
+        graphqlClient.executeSync("your GraphQL query");
+    }</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The clients are authenticated using the provided GitHub token.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_payloads"><a class="anchor" href="#_payloads"></a>Payloads</h3>
+<div class="paragraph">
+<p>A GitHub workflow run is started when an event is triggered,
+and to this event corresponds a payload which contains all the information about the event.</p>
+</div>
+<div class="paragraph">
+<p>Typically, when an issue is opened, you can obtain an <code>issues</code> payload.
+When a pull request is opened, you can obtain a <code>pull_request</code> payload.</p>
+</div>
+<div class="paragraph">
+<p>Quarkus GitHub Action is able to parse the payload and inject it into an action method.</p>
+</div>
+<div class="paragraph">
+<p>Payloads can also be used to restrict the use of an action to a particular event type,
+or to execute code that is specific to an event type.</p>
+</div>
+<div class="paragraph">
+<p>A payload comes with an authenticated GitHub client,
+which makes it possible to access the GitHub REST API.</p>
+</div>
+<div class="paragraph">
+<p>The following action method is executed any time an <code>issues</code> event is triggered
+(for instance when an issue is opened or edited):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @Action
+    void test(@Issue GHEventPayload.Issue issuePayload) throws IOException {
+        GHIssue issue = issuePayload.getIssue();
+
+        System.out.println("Repository: " + issue.getRepository().getFullName()); <i class="conum" data-value="1"></i><b>(1)</b>
+        System.out.println("Issue title: " + issue.getTitle());
+
+        issue.comment("A new comment"); <i class="conum" data-value="2"></i><b>(2)</b>
+    }</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Access some information from the payload.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Create a new comment in the issue.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Given you can have several action methods in the same GitHub Actions,
+it is possible to execute code for several event types.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can restrict the action method to a particular action of the event type.
+The following action method is executed when a new issue is opened:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @Action
+    void test(@Issue.Opened GHEventPayload.Issue issuePayload) {
+        System.out.println("Repository: " + issuePayload.getIssue().getRepository().getFullName());
+        System.out.println("Issue title: " + issuePayload.getIssue().getTitle());
+    }</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can find the list of all the supported event types in <a href="https://quarkiverse.github.io/quarkiverse-docs/quarkus-github-app/dev/developer-reference.html#_event_types">the Quarkus GitHub App documentation</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_config_files"><a class="anchor" href="#_config_files"></a>Config files</h3>
+<div class="paragraph">
+<p>You can easily inject config files stored in the repository for which the action is run.</p>
+</div>
+<div class="paragraph">
+<p>If the file is a YAML or JSON file, it can be automatically deserialized by Jackson.</p>
+</div>
+<div class="paragraph">
+<p>If the file is a <code>.txt</code> file, it can be injected as a <code>String</code>.
+Text files can be used to inject templates.</p>
+</div>
+<div class="paragraph">
+<p>For now, the file is read from the default branch of the repository (typically <code>main</code>).</p>
+</div>
+<div class="paragraph">
+<p>If the path is relative, the file is searched in the <code>.github</code> directory.
+If the path is absolute, the file is searched from the root of the repository.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @Action
+    void test(@ConfigFile("example-config-file.yml") ConfigFileBean configFileBean) { <i class="conum" data-value="1"></i><b>(1)</b>
+        System.out.println("Value 1: " + configFileBean.value1);
+        System.out.println("Value 2: " + configFileBean.value2);
+    }
+
+    public static class ConfigFileBean {
+
+        public String value1;
+
+        public String value2;
+    }</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Read <code>.github/example-config-file.yml</code> from the default branch of the repository and inject the values into <code>ConfigFileBean</code> via Jackson deserialization.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debugging"><a class="anchor" href="#_debugging"></a>Debugging</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you need to debug the behavior of the Quarkus GitHub Action extension,
+you can enable debug logging by adding the following configuration property to your <code>application.properties</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.log.category."io.quarkiverse.githubaction".level=DEBUG</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>Next steps</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now is time to <a href="testing.html" class="xref page">add some tests</a> and <a href="push-to-production.html" class="xref page">push your GitHub Action to production</a>.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Renarde  Web Framework - Advanced :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-renarde/dev/advanced.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-renarde" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Renarde</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="concepts.html">Main Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="concepts.html#models">Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="concepts.html#controllers">Controllers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="concepts.html#views">Views</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="advanced.html">Advanced Guides</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#forms">Forms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#routing">Routing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#emails">Emails</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#localisation">Localisation / Internationalisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#flash_scope">Flash Scope</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#htmx">htmx</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#generating_barcodes">Generating barcodes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#generating_pdf_documents">Generating PDF</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="security.html">Security</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="security.html#csrf">CSRF</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="security.html#custom_authentication_with_jwt">Custom Auth (JWT)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="security.html#oidc">OIDC</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="config-reference.html">Config Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Renarde</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Renarde</a></li>
+    <li><a href="advanced.html">Advanced Guides</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">dev</button>
+  <div class="version-menu">
+        <a class="version is-current" href="advanced.html">dev</a>
+        <a class="version is-missing" href="../1.x/index.html">1.x</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-renarde/edit/main/docs/modules/ROOT/pages/advanced.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Renarde <span class="image"><img src="_images/renarde-head.svg" alt="renarde head" width="25em"></span> Web Framework - Advanced</h1>
+<div class="sect1">
+<h2 id="forms"><a class="anchor" href="#forms"></a>Forms</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A lot of the time, you need to send data from the browser to your endpoints, which is often done with forms.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_html_form"><a class="anchor" href="#_the_html_form"></a>The HTML form</h3>
+<div class="paragraph">
+<p>Creating forms in Renarde is easy: let&#8217;s see an example of how to do it in Qute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">{#form uri:Login.complete(newUser.confirmationCode)}
+
+&lt;fieldset&gt;
+    &lt;legend&gt;Complete registration for {newUser.email}&lt;/legend&gt;
+    {#formElement name="userName" label="User Name"}
+        {#input name="userName"/}
+    {/formElement}
+    {#formElement name="password" label="Password"}
+        {#input name="password" type="password"/}
+    {/formElement}
+    {#formElement name="password2" label="Password Confirmation"}
+        {#input name="password2" type="password"/}
+    {/formElement}
+    {#formElement name="firstName" label="First Name"}
+        {#input name="firstName"/}
+    {/formElement}
+    {#formElement name="lastName" label="Last Name"}
+        {#input name="lastName"/}
+    {/formElement}
+    &lt;button type="submit" class="btn btn-primary"&gt;Complete registration&lt;/button&gt;
+&lt;/fieldset&gt;
+
+{/form}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here we&#8217;re defining a form whose action will go to <code>Register.complete(newUser.confirmationCode)</code> and
+which contains several form elements, which are just tags to make composition easier. For example <code>formElement</code> is
+a custom Qute tag for Bootstrap which defines layout for the form element and displays any associated error:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;div class="mb-3"&gt;
+    &lt;label class="form-label" for="{name}"&gt;{label}&lt;/label&gt;
+    {nested-content}
+    {#ifError name}
+        &lt;span class="invalid-feedback"&gt;​{#error name/}&lt;/span&gt;​
+    {/ifError}
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>input</code> user tag is also designed for Bootstrap as an abstraction:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;input name="{name}"
+ type="{type ?: 'text'}"
+ placeholder="{placeholder ?: ''}"
+ class="form-control {#ifError name}is-invalid{/ifError}"
+ maxlength="{global:VARCHAR_SIZE}"
+ value="{inject:flash.get(name)}"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see, we have default values for certain attributes, a special error class if there is a validation
+error, and we default the value to the one preserved in the flash scope, which is filled whenever validation
+fails, so that the user can see the validation error without losing their form values.</p>
+</div>
+<div class="paragraph">
+<p>As for the <code>form</code> Renarde tag, it is also fairly simple, and only includes an authenticity token for CSRF protection.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;form action="{it}" method="{method ?: 'POST'}" class="{klass ?: ''}"&gt;
+ {#authenticityToken/}
+ {nested-content}
+&lt;/form&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_endpoint"><a class="anchor" href="#_the_endpoint"></a>The endpoint</h3>
+<div class="paragraph">
+<p>Most forms will be a <code>@POST</code> endpoint, with each form element having a corresponding parameter annotated with <code>@RestForm</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+public void complete(@RestQuery String confirmationCode,
+        @RestForm String userName,
+        @RestForm String password,
+        @RestForm String password2,
+        @RestForm String firstName,
+        @RestForm String lastName) {
+    // do something with the form parameters
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also group parameters in a POJO, but for now you have to add a special
+<code>@Consumes(MediaType.MULTIPART_FORM_DATA)</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Consumes(MediaType.MULTIPART_FORM_DATA)
+@POST
+public void complete(@RestQuery String confirmationCode,
+        FormData form) {
+    // do something with the form parameters
+}
+
+public static class FormData {
+    @RestForm String userName;
+    @RestForm String password;
+    @RestForm String password2;
+    @RestForm String firstName;
+    @RestForm String lastName;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check out the <a href="https://quarkus.io/guides/resteasy-reactive#handling-multipart-form-data">RESTEasy Reactive documentation</a>
+for more information about form parameters and multi-part.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validation"><a class="anchor" href="#_validation"></a>Validation</h3>
+<div class="paragraph">
+<p>You can place your usual <a href="https://quarkus.io/guides/validation">Hibernate Validation</a> annotations on the controller methods that receive user data, but
+keep in mind that you have to check for validation errors in your method before you do any action that modifies your state.
+This allows you to check more things than you can do with just annotations, with richer logic:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@POST
+public Response complete(@RestQuery String confirmationCode,
+        @RestForm @NotBlank @Length(max = Util.VARCHAR_SIZE) String userName,
+        @RestForm @NotBlank @Length(min = 8, max = Util.VARCHAR_SIZE) String password,
+        @RestForm @NotBlank @Length(max = Util.VARCHAR_SIZE) String password2,
+        @RestForm @NotBlank @Length(max = Util.VARCHAR_SIZE) String firstName,
+        @RestForm @NotBlank @Length(max = Util.VARCHAR_SIZE) String lastName) {
+    // Find the user for this confirmation code
+    User user = User.findForContirmation(confirmationCode);
+    if(user == null){
+        validation.addError("confirmationCode", "Invalid confirmation code");
+    }
+
+    // Make sure the passwords match
+    validation.equals("password", password, password2);
+
+    // Make sure the username is free
+    if(User.findByUserName(userName) != null){
+        validation.addError("userName", "User name already taken");
+    }
+
+    // If validation failed, redirect to the confirm page
+    if(validationFailed()){
+        confirm(confirmationCode);
+    }
+
+    // Now proceed to complete user registration
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can use the <code>validation</code> object to trigger additional validation logic and collect errors.</p>
+</div>
+<div class="paragraph">
+<p>Those errors are then placed in the <em>flash</em> scope by a call to <code>validationFailed()</code> if there
+are any errors, and thus preserved when you redirect from your action method to the <code>@GET</code> method
+that holds the submitted form, which you can then access in your views using the <code>{#ifError field}{/ifError}</code>
+conditional tag, or the <code>{#error field/}</code> tag which accesses the error message for the given field.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="routing"><a class="anchor" href="#routing"></a>Routing, URI mapping, redirects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We have seen how to declare endpoints and how URIs map to them, but very often we need to map from endpoints to
+URIs, which Renarde makes easy.</p>
+</div>
+<div class="sect2">
+<h3 id="_redirects_after_post"><a class="anchor" href="#_redirects_after_post"></a>Redirects after POST</h3>
+<div class="paragraph">
+<p>When handling a <code>@POST</code>, <code>@PUT</code> or <code>@DELETE</code> endpoint, it&#8217;s good form to redirect to a <code>@GET</code> endpoint after
+the action has been done, in order to allow the user to reload the page without triggering the action a second
+time, and such redirects are simply done by calling the corresponding <code>@GET</code> endpoint. In reality, the endpoint
+will not be called and will be replaced by a redirect that points to the endpoint in question.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package rest;
+
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+
+import io.quarkus.qute.CheckedTemplate;
+import io.quarkus.qute.TemplateInstance;
+import io.quarkiverse.renarde.Controller;
+
+public class Application extends Controller {
+
+    @CheckedTemplate
+    static class Templates {
+        public static native TemplateInstance index();
+    }
+
+    @Path("/")
+    public TemplateInstance index() {
+        return Templates.index();
+    }
+
+    @POST
+    public void someAction() {
+        // do something
+        ...
+        // redirect to the index page
+        index();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If there are any parameters that form the URI, you must pass them along:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package rest;
+
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+
+import org.jboss.resteasy.reactive.RestPath;
+import org.jboss.resteasy.reactive.RestQuery;
+
+import io.quarkus.qute.CheckedTemplate;
+import io.quarkus.qute.TemplateInstance;
+import io.quarkiverse.renarde.Controller;
+
+public class Application extends Controller {
+
+    @CheckedTemplate
+    static class Templates {
+        public static native TemplateInstance index();
+    }
+
+    @Path("/")
+    public TemplateInstance index() {
+        return Templates.index();
+    }
+
+    public TemplateInstance somePage(@RestPath String id, @RestQuery String q) {
+        // do something with the id and q
+        return Templates.index();
+    }
+
+    @POST
+    public void someAction() {
+        // do something
+        ...
+        // redirect to the somePage page
+        somePage("foo", "bar");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to redirect to another controller, you can use the <code>redirect(Class)</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package rest;
+
+import jakarta.ws.rs.POST;
+
+import io.quarkiverse.renarde.Controller;
+
+public class Application extends Controller {
+
+    @POST
+    public void someAction() {
+        // do something
+        ...
+        // redirect to the Todos.index() endpoint
+        redirect(Todos.class).index();
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtaining_a_uri_in_endpoints"><a class="anchor" href="#_obtaining_a_uri_in_endpoints"></a>Obtaining a URI in endpoints</h3>
+<div class="paragraph">
+<p>If you don&#8217;t want a redirect but need a URI to a given endpoint, you can use the <code>Router.getURI</code>
+or <code>Router.getAbsoluteURI</code> methods, by
+passing them a method reference to the endpoint you want and the required parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package rest;
+
+import java.net.URI;
+
+import org.jboss.resteasy.reactive.RestPath;
+import org.jboss.resteasy.reactive.RestQuery;
+
+import io.quarkus.qute.CheckedTemplate;
+import io.quarkus.qute.TemplateInstance;
+import io.quarkiverse.renarde.Controller;
+import io.quarkiverse.renarde.router.Router;
+
+public class Application extends Controller {
+
+    @CheckedTemplate
+    public static class Templates {
+        public static native TemplateInstance somePage();
+        public static native TemplateInstance otherPage(URI uri);
+    }
+
+    public TemplateInstance somePage(@RestPath String foo, @RestQuery Long bar) {
+        return Templates.somePage();
+    }
+
+    public TemplateInstance otherPage() {
+        // Obtain a URI to somePage
+        URI uri = Router.getURI(Login::somePage, "something", 23l);
+        // pass it on to our view
+        return Templates.otherPage(uri);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you plan on using <code>Response.seeOther</code> or <code>Controller.seeOther</code>, make sure to use the <code>Router.getAbsoluteURI</code>
+variant, especially if you use the <code>quarkus.http.root-path</code> configuration, otherwise your URIs contain that prefix twice.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_obtaining_a_uri_in_qute_views"><a class="anchor" href="#_obtaining_a_uri_in_qute_views"></a>Obtaining a URI in Qute views</h3>
+<div class="paragraph">
+<p>If you want a URI to an endpoint in a Qute view, you can use the <code>uri</code> and <code>uriabs</code> namespace with a
+call to the endpoint you want to point to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;a class="navbar-brand" href="{uri:Application.index()}"&gt;Todo&lt;/a&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Naturally, you can also pass any required parameters.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="emails"><a class="anchor" href="#emails"></a>Emails</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-mailer&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Often you will need your actions to send email notifications.You can use Qute for this too, by declaring your
+emails in an <code>Emails</code> class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package email;
+
+import io.quarkus.mailer.MailTemplate.MailTemplateInstance;
+import io.quarkus.qute.CheckedTemplate;
+import model.User;
+
+public class Emails {
+
+    private static final String FROM = "Todos &lt;todos@example.com&gt;";
+    private static final String SUBJECT_PREFIX = "[Todos] ";
+
+    @CheckedTemplate
+    static class Templates {
+        public static native MailTemplateInstance confirm(User user);
+    }
+
+    public static void confirm(User user) {
+        Templates.confirm(user)
+        .subject(SUBJECT_PREFIX + "Please confirm your email address")
+        .to(user.email)
+        .from(FROM)
+        .send().await().indefinitely();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then send the email from your endpoint by calling <code>Emails.confirm(user)</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can use composition for emails too, by having a pair of base templates for HTML in
+<code>src/main/resources/templates/email.html</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        {#insert /}
+        &lt;p&gt;
+            This is an automated email, you should not reply to it: your mail will be ignored.
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And for text in <code>src/main/resources/templates/email.txt</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-txt hljs" data-lang="txt">{#insert /}
+
+This is an automated email, you should not reply to it: your mail will be ignored.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then use those templates in your emails in <code>src/main/resources/templates/Emails/confirm.html</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">{#include email.html }
+
+&lt;p&gt;
+ Welcome to Todos.
+&lt;/p&gt;
+
+&lt;p&gt;
+ You received this email because someone (hopefully you) wants to register on Todos.
+&lt;/p&gt;
+
+&lt;p&gt;
+ If you don't want to register, you can safely ignore this email.
+&lt;/p&gt;
+
+&lt;p&gt;
+ If you want to register, &lt;a href="{uriabs:Login.confirm(user.confirmationCode)}"&gt;complete your registration&lt;/a&gt;.
+&lt;/p&gt;
+{/include}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And for text in <code>src/main/resources/templates/Emails/confirm.txt</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-txt hljs" data-lang="txt">{#include email.txt}
+
+Welcome to Todos.
+
+You received this email because someone (hopefully you) wants to register on Todos.
+
+If you don't want to register, you can safely ignore this email.
+
+If you want to register, complete your registration by going to the following address:
+
+{uriabs:Login.confirm(user.confirmationCode)}
+{/include}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that in emails you will want to use the <code>uriabs</code> namespace for absolute URIs and not relative ones,
+otherwise the links won&#8217;t work for your email recipients.</p>
+</div>
+<div class="paragraph">
+<p>You can find more information in the <a href="https://quarkus.io/guides/mailer-reference">Quarkus mailer documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="localisation"><a class="anchor" href="#localisation"></a>Localisation / Internationalisation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can declare your default language and supported languages in <code>src/main/resources/application.properties</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># This is the default locale for your application
+quarkus.default-locale=en
+# These are the supported locales (should include the default locale, but order is not important)
+quarkus.locales=en,fr</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, you can declare your default language messages in the <code>src/main/resources/messages.properties</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># A simple message
+hello=Hello World
+# A parameterised message for your view
+views_Application_index_greet=Hello %s</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Declare your other language translations in the <code>src/main/resources/messages_fr.properties</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">hello=Bonjour Monde
+views_Application_index_greet=Salut %s</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you can use these translated messages in your controller:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public static class Application extends Controller {
+
+    @CheckedTemplate
+    public static class Templates {
+        public static native TemplateInstance index(String name);
+    }
+
+    public TemplateInstance index() {
+        return Templates.index("Stef");
+    }
+
+    public String hello() {
+		return i18n.formatMessage("hello");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or in your template:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-txt hljs" data-lang="txt">With no parameter:
+{m:hello}
+With parameters:
+{m:views_Application_index_greet(name)}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_selecting_the_language"><a class="anchor" href="#_selecting_the_language"></a>Selecting the language</h3>
+<div class="paragraph">
+<p>The current language for a request will depend on the following (in order):</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>_renarde_locale</code> cookie, if set</p>
+</li>
+<li>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language"><code>Accept-Language</code></a> HTTP header, if set,
+which defines an ordered list of languages by user preference. We will select a best matching language from the set
+of <code>quarkus.locales</code>.</p>
+</li>
+<li>
+<p>If nothing else, we default to the default language as set by <code>quarkus.default-locale</code>, which defaults to <code>en_US</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can override the user&#8217;s language with a cookie by calling <code>i18n.set(locale)</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public static class Application extends Controller {
+
+    @CheckedTemplate
+    public static class Templates {
+        public static native TemplateInstance index();
+    }
+
+    public void index() {
+        return Templates.index();
+    }
+
+    @POST
+    public void french() {
+        i18n.set("fr");
+        index();
+    }
+
+    @POST
+    public void english() {
+        i18n.set("en");
+        index();
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="flash_scope"><a class="anchor" href="#flash_scope"></a>Flash scope</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you need to pass values from one endpoint to another request after a redirect, you can use the Flash scope.
+Usually this is done in a <code>@POST</code> endpoint, by filling the Flash scope with either errors or messages,
+before trigerring a redirect to the right <code>@GET</code> endpoint.</p>
+</div>
+<div class="paragraph">
+<p>You can push values in the Flash scope in an endpoint using the <code>flash(name, value)</code> method, or using the
+<code>Flash</code> injectable component.</p>
+</div>
+<div class="paragraph">
+<p>You can read values from the Flash scope in your Qute views using the <code>{flash:name}</code> namespace.</p>
+</div>
+<div class="paragraph">
+<p>The Flash scope only lasts from one request to the next and is cleared at each request.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="htmx"><a class="anchor" href="#htmx"></a>htmx</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to use <a href="https://htmx.org/">htmx</a> with Renarde, we added an extra layer to make things more convenient:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Application extends HxController {
+
+    @CheckedTemplate
+    public static class Templates {
+        public static native TemplateInstance foo(int a, int b);
+        public static native TemplateInstance foo$sectionA(int a); <i class="conum" data-value="1"></i><b>(1)</b>
+        public static native TemplateInstance foo$sectionB(int b); <i class="conum" data-value="1"></i><b>(1)</b>
+
+        public static native TemplateInstance bar();
+    }
+
+    public TemplateInstance foo() {
+        if (isHxRequest()) { <i class="conum" data-value="2"></i><b>(2)</b>
+            return  concatTemplates( <i class="conum" data-value="3"></i><b>(3)</b>
+                    Templates.foo$sectionA(1),
+                    Templates.foo$sectionB(2)
+            );
+        }
+        return Templates.foo(1, 2);
+    }
+
+    public TemplateInstance bar() {
+        onlyHxRequest(); <i class="conum" data-value="4"></i><b>(4)</b>
+        this.hx(HxResponseHeader.TRIGGER, "refresh"); <i class="conum" data-value="5"></i><b>(5)</b>
+        return Templates.bar();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><a href="https://quarkus.io/guides/qute-reference#fragments">Qute fragments</a> declarations</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Check if this is a htmx request by looking for the <code>HX-Request</code> header or using flash data for redirects</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><a href="https://htmx.org/attributes/hx-swap-oob/">Out of band swap</a> with different templates or <a href="https://quarkus.io/guides/qute-reference#fragments">fragments</a></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Only Hx requests are allowed, else it will fail with a BAD_REQUEST error</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Flag the response with an <a href="https://htmx.org/reference/#response_headers">htmx response header</a></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For CSRF Security, you need a form parameter with the CSRF Token. By adding this 👇 when doing a hx-post/put/delete, The Hx requests will be sent with the CSRF parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;div hx-post"/hello" hx-vals='{"{inject:csrf.parameterName}": "{inject:csrf.token}"}'&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can use <code>hx-headers</code> on the &lt;body&gt; to make all hx requests secured with CSRF by adding a custom header:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;body hx-headers='{"{inject:csrf.headerName}":"{inject:csrf.token}"}'&gt;
+&lt;/body&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Some example projects with Quarkus Renarde and htmx:
+- <a href="https://github.com/ia3andy/renotes">a demo note-taking web app</a>
+- <a href="https://github.com/ia3andy/quarkus-blast">a board game</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="generating_barcodes"><a class="anchor" href="#generating_barcodes"></a>Generating barcodes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you import the optional <code>quarkus-renarde-barcode</code> module, you can generate barcodes in your views or controllers.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkiverse.renarde&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-renarde-barcode&lt;/artifactId&gt;
+  &lt;version&gt;3.0.7&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We support the following barcode types, with custom Qute tags:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tag</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{#ean13 value/}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate an <a href="https://en.wikipedia.org/wiki/International_Article_Number">EAN 13</a> barcode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{#ean8 value/}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate an <a href="https://en.wikipedia.org/wiki/EAN-8">EAN 8</a> barcode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{#upca value/}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate an <a href="https://en.wikipedia.org/wiki/Universal_Product_Code">UPC A</a> barcode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{#upce value/}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate an <a href="https://en.wikipedia.org/wiki/Universal_Product_Code#UPC-E">UPC E</a> barcode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{#code39 value/}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate a <a href="https://en.wikipedia.org/wiki/Code_39">Code 39</a> barcode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{#code93 value/}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate a <a href="https://en.wikipedia.org/wiki/Code_93">Code 93</a> barcode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{#code128 value/}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate a <a href="https://en.wikipedia.org/wiki/Code_128">Code 128</a> barcode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{#qrcode value/}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate a <a href="https://en.wikipedia.org/wiki/QR_code">QR Code</a> barcode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{#datamatrix value/}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate a <a href="https://en.wikipedia.org/wiki/Data_Matrix">Data Matrix</a> barcode.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>All these tags accept an optional <code>size</code> parameter that sets both the width and height of the barcode
+in pixels, or <code>width</code> and <code>height</code> parameters to specify different values.These values all default
+to <code>200</code> pixels.</p>
+</div>
+<div class="paragraph">
+<p>The generated barcodes will be inline HTML images using the <a href="https://en.wikipedia.org/wiki/Data_URI_scheme">Data URI</a>
+scheme as an embedded <a href="https://en.wikipedia.org/wiki/PNG">PNG</a> image.</p>
+</div>
+<div class="paragraph">
+<p>If you wish to generate barcode images as PNG bytes or other formats, you can use the <code>io.quarkiverse.renarde.barcode.Barcode</code>
+helper class which allows you to generate bytecodes from your controllers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="generating_pdf_documents"><a class="anchor" href="#generating_pdf_documents"></a>Generating PDF documents</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you import the optional <code>quarkus-renarde-pdf</code> module, you can generate PDF documents in your views.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkiverse.renarde&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-renarde-pdf&lt;/artifactId&gt;
+  &lt;version&gt;3.0.7&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are lots of complicated ways to generate PDFs, but the simplest is to use the versatility of HTML for rendering
+and its printing support. So, very much like you can print HTML files using your browser, and there are special rendering
+rules in CSS, you do the same in Renarde PDF: you render your page in HTML, and simply add <code>@Produces(Pdf.APPLICATION_PDF)</code>
+to your controller to produce a PDF file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class Application extends Controller {
+
+    @CheckedTemplate
+    public static class Templates {
+        public static native TemplateInstance page();
+    }
+
+    // This will return a PDF file to the caller
+    @Produces(Pdf.APPLICATION_PDF)
+    public TemplateInstance pdf() {
+        return Templates.page();
+    }
+
+    // This will return HTML to the caller
+    public TemplateInstance html() {
+        return Templates.page();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This way, the <a href="http://localhost:8080/Application/pdf" class="bare">http://localhost:8080/Application/pdf</a> and <a href="http://localhost:8080/Application/html" class="bare">http://localhost:8080/Application/html</a>
+pages will render the same document in either PDF or HTML, which allows you to use your browser and its
+developer tools to fine-tweak your document, until you&#8217;re ready to turn it into a PDF, which is
+much harder to fine-tweak.</p>
+</div>
+<div class="paragraph">
+<p>As for the <code>templates/Application/page.html</code> template, it&#8217;s regular HTML, but you can also
+take advantage of the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Paged_Media">CSS print support</a>
+to set things like document page size, odd/even page margins, etc…:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;This is the PDF document title&lt;/title&gt;
+    &lt;style&gt;
+/* Override page size, and set page margin */
+@page {
+  size: 15cm 9cm;
+  margin: 1cm;
+}
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Some PDF text.
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the default page size is <a href="https://en.wikipedia.org/wiki/ISO_216#A_series">A4</a>.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

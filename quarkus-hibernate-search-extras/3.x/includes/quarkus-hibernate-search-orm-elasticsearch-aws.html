@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-hibernate-search-extras/dev/includes/quarkus-hibernate-search-orm-elasticsearch-aws.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../../_'</script>
+<link rel="icon" href="../../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-hibernate-search-extras" data-version="3.x">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Hibernate Search Extras</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Quarkus - Hibernate Search Extras</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Hibernate Search Extras</span>
+          <span class="version">3.x</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="../../dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../dev/index.html">dev</a>
+          </li>
+          <li class="version is-current">
+            <a href="../index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">3.x</button>
+  <div class="version-menu">
+        <a class="version" href="../../dev/includes/quarkus-hibernate-search-orm-elasticsearch-aws.html">dev</a>
+        <a class="version is-current" href="quarkus-hibernate-search-orm-elasticsearch-aws.html">3.x</a>
+        <a class="version" href="../../2.x/includes/quarkus-hibernate-search-orm-elasticsearch-aws.html">2.x</a>
+        <a class="version" href="../../1.x/includes/quarkus-hibernate-search-orm-elasticsearch-aws.html">1.x</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-hibernate-search-extras/edit/3.x/docs/modules/ROOT/pages/includes/quarkus-hibernate-search-orm-elasticsearch-aws.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-hibernate-search-orm-elasticsearch-aws_configuration"></a><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.signing.enabled"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.signing.enabled">quarkus.hibernate-search-orm.elasticsearch.aws.signing.enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.signing.enabled">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.signing.enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.signing.enabled">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.signing.enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.signing.enabled">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.signing.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether requests should be signed using the AWS credentials.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_SIGNING_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.region"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.region">quarkus.hibernate-search-orm.elasticsearch.aws.region</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.region">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.region</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.region">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.region</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.region">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.region</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>An Amazon Web Services region that hosts the Elasticsearch service.</p>
+</div>
+<div class="paragraph">
+<p>Must be provided if signing is enabled; the region won&#8217;t be automatically detected.</p>
+</div>
+<div class="paragraph">
+<p>See <code>software.amazon.awssdk.regions.Region</code> for available regions.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_REGION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Region</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.type"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.type">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.type</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.type">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.type</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.type">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.type</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.type">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.type</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Configure the credentials provider that should be used to authenticate with AWS.</p>
+</div>
+<div class="paragraph">
+<p>Available values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>default</code> - the provider will attempt to identify the credentials automatically using the following checks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Java System Properties - <code>aws.accessKeyId</code> and <code>aws.secretAccessKey</code></p>
+</li>
+<li>
+<p>Environment Variables - <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code></p>
+</li>
+<li>
+<p>Credential profiles file at the default location (<code>~/.aws/credentials</code>) shared by all AWS SDKs and the AWS CLI</p>
+</li>
+<li>
+<p>Credentials delivered through the Amazon EC2 container service if <code>AWS_CONTAINER_CREDENTIALS_RELATIVE_URI</code> environment variable is set and security manager has permission to access the variable.</p>
+</li>
+<li>
+<p>Instance profile credentials delivered through the Amazon EC2 metadata service</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>static</code> - the provider that uses the access key and secret access key specified in the <code>static-provider</code> section of the config.</p>
+</li>
+<li>
+<p><code>system-property</code> - it loads credentials from the <code>aws.accessKeyId</code>, <code>aws.secretAccessKey</code> and <code>aws.sessionToken</code> system properties.</p>
+</li>
+<li>
+<p><code>env-variable</code> - it loads credentials from the <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code> and <code>AWS_SESSION_TOKEN</code> environment variables.</p>
+</li>
+<li>
+<p><code>profile</code> - credentials are based on AWS configuration profiles. This loads credentials from
+a <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">profile file</a>,
+allowing you to share multiple sets of AWS security credentials between different tools like the AWS SDK for Java and the AWS CLI.</p>
+</li>
+<li>
+<p><code>container</code> - It loads credentials from a local metadata service. Containers currently supported by the AWS SDK are
+<strong>Amazon Elastic Container Service (ECS)</strong> and <strong>AWS Greengrass</strong></p>
+</li>
+<li>
+<p><code>instance-profile</code> - It loads credentials from the Amazon EC2 Instance Metadata Service.</p>
+</li>
+<li>
+<p><code>process</code> - Credentials are loaded from an external process. This is used to support the credential_process setting in the profile
+credentials file. See <a href="https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#sourcing-credentials-from-external-processes">Sourcing Credentials From External Processes</a>
+for more information.</p>
+</li>
+<li>
+<p><code>anonymous</code> - It always returns anonymous AWS credentials. Anonymous AWS credentials result in un-authenticated requests and will
+fail unless the resource or API&#8217;s policy has been configured to specifically allow anonymous access.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_TYPE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><code>default</code>, <code>static</code>, <code>system-property</code>, <code>env-variable</code>, <code>profile</code>, <code>container</code>, <code>instance-profile</code>, <code>process</code>, <code>custom</code>, <code>anonymous</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>default</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider-default-credentials-provider-configuration"></a><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider-default-credentials-provider-configuration">Default credentials provider configuration</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.async-credential-update-enabled"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.async-credential-update-enabled">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.async-credential-update-enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.async-credential-update-enabled">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.default-provider.async-credential-update-enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.async-credential-update-enabled">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.default-provider.async-credential-update-enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.async-credential-update-enabled">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.default-provider.async-credential-update-enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether this provider should fetch credentials asynchronously in the background.</p>
+</div>
+<div class="paragraph">
+<p>If this is <code>true</code>, threads are less likely to block, but additional resources are used to maintain the provider.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_DEFAULT_PROVIDER_ASYNC_CREDENTIAL_UPDATE_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.reuse-last-provider-enabled"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.reuse-last-provider-enabled">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.reuse-last-provider-enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.reuse-last-provider-enabled">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.default-provider.reuse-last-provider-enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.reuse-last-provider-enabled">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.default-provider.reuse-last-provider-enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.default-provider.reuse-last-provider-enabled">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.default-provider.reuse-last-provider-enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the provider should reuse the last successful credentials provider in the chain.</p>
+</div>
+<div class="paragraph">
+<p>Reusing the last successful credentials provider will typically return credentials faster than searching through the chain.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_DEFAULT_PROVIDER_REUSE_LAST_PROVIDER_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider-static-credentials-provider-configuration"></a><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider-static-credentials-provider-configuration">Static credentials provider configuration</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.access-key-id"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.access-key-id">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.access-key-id</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.access-key-id">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.static-provider.access-key-id</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.access-key-id">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.static-provider.access-key-id</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.access-key-id">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.static-provider.access-key-id</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>AWS Access key id</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_STATIC_PROVIDER_ACCESS_KEY_ID</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.secret-access-key"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.secret-access-key">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.secret-access-key</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.secret-access-key">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.static-provider.secret-access-key</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.secret-access-key">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.static-provider.secret-access-key</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.secret-access-key">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.static-provider.secret-access-key</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>AWS Secret access key</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_STATIC_PROVIDER_SECRET_ACCESS_KEY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.session-token"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.session-token">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.session-token</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.session-token">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.static-provider.session-token</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.session-token">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.static-provider.session-token</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.static-provider.session-token">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.static-provider.session-token</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>AWS Session token</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_STATIC_PROVIDER_SESSION_TOKEN</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.profile-provider-aws-profile-credentials-provider-configuration"></a><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.profile-provider-aws-profile-credentials-provider-configuration">AWS Profile credentials provider configuration</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.profile-provider.profile-name"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.profile-provider.profile-name">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.profile-provider.profile-name</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.profile-provider.profile-name">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.profile-provider.profile-name</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.profile-provider.profile-name">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.profile-provider.profile-name</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.profile-provider.profile-name">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.profile-provider.profile-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the profile that should be used by this credentials provider.</p>
+</div>
+<div class="paragraph">
+<p>If not specified, the value in <code>AWS_PROFILE</code> environment variable or <code>aws.profile</code> system property is used and defaults to <code>default</code> name.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_PROFILE_PROVIDER_PROFILE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider-process-credentials-provider-configuration"></a><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider-process-credentials-provider-configuration">Process credentials provider configuration</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.async-credential-update-enabled"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.async-credential-update-enabled">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.async-credential-update-enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.async-credential-update-enabled">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.process-provider.async-credential-update-enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.async-credential-update-enabled">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.process-provider.async-credential-update-enabled</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.async-credential-update-enabled">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.process-provider.async-credential-update-enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the provider should fetch credentials asynchronously in the background.</p>
+</div>
+<div class="paragraph">
+<p>If this is true, threads are less likely to block when credentials are loaded, but additional resources are used to maintain the provider.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_PROCESS_PROVIDER_ASYNC_CREDENTIAL_UPDATE_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.credential-refresh-threshold"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.credential-refresh-threshold">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.credential-refresh-threshold</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.credential-refresh-threshold">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.process-provider.credential-refresh-threshold</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.credential-refresh-threshold">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.process-provider.credential-refresh-threshold</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.credential-refresh-threshold">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.process-provider.credential-refresh-threshold</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The amount of time between when the credentials expire and when the credentials should start to be refreshed.</p>
+</div>
+<div class="paragraph">
+<p>This allows the credentials to be refreshed *before* they are reported to expire.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_PROCESS_PROVIDER_CREDENTIAL_REFRESH_THRESHOLD</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-hibernate-search-orm-elasticsearch-aws" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>15S</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.process-output-limit"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.process-output-limit">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.process-output-limit</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.process-output-limit">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.process-provider.process-output-limit</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.process-output-limit">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.process-provider.process-output-limit</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.process-output-limit">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.process-provider.process-output-limit</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The maximum size of the output that can be returned by the external process before an exception is raised.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_PROCESS_PROVIDER_PROCESS_OUTPUT_LIMIT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">MemorySize  <a href="#memory-size-note-anchor" title="More information about the MemorySize format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>1024</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.command"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.command">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.command</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.command">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.process-provider.command</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.command">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.process-provider.command</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.process-provider.command">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.process-provider.command</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The command that should be executed to retrieve credentials.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_PROCESS_PROVIDER_COMMAND</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.custom-provider-custom-credentials-provider-configuration"></a><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.custom-provider-custom-credentials-provider-configuration">Custom credentials provider configuration</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.custom-provider.name"></a><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.custom-provider.name">quarkus.hibernate-search-orm.elasticsearch.aws.credentials.custom-provider.name</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.custom-provider.name">quarkus.hibernate-search-orm.elasticsearch."backend-name".aws.credentials.custom-provider.name</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.custom-provider.name">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch."backend-name".aws.credentials.custom-provider.name</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-hibernate-search-orm-elasticsearch-aws_quarkus.hibernate-search-orm.elasticsearch.aws.credentials.custom-provider.name">quarkus.hibernate-search-orm."persistence-unit-name".elasticsearch.aws.credentials.custom-provider.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of custom AwsCredentialsProvider bean.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HIBERNATE_SEARCH_ORM_ELASTICSEARCH_AWS_CREDENTIALS_CUSTOM_PROVIDER_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+</tbody>
+</table>
+<div id="duration-note-anchor-quarkus-hibernate-search-orm-elasticsearch-aws" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">About the Duration format</div>
+<div class="paragraph">
+<p>To write duration values, use the standard <code>java.time.Duration</code> format.
+See the <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Duration.html#parse(java.lang.CharSequence)">Duration#parse() javadoc</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>You can also use a simplified format, starting with a number:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the value is only a number, it represents time in seconds.</p>
+</li>
+<li>
+<p>If the value is a number followed by <code>ms</code>, it represents time in milliseconds.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In other cases, the simplified format is translated to the <code>java.time.Duration</code> format for parsing:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the value is a number followed by <code>h</code>, <code>m</code>, or <code>s</code>, it is prefixed with <code>PT</code>.</p>
+</li>
+<li>
+<p>If the value is a number followed by <code>d</code>, it is prefixed with <code>P</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="memory-size-note-anchor" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">About the MemorySize format</div>
+<div class="paragraph">
+<p>A size configuration option recognises string in this format (shown as a regular expression): <code>[0-9]+[KkMmGgTtPpEeZzYy]?</code>.
+If no suffix is given, assume bytes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-quinoa/dev/advanced-guides.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-quinoa/dev/config-reference.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-quinoa/dev/includes/attributes.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-quinoa/dev/includes/quarkus-quinoa.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-quinoa/dev/index.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-quinoa/dev/main-concepts.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-quinoa/dev/testing.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-quinoa/dev/web-frameworks.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+</urlset>

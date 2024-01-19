@@ -1,0 +1,3745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Helm Extension for Quarkus :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-helm/dev/index.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-helm" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Helm</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#helm-extension-for-quarkus">Helm Extension for Quarkus</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#usage-helm-kubernetes">Getting Started with Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#usage-helm-openshift">Getting Started with OpenShift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#helm-values">Generating the Helm Values file</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#mapping-custom-values">Adding custom properties to the Helm Values file using YAMLPath expressions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#mapping-system-properties">Mapping System Properties</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#mapping-multiple-properties-at-once">Adding properties from multiple locations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#set-alias-name">Configure root name for Values.yaml</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#helm-dependencies">Adding Helm dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#helm-dependencies-install-in-order">Install the Helm Dependencies in order</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#helm-expressions">Using Helm templates/functions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#push-to-helm-repositories">Push to Helm Repositories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#helm-profiles">Helm Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#conditionally-enable-disable-resources">Conditionally enable/disable resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="example-crud.html">Example: How to generate the Helm Chart of a REST CRUD Quarkus application</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="example-argocd.html">Example: How to configure a Continuous Delivery (CD) workflow using Quarkus Helm and ArgoCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="example-config.html">Example: How to use the Quarkus Kubernetes Config extension to map properties using Quarkus Helm</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="includes/quarkus-helm.html">Configuration Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Helm</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Helm</a></li>
+    <li><a href="#helm-extension-for-quarkus">Helm Extension for Quarkus</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-helm/edit/main/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Helm Extension for Quarkus</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://helm.sh/">Helm</a> is a package and install manager that standardizes and simplifies packaging and deployment of containerized applications with Kubernetes.</p>
+</div>
+<div class="paragraph">
+<p>Under the hood, the Quarkus Helm extension uses <a href="https://dekorate.io/">Dekorate</a> to generate the Helm chart manifests at build time.</p>
+</div>
+<div class="paragraph">
+<p>Before getting started, make sure you&#8217;re using the right Quarkus Helm version that is compatible with the Quarkus version you&#8217;re using in your project. See the following table to see the compatibility among versions:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Quarkus Helm Version</th>
+<th class="tableblock halign-left valign-top">Quarkus Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.5.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.5.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.3.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.2.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.1.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.1.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.0.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.0.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.0.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.0.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.0.0+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3.0.0.Alpha - Quarkus 3.0.0.Beta</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.16+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.16+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.16+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.16+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.16+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.16+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.16+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.16+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.14.2 - 2.14.3 - 2.15+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.14.0 - 2.14.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.12</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Apart from all the features supported by the Quarkus Helm extension, in this documentation you will also find several examples about how to use this extension in:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#usage-helm-kubernetes">Kubernetes</a></p>
+</li>
+<li>
+<p><a href="#usage-helm-openshift">OpenShift</a></p>
+</li>
+<li>
+<p><a href="#cli">Using CLI</a></p>
+</li>
+<li>
+<p><a href="example-crud.html" class="xref page">Example: How to generate the Helm Chart of a REST CRUD Quarkus application</a></p>
+</li>
+<li>
+<p><a href="example-argocd.html" class="xref page">Example: How to configure a Continuous Delivery (CD) workflow using Quarkus Helm and ArgoCD</a></p>
+</li>
+<li>
+<p><a href="example-config.html" class="xref page">Example: How to use the Quarkus Kubernetes Config extension to map properties using Quarkus Helm</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usage-helm-kubernetes"><a class="anchor" href="#usage-helm-kubernetes"></a>Using the Helm Extension in Kubernetes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To complete this guide, you need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>roughly 10 minutes</p>
+</li>
+<li>
+<p>JDK 11+ installed with <code>JAVA_HOME</code> configured appropriately</p>
+</li>
+<li>
+<p>Apache Maven 3.8.1+</p>
+</li>
+<li>
+<p>Docker installed</p>
+</li>
+<li>
+<p><a href="https://helm.sh/docs/intro/install/">Helm command line</a> installed</p>
+</li>
+<li>
+<p>Have connected/logged to a Kubernetes cluster</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_create_a_quarkus_application_with_the_helm_extension"><a class="anchor" href="#_create_a_quarkus_application_with_the_helm_extension"></a>Create a Quarkus application with the Helm extension</h3>
+<div class="paragraph">
+<p>The Quarkus Helm extension will generate the Helm Chart of a Quarkus application.</p>
+</div>
+<div class="paragraph">
+<p>In this example, we&#8217;ll create a Quarkus application with the Quarkus Helm extension by running the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn io.quarkus.platform:quarkus-maven-plugin:3.5.2:create \
+    -DprojectGroupId=org.acme \
+    -DprojectArtifactId=helm-quickstart \
+    -DclassName="org.acme.quickstart.GreetingResource" \
+    -Dpath="/hello" \
+    -Dextensions="resteasy-reactive,helm"
+cd helm-quickstart</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you already have your Quarkus project configured, you can add the <code>helm</code> extension to your project by running the following command in your project base directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw quarkus:add-extension -Dextensions="helm"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command will add the following dependency to your <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.helm&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-helm&lt;/artifactId&gt;
+    &lt;version&gt;1.2.1&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After you add the Quarkus Helm extension to your project, you can now generate the Helm resources by running the following Maven command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw clean package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When using the Quarkus Helm extension, the Quarkus Kubernetes extension will be transitively loaded as well. So, the helm resources will include the following templates at <code>target/helm/kubernetes/&lt;chart name&gt;/</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Chart.yaml</p>
+</li>
+<li>
+<p>values.yaml</p>
+</li>
+<li>
+<p>/charts</p>
+</li>
+<li>
+<p>/templates</p>
+</li>
+<li>
+<p>/templates/deployment.yaml</p>
+</li>
+<li>
+<p>/templates/ingress.yaml</p>
+</li>
+<li>
+<p>/templates/service.yaml</p>
+</li>
+<li>
+<p>/templates/NOTES.txt</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>&lt;chart name&gt;</code> is set from either the property <code>quarkus.helm.name</code> or the <code>@HelmChart</code> annotation or the Quarkus application.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_chart_installation"><a class="anchor" href="#_chart_installation"></a>Chart Installation</h3>
+<div class="paragraph">
+<p>Let&#8217;s now see how to install the previously generated Helm resources on a Kubernetes cluster.</p>
+</div>
+<div class="paragraph">
+<p>First, you need to build the application container image and push it into a container registry. For doing this, Quarkus provides <a href="https://quarkus.io/guides/container-image">some container image extensions</a> to ease up this step. Let&#8217;s add the Quarkus container image docker extension in this example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw quarkus:add-extension -Dextensions="container-image-docker"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, we can generate the Helm resources and build/push the application container image at once by running the following Maven command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw clean package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true -Dquarkus.container-image.registry=&lt;your container registry&gt; -Dquarkus.container-image.group=&lt;your container registry namespace&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Make sure the application container image is public and available to be used by your Kubernetes cluster.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Finally, let&#8217;s use Helm to deploy it into the cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm install helm-example ./target/helm/kubernetes/&lt;chart name&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above command will use the default values, which are located in <code>./target/helm/kubernetes/&lt;chart name&gt;/values.yaml</code>.
+To override the default values, pass as parameter you own value file <code>--values /path/to/another.values.yaml</code> or set them using <code>--set key1=val1 --set key2=val2</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_update_my_deployment"><a class="anchor" href="#_how_can_i_update_my_deployment"></a>How can I update my deployment?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Either via the <code>upgrade</code> option of Helm command line:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After making changes to your project and regenerating the Helm resources and the application container image, then you need to upgrade your deployment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm upgrade helm-example ./target/helm/kubernetes/&lt;chart name&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Or via the <code>set</code> option of Helm command line:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm upgrade helm-example ./target/helm/kubernetes/&lt;chart name&gt; --set app.replicas=1</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_we_delete_my_deployment"><a class="anchor" href="#_how_can_we_delete_my_deployment"></a>How can we delete my deployment?</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm uninstall helm-example</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usage-helm-openshift"><a class="anchor" href="#usage-helm-openshift"></a>Using the Helm Extension in OpenShift</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To complete this guide, you need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>roughly 10 minutes</p>
+</li>
+<li>
+<p>JDK 11+ installed with <code>JAVA_HOME</code> configured appropriately</p>
+</li>
+<li>
+<p>Apache Maven 3.8.1+</p>
+</li>
+<li>
+<p>Docker installed</p>
+</li>
+<li>
+<p><a href="https://helm.sh/docs/intro/install/">Helm command line</a> installed</p>
+</li>
+<li>
+<p>Have connected/logged to a OpenShift cluster</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_create_a_quarkus_application_with_the_helm_extension_2"><a class="anchor" href="#_create_a_quarkus_application_with_the_helm_extension_2"></a>Create a Quarkus application with the Helm extension</h3>
+<div class="paragraph">
+<p>The Quarkus Helm extension will generate the Helm Chart of a Quarkus application.</p>
+</div>
+<div class="paragraph">
+<p>In this example, we&#8217;ll create a Quarkus application with the Quarkus Helm and the Quarkus OpenShift extensions by running the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn io.quarkus.platform:quarkus-maven-plugin:3.5.2:create \
+    -DprojectGroupId=org.acme \
+    -DprojectArtifactId=helm-quickstart \
+    -DclassName="org.acme.quickstart.GreetingResource" \
+    -Dpath="/hello" \
+    -Dextensions="resteasy-reactive,openshift,helm"
+cd helm-quickstart</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you already have your Quarkus project configured, you can add the <code>helm</code> extension to your project by running the following command in your project base directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw quarkus:add-extension -Dextensions="helm"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command will add the following dependency to your <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.helm&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-helm&lt;/artifactId&gt;
+    &lt;version&gt;1.2.1&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to expose your application in OpenShift, you also need to enable the Route resource by adding the following configuration in your application properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.openshift.route.expose=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And since the Quarkus OpenShift extension will also generate the Kubernetes manifests, you need to explicitly specify the deployment target you want to use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.repository.deployment-target=openshift</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once we add the Quarkus Helm extension to your project, you can now generate the Helm resources by running the following Maven command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw clean package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then the helm resources will include the following templates at <code>target/helm/openshift/&lt;chart name&gt;/</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Chart.yaml</p>
+</li>
+<li>
+<p>values.yaml</p>
+</li>
+<li>
+<p>/charts</p>
+</li>
+<li>
+<p>/templates</p>
+</li>
+<li>
+<p>/templates/deploymentconfig.yaml</p>
+</li>
+<li>
+<p>/templates/route.yaml</p>
+</li>
+<li>
+<p>/templates/service.yaml</p>
+</li>
+<li>
+<p>/templates/NOTES.txt</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>&lt;chart name&gt;</code> is set from either the property <code>quarkus.helm.name</code> or the <code>@HelmChart</code> annotation or the Quarkus application.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_chart_installation_2"><a class="anchor" href="#_chart_installation_2"></a>Chart Installation</h3>
+<div class="paragraph">
+<p>Let&#8217;s now see how to install the previously generated Helm resources on a OpenShift cluster.</p>
+</div>
+<div class="paragraph">
+<p>First, you need to build the application container image and push it into a container registry. For doing this, Quarkus provides <a href="https://quarkus.io/guides/container-image">some container image extensions</a> to ease up this step. Let&#8217;s add the Quarkus container image docker extension in this example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw quarkus:add-extension -Dextensions="container-image-docker"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, we can generate the Helm resources and build/push the application container image at once by running the following Maven command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw clean package -Dquarkus.container-image.builder=docker -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true -Dquarkus.container-image.registry=&lt;your container registry&gt; -Dquarkus.container-image.group=&lt;your container registry namespace&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Make sure the application container image is public and available to be used by your Kubernetes cluster.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Finally, let&#8217;s use Helm to deploy it into the cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm install helm-example ./target/helm/openshift/&lt;chart name&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above command will use the default values, which are located in <code>./target/helm/openshift/&lt;chart name&gt;/values.yaml</code>.
+To override the default values, pass as parameter you own value file <code>--values /path/to/another.values.yaml</code> or set them using <code>--set key1=val1 --set key2=val2</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_update_my_deployment_2"><a class="anchor" href="#_how_can_i_update_my_deployment_2"></a>How can I update my deployment?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Either via the <code>upgrade</code> option of Helm command line:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After making changes to your project and regenerating the Helm resources and the application container image, then you need to upgrade your deployment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm upgrade helm-example ./target/helm/openshift/&lt;chart name&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Or via the <code>set</code> option of Helm command line:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm upgrade helm-example ./target/helm/openshift/&lt;chart name&gt; --set app.replicas=1</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_we_delete_my_deployment_2"><a class="anchor" href="#_how_can_we_delete_my_deployment_2"></a>How can we delete my deployment?</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm uninstall helm-example</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="helm-values"><a class="anchor" href="#helm-values"></a>Generating the Helm Values file</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, the Quarkus Helm extension will generate the Helm values file (<code>values.yaml</code>) by mapping the following pre-configured properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Kubernetes/Openshift replicas</p>
+</li>
+<li>
+<p>The Kubernetes/Openshift image</p>
+</li>
+<li>
+<p>The Kubernetes/Openshift Env Var values (only for plain values - secrets or configmaps are not supported yet)</p>
+</li>
+<li>
+<p>The Kubernetes ingress host</p>
+</li>
+<li>
+<p>The Openshift S2i builder image</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you would like to automatically map any other pre-configured properties, please submit a feature request <a href="https://github.com/quarkiverse/quarkus-helm/issues">at this repository</a>, and we&#8217;ll work on it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For example, if you set 3 replicas for your deployment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.name=my-chart
+quarkus.helm.description=Description of my Chart
+
+# Set replicas to 3
+quarkus.kubernetes.replicas=3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The extension will generate the next Helm values file at <code>target/helm/&lt;deployment target&gt;/&lt;chart name&gt;/values.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  replicas: 3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And the Deployment file at <code>target/helm/&lt;deployment target&gt;/&lt;chart name&gt;/templates/deployment.yaml</code> will have a reference to this value:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helm-on-kubernetes-example
+spec:
+  replicas: '{{ .Values.app.replicas }}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is done transparently to users.</p>
+</div>
+<div class="sect2">
+<h3 id="mapping-custom-values"><a class="anchor" href="#mapping-custom-values"></a>Adding custom properties to the Helm Values file using YAMLPath expressions</h3>
+<div class="paragraph">
+<p>As we have introduced in the previous section, the Quarkus Helm extension will automatically map some properties like the <code>replicas</code> or the <code>images</code> to the Values helm file. Still, some users might need to map more properties. For example, let&#8217;s see the following YAML resource:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: helm-on-kubernetes-example</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The property at <code>metadata.name</code>, with value <code>helm-on-kubernetes-example</code>, will not be replaced with <code>{{ .Values.app.name }}</code> in the Helm templates.
+However, the extension allows users to define <a href="https://github.com/yaml-path/YamlPath">YAMLPath</a> expressions to map these properties into the Helm values file. Let&#8217;s see how to do it using the above example to map the property <code>metadata.name</code> with <code>{{ .Values.app.name }}</code>. You only need to add the following properties to your configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.name=my-chart
+quarkus.helm.description=Description of my Chart
+
+# Map all the metadata name resources
+quarkus.helm.values.name.paths=metadata.name</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The resulting <code>values.yaml</code> file will look like as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  name: helm-on-kubernetes-example</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>app.name</code> value is set automatically by the Quarkus Helm extension. However, users can provide other values using the <code>value</code> property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.name=my-chart
+quarkus.helm.description=Description of my Chart
+
+# Map all the metadata name resources
+quarkus.helm.values.name.paths=metadata.name
+## Overwrite value:
+quarkus.helm.values.name.value=this-is-another-name</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And the <code>values.yaml</code> file will now contain:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  name: this-is-another-name</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-values-in-application-properties"><a class="anchor" href="#using-values-in-application-properties"></a>Using values in the application properties</h3>
+<div class="paragraph">
+<p>We can directly use the configuration from the generated Values yaml file in the <code>application.properties</code> file. For example, if the generated <code>values.yaml</code> contains:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  greetings: Hello</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can map this value into the <code>application.properties</code> as this property was a system property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">greetings.message=${app.greetings}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, when installing the Helm chart, we can configure the greetings message by doing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm install helm-example ./target/helm/kubernetes/&lt;chart name&gt; --set app.greetings=Hola</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mapping-system-properties"><a class="anchor" href="#mapping-system-properties"></a>Mapping System Properties</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Mapping system properties only works with string/text properties. For mapping other types, you would need to use the Kubernetes Config extension. See example <a href="example-config.html" class="xref page">here</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>It&#8217;s a very common use case to expose some properties to be configurable when installing the Helm chart. For example, the data source JDBC url:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.datasource.jdbc.url=jdbc:postgresql://host:1111/database
+quarkus.datasource.username=user
+quarkus.datasource.password=pass</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If we add the above properties into the <code>application.properties</code> file, the connection to the datasource is hardcoded to use a Postgresql instance at <code>jdbc:postgresql://host:1111/database</code>, and you won&#8217;t be able to change it when installing the Helm chart.</p>
+</div>
+<div class="paragraph">
+<p>To allow some properties to be configurable at installing the Helm chart, you have several options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using the <a href="https://quarkus.io/guides/kubernetes-config">Quarkus Kubernetes Config</a> extension.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This extension allows mounting ConfigMap and/or Secret resources where to take the application properties from. You can find more information about how to use it, in <a href="https://quarkus.io/guides/kubernetes-config">the official guide</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using system properties:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can map the actual configuration you would like to change at installing the Helm chart using system properties, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.datasource.jdbc.url=${POSTGRESQL_URL:jdbc:postgresql://host:1111/database}
+quarkus.datasource.username=${POSTGRESQL_USERNAME:user}
+quarkus.datasource.password=${POSTGRESQL_PASSWORD:pass}</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In Quarkus, you can specify system properties using the pattern <code>${NAME-OF-THE-PROPERTY:DEFAULT-VALUE}</code> where Quarkus will try to load the system property <code>NAME-OF-THE-PROPERTY</code> and if not found or set, it will use the value <code>DEFAULT-VALUE</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Next, the Quarkus Helm extension will detect that you&#8217;re using system properties in your application properties file and will configure the env var resources at the generated Deployment resource, and also map these properties into the generated Helm Chart values file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  envs:
+    POSTGRESQL_URL: jdbc:postgresql://host:1111/database
+    POSTGRESQL_USERNAME: user
+    POSTGRESQL_PASSWORD: pass</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The Quarkus Helm extension does not force you to use a specific naming convention and by consequence, you can declare the system property using one the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Uppercase and underscore separating the words. Example: <code>POSTGRESQL_URL</code>,</p>
+</li>
+<li>
+<p>Camel case format. Example: <code>postgresqlUrl</code>,</p>
+</li>
+<li>
+<p>Separated by dots. Example: <code>postgresql.url</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The extension will use the property names declared as such under the <code>envs</code> properties, except for the case of the separated by dots (example: <code>postgresql.url</code>) that will be split the words as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  envs:
+    postgresql:
+      url: jdbc:postgresql://host:1111/database</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Therefore, you can now change these values when installing or updating the Helm chart by using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm install helm-example ./target/helm/kubernetes/&lt;chart name&gt; --set app.envs.POSTGRESQL_URL=foo --set app.envs.POSTGRESQL_USERNAME=bar --set app.envs.POSTGRESQL_PASSWORD=tar</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The mapping of system properties is enabled by default. If you want to disable it, you need to add this property <code>quarkus.helm.map-system-properties=false</code> into the application properties file.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mapping-multiple-properties-at-once"><a class="anchor" href="#mapping-multiple-properties-at-once"></a>Mapping multiple properties at once</h3>
+<div class="paragraph">
+<p>What about if the properties are located in different places, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: helm-on-kubernetes-example ## (1)
+spec:
+  rules:
+    - host: my-host
+      http:
+        paths:
+          - backend:
+              service:
+                name: helm-on-kubernetes-example ## (2)
+                port:
+                  name: http
+            path: /
+            pathType: Prefix</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From this example, we need to map the value <code>helm-on-kubernetes-example</code> which is used in two places: (1) <code>metadata.name</code> and (2) <code>spec.rules..http.paths..backend.service.name</code> to the same property <code>name</code>. For doing this, we need to provide a comma-separated list of YAMLPath expressions to be mapped to <code>app.name</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.name=my-chart
+quarkus.helm.description=Description of my Chart
+
+# Map all the metadata name resources
+## Comma separated list of YAMLPath expressions:
+quarkus.helm.values.name.paths=metadata.name,(kind == Ingress).spec.rules.http.paths.backend.service.name</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, the extension will first map the expression <code>metadata.name</code> and then the expression <code>(kind == Ingress).spec.rules.http.paths.backend.service.name</code> (this expression only applies to <code>Ingress</code> resources).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-alias-name"><a class="anchor" href="#set-alias-name"></a>Alias name</h3>
+<div class="paragraph">
+<p>The alias name is the name used to keep all the properties linked as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  replicas: 3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The alias name in the above example is "app" which is the default value. You can modify it using the property "quarkus.helm.values-root-alias=myAppName" and then the generated Helm resources will look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">myAppName:
+  replicas: 3</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="helm-dependencies"><a class="anchor" href="#helm-dependencies"></a>Adding Helm dependencies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sometimes, your application requires of some other services to work. The typical scenario is when your application needs of a database to store the application data in. In this scenario, you need to declare the database service as a <a href="https://helm.sh/docs/helm/helm_dependency/">Helm dependency</a>. For example, let&#8217;s declare <a href="https://github.com/bitnami/charts/tree/master/bitnami/postgresql">the Postgres Bitnami Helm</a> dependency as database instance:</p>
+</div>
+<div class="paragraph">
+<p><code>Chart.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">dependencies:
+  - name: postgresql
+    version: 11.6.22
+    repository: https://charts.bitnami.com/bitnami
+    alias: database # this is optional. The default value is the `name`.</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Before installing or packaging your Helm chart, you need to download the dependencies (you can use the Helm command <code>helm dependency update ./target/helm/&lt;deployment target&gt;/&lt;chart name&gt;</code>)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Next, you can configure the dependencies adding the dependency configuration into the <code>values.yaml</code> file. For example, following the previous Postgres Bitnami dependency:</p>
+</div>
+<div class="paragraph">
+<p><code>values.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">database: # the value in the `alias` property, or the `name` if unset.
+  global:
+    postgresql:
+      auth:
+        database: my_db_name
+        postgresPassword: secret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s now see how you can add this configuration using the Quarkus Helm extension, so the <code>chart.yaml</code> and the <code>values.yaml</code> files are properly populated using a Helm dependency. You simply need to add the following properties:</p>
+</div>
+<div class="paragraph">
+<p><code>application.properties</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.dependencies.postgresql.alias=database
+quarkus.helm.dependencies.postgresql.version=11.6.22
+quarkus.helm.dependencies.postgresql.repository=https://charts.bitnami.com/bitnami
+
+quarkus.helm.values.0.property=database.global.postgresql.auth.postgresPassword
+quarkus.helm.values.0.value=secret
+quarkus.helm.values.1.property=postgresql.global.postgresql.auth.database
+quarkus.helm.values.1.value=my_db_name</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Quarkus Helm extension will check whether the property set in <code>quarkus.helm.values.xxx.property</code> starts with a dependency alias or name. If so, it will use directly the value set. Otherwise, it will interpret that the property is an application property and will add the prefix set in the property <code>quarkus.helm.values-root-alias</code> (default value is <code>app</code>).</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can provide the properties of your dependency by providing the file <code>values.yaml</code> or the file <code>Chart.yaml</code> at <code>src/main/helm</code> (the path is configurable using the property <code>quarkus.helm.input-directory</code>). Let&#8217;s see an example:</p>
+</div>
+<div class="paragraph">
+<p><code>src/main/helm/values.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">database: # the value in the `alias` property, or the `name` if unset.
+  global:
+    postgresql:
+      auth:
+        database: my_db_name
+        postgresPassword: secret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This configuration will be aggregated in the autogenerated values file at <code>target/helm/&lt;deployment target&gt;/&lt;chart name&gt;/values.yaml</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="helm-dependencies-install-in-order"><a class="anchor" href="#helm-dependencies-install-in-order"></a>Install the Helm Dependencies in order</h3>
+<div class="paragraph">
+<p>By default, Helm will start the Helm dependencies and the application at the same time. This might cause issues when running your application (as one of the dependencies might not have been started yet, for example, the database).</p>
+</div>
+<div class="paragraph">
+<p>The good news is that you can force the dependency installation order using the Quarkus Helm extension by adding the property <code>quarkus.helm.dependencies.XX.wait-for-service=&lt;service name&gt;</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.dependencies.postgresql.alias=database
+quarkus.helm.dependencies.postgresql.version=11.6.22
+quarkus.helm.dependencies.postgresql.repository=https://charts.bitnami.com/bitnami
+quarkus.helm.dependencies.postgresql.wait-for-service=chart-database:5432</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The service name strongly depends on the Helm dependency to be installed, so you need to know the service name that the chart will expose beforehand.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This configuration will add the following init-containers in the Deployment resource of your Quarkus application:</p>
+</div>
+<div class="paragraph">
+<p><code>src/main/helm/kubernetes/templates/deployment.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">initContainers:
+- image: alpine:3.16.2
+  args:
+  - -c
+  - for i in $(seq 1 200); do nc -z -w3 chart-database &amp;&amp; exit 0 || sleep 3; done; exit 1
+  command:
+  - sh</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can configure the image and the argument template to use with the properties <code>quarkus.helm.dependencies.XX.wait-for-service-image</code>, <code>quarkus.helm.dependencies.0.wait-for-service-port-command-template</code> and <code>quarkus.helm.dependencies.0.wait-for-service-only-command-template</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="helm-validation"><a class="anchor" href="#helm-validation"></a>Validating the input</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Helm allows validating the input provided by the user when installing/updating the Helm charts. For example, we might want that the minimum value of the replicas is 3, so if users set a lesser value, Helm rejects it.</p>
+</div>
+<div class="paragraph">
+<p>These validation rules are specified in the <code>values.schema.json</code> file which this extension will automatically generate with:
+- A description of the automatically mapped properties.
+- The structure of the properties.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, to implement your validation rule, all you would need is to set the minimum value for <code>app.replicas</code> to 3 as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.values-schema.properties.replicas.minimum=3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Apart from minimum, you can also specify a maximum value, or a pattern that the value has to follow or use the required flag.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="helm-expressions"><a class="anchor" href="#helm-expressions"></a>Using Helm templates/functions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Quarkus Helm extension partially supports Helm extensions via <a href="https://helm.sh/docs/chart_template_guide/named_templates/">Helm templates</a> and <a href="https://helm.sh/docs/chart_template_guide/functions_and_pipelines/">functions</a>. You can make use of the templates and more complex functions using Helm expressions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Example of expressions
+quarkus.helm.expressions.0.path=(kind == Service).metadata.annotations.'app.quarkus.io/commit-id'
+quarkus.helm.expressions.0.expression={{ .Values.app.favorite.drink | default "tea" | quote }}
+
+# Example of multiline expression
+quarkus.helm.expressions.1.path=(kind == ConfigMap &amp;&amp; metadata.name == my-configmap).data
+quarkus.helm.expressions.1.expression={{- range $key, $val := .Values.app.favorite }}\n\
+{{ indent 2 $key }}: {{ $val | quote }}\n\
+{{- end }}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Quarkus Helm extension will replace the specified path with the provided expression.</p>
+</div>
+<div class="paragraph">
+<p>To provide your custom templates, you can add them into the folder <code>src/main/helm/templates/_helpers.tpl</code>, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">{{/*
+Expand the name of the chart.
+*/}}
+{{- define "foo.name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 5 }}
+{{- end }}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And next, you can use this function using the Helm include primitive:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.expressions.0.path=(kind == Service).metadata.annotations.'app.quarkus.io/build-timestamp'
+quarkus.helm.expressions.0.expression={{ include "foo.name" . }}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Moreover, you can specify your Helm templates to only a concrete kind resource, for example, only for Service resources. To do this, you need to add the resource <code>src/main/helm/templates/&lt;kind&gt;.yaml</code> (following the example <code>src/main/helm/templates/service.yaml</code>). For example, the following resource will add two template functions called "mychart.labels" and "mychart.not-used":</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">{{- define "mychart.labels" }}
+    generator: helm
+{{- end }}
+{{- define "mychart.not-used" }}
+not:
+  used: !
+{{- end }}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And let&#8217;s use the template "mychart.labels":</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.expressions.0.path=(kind == Service &amp;&amp; metadata.name == quarkus-helm-integration-tests-kubernetes-with-templates).metadata.labels
+quarkus.helm.expressions.0.expression={{- template "mychart.labels" }}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="push-to-helm-repositories"><a class="anchor" href="#push-to-helm-repositories"></a>Push to Helm Repositories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <a href="https://helm.sh/docs/topics/chart_repository/">Helm chart repository</a> is a location where packaged charts can be used and shared across the community.</p>
+</div>
+<div class="paragraph">
+<p>We can configure the Quarkus Helm extension to automatically push the generated Helm charts into Helm repositories using the following configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># To enable pushing to a Helm repository
+quarkus.helm.repository.push=true
+# The Helm repository type. Options are: `CHARTMUSEUM`, `ARTIFACTORY`, and `NEXUS`.
+quarkus.helm.repository.type=CHARTMUSEUM
+quarkus.helm.repository.url=&lt;chart museum url&gt;
+# Optional
+quarkus.helm.repository.username=...
+# Optional
+quarkus.helm.repository.password=...</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All the previous properties can be set via system properties at build time.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s see a practical example. First, we need to deploy a Helm repository. The easiest way to set up one, it&#8217;s installing ChartMuseum via docker:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker run --rm -u 0 -it -d -p 8080:8080 -e DEBUG=1 -e STORAGE=local -e STORAGE_LOCAL_ROOTDIR=/charts -v $(pwd)/charts:/charts chartmuseum/chartmuseum:latest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The ChartMuseum data will be stored in the "./charts" folder.</p>
+</div>
+<div class="paragraph">
+<p>Next, we&#8217;re going to build the Helm chart with the push to a repository enabled and using the just created helm repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn clean install -Dquarkus.helm.repository.push=true -Dquarkus.helm.repository.url=http://localhost:8080/api/charts -Dquarkus.helm.repository.type=CHARTMUSEUM</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the local ChartMuseum, we don&#8217;t need to provide either the username or the password.</p>
+</div>
+<div class="paragraph">
+<p>Finally, let&#8217;s install the Helm chart from the Helm repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm repo add local http://localhost:8080
+helm install --devel my-quarkus local/quarkus-hello-world</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="helm-profiles"><a class="anchor" href="#helm-profiles"></a>Helm Profiles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, all the properties are mapped to the same Helm values file <code>values.yaml</code>. However, the Quarkus Helm extension also supports the generation of Helm values by profiles.
+For example, let&#8217;s say we have two environments: one for testing and another one for production; each environment has a different ingress host where your Kubernetes applications will be exposed.
+We can configure our application as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.kubernetes.ingress.expose=true
+# Mapped to `values.yaml` by the preconfigured Ingress decorator
+quarkus.kubernetes.ingress.host=my-host
+
+# Helm Chart
+quarkus.helm.name=my-chart
+## Overwrite the value of `quarkus.kubernetes.host` to `values.&lt;profile-name&gt;.yaml`:
+quarkus.helm.values.host.paths=(kind == Ingress).spec.rules.host
+quarkus.helm.values.host.value=my-test-host
+quarkus.helm.values.host.profile=test</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This configuration will generate the <code>values.yaml</code> using the value set at the property <code>quarkus.kubernetes.ingress.host</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  host: my-host</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But as you are now using a profile named <code>test</code> (see <code>quarkus.helm.values.host.profile</code>) in one of your mapped properties, it will also generate a <code>values.test.yaml</code> file with the content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  host: my-test-host</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By default, Quarkus Helm uses the "." character in the filename of profile specific values files i.e. <code>values.test.yaml</code>. You can configure this separator using the property <code>quarkus.helm.values-profile-separator</code>. For example, using <code>quarkus.helm.values-profile-separator=-</code> would generate <code>values-test.yaml</code> instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="conditionally-enable-disable-resources"><a class="anchor" href="#conditionally-enable-disable-resources"></a>Conditionally enable/disable resources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Based on a boolean property that is available part of the <code>values.yaml</code>, you can specify whether you want to install or not any resource. For example, we want to install the generated Ingress resource only if I pass the following property <code>app.ingress.enabled=true</code> when installing the chart. Let&#8217;s see how to do this using the <code>quarkus.helm.add-if-statement</code> properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.add-if-statement."ingress.enabled".on-resource-kind=Ingress
+quarkus.helm.add-if-statement."ingress.enabled".with-default-value=false</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This configuration will add the <code>app.ingress.enabled</code> property in the <code>values.yaml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  ingress:
+    enabled: false</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So, when installing the chart, the Ingress resource won&#8217;t be installed by default.
+Now, to install it, you need to explicitly set the <code>app.ingress.enabled=true</code> property as <code>helm install quarkus local/chart --set app.ingress.enabled=false</code> and then the Ingress resource would be installed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cli"><a class="anchor" href="#cli"></a>Command line interface</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using the <code>helm</code> binary requires the user to specify things like <code>name</code> and <code>path</code> for each chart, which is a repetitive process.
+Moreover, on multi-module projects it requires the command to be run for each of the modules providing a chart.</p>
+</div>
+<div class="paragraph">
+<p>This extension provides a CLI utility that can be used along with the official Quarkus CLI. To use the Quarkus CLI, <a href="https://quarkus.io/guides/cli-tooling#installing-the-cli">install the latest version of the Quarkus CLI</a>. Use <code>quarkus -v</code> to verify the version number.</p>
+</div>
+<div class="paragraph">
+<p>The plugin is enabled automatically when the Quarkus CLI is running from within a module that is using the helm extension.</p>
+</div>
+<div class="paragraph">
+<p><strong>Note</strong>: If the plugin is not added automatically, it is possible that the extension catalog has not yet been updated with a <code>quarkus-helm</code> version that contains the CLI plugin. Until, then please use the manual installation steps.</p>
+</div>
+<div class="sect2">
+<h3 id="_manual_installation"><a class="anchor" href="#_manual_installation"></a>Manual installation</h3>
+<div class="paragraph">
+<p>To manually enable the CLI plugin for <code>quarkus-helm</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">quarkus plug add io.quarkiverse.helm:quarkus-helm-cli:{quarkus-helm-version} -d "Helm CLI"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_cli"><a class="anchor" href="#_using_the_cli"></a>Using the CLI</h3>
+<div class="sect3">
+<h4 id="_listing_charts"><a class="anchor" href="#_listing_charts"></a>Listing charts</h4>
+<div class="paragraph">
+<p>To list the available charts of the current projects or its sub-modules:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">quarkus helm list</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To select a specific platform (e.g. kubernetes or openshift):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">quarkus helm list --platform kubernetes</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_installing_charts"><a class="anchor" href="#_installing_charts"></a>Installing charts</h4>
+<div class="paragraph">
+<p>To install all the available charts of the current project or its sub-modules;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">quarkus helm install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The command supports the <code>--platform</code> option too.
+The command also supports the <code>--set</code> option from the original helm cli:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">quarkus helm install --set app.replicas=3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In case you want to select a single chart among multiple modules for installation (e.g. <code>user-service</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">quarkus helm install user-service</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_upgrading_charts"><a class="anchor" href="#_upgrading_charts"></a>Upgrading charts</h4>
+<div class="paragraph">
+<p>To upgrade:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">quarkus helm upgrade</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The upgrade command supports the same options as the <code>install</code> subcommand.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uninstalling_charts"><a class="anchor" href="#_uninstalling_charts"></a>Uninstalling charts</h4>
+<div class="paragraph">
+<p>To uninstall a chart:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">quarkus helm uninstall</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuration-reference"><a class="anchor" href="#configuration-reference"></a>Configuration Reference</h2>
+<div class="sectionbody">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-helm_configuration"></a><a href="#quarkus-helm_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.enabled"></a><code><a href="#quarkus-helm_quarkus.helm.enabled">quarkus.helm.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enabled the generation of Helm files.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.name"></a><code><a href="#quarkus-helm_quarkus.helm.name">quarkus.helm.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Name of the Helm chart. If not set, it will use the application name.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.home"></a><code><a href="#quarkus-helm_quarkus.helm.home">quarkus.helm.home</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Project&#8217;s home page of the Helm chart. It must be a URL.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_HOME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.sources"></a><code><a href="#quarkus-helm_quarkus.helm.sources">quarkus.helm.sources</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Helm chart list of URLs to source code for this project.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_SOURCES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.version"></a><code><a href="#quarkus-helm_quarkus.helm.version">quarkus.helm.version</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Version of the Helm chart. If not set, it will use the application version.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VERSION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.description"></a><code><a href="#quarkus-helm_quarkus.helm.description">quarkus.helm.description</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Helm chart single-sentence description.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DESCRIPTION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.keywords"></a><code><a href="#quarkus-helm_quarkus.helm.keywords">quarkus.helm.keywords</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>List of keywords to add to the chart.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_KEYWORDS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.icon"></a><code><a href="#quarkus-helm_quarkus.helm.icon">quarkus.helm.icon</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Icon of the Helm chart. It must be a URL to an SVG or PNG image.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_ICON</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.api-version"></a><code><a href="#quarkus-helm_quarkus.helm.api-version">quarkus.helm.api-version</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Chart API version. The default value is <code>v2</code>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_API_VERSION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>v2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.condition"></a><code><a href="#quarkus-helm_quarkus.helm.condition">quarkus.helm.condition</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The condition to enable this chart.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_CONDITION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.tags"></a><code><a href="#quarkus-helm_quarkus.helm.tags">quarkus.helm.tags</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Tags of this chart.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_TAGS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.app-version"></a><code><a href="#quarkus-helm_quarkus.helm.app-version">quarkus.helm.app-version</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The version of the application enclosed of this chart.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_APP_VERSION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.deprecated"></a><code><a href="#quarkus-helm_quarkus.helm.deprecated">quarkus.helm.deprecated</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether this chart is deprecated.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPRECATED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.kube-version"></a><code><a href="#quarkus-helm_quarkus.helm.kube-version">quarkus.helm.kube-version</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>KubeVersion is a SemVer constraint specifying the version of Kubernetes required.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_KUBE_VERSION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.type"></a><code><a href="#quarkus-helm_quarkus.helm.type">quarkus.helm.type</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Specifies the chart type: application or library.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_TYPE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-root-alias"></a><code><a href="#quarkus-helm_quarkus.helm.values-root-alias">quarkus.helm.values-root-alias</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Alias of the root element in the generated values file.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_ROOT_ALIAS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>app</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.notes"></a><code><a href="#quarkus-helm_quarkus.helm.notes">quarkus.helm.notes</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Notes template to be generated.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_NOTES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>/NOTES.template.txt</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.extension"></a><code><a href="#quarkus-helm_quarkus.helm.extension">quarkus.helm.extension</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Extension of the Helm tarball file. Default is <code>tar.gz</code>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_EXTENSION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>tar.gz</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.tar-file-classifier"></a><code><a href="#quarkus-helm_quarkus.helm.tar-file-classifier">quarkus.helm.tar-file-classifier</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Classifier to be appended into the generated Helm tarball file.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_TAR_FILE_CLASSIFIER</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.create-tar-file"></a><code><a href="#quarkus-helm_quarkus.helm.create-tar-file">quarkus.helm.create-tar-file</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If Helm tar file is generated.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_CREATE_TAR_FILE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.create-values-schema-file"></a><code><a href="#quarkus-helm_quarkus.helm.create-values-schema-file">quarkus.helm.create-values-schema-file</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether to generate the <code>values.schema.json</code> file that is used to validate the Helm Chart input values.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_CREATE_VALUES_SCHEMA_FILE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.create-readme-file"></a><code><a href="#quarkus-helm_quarkus.helm.create-readme-file">quarkus.helm.create-readme-file</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether to generate the <code>README.md</code> file that includes the Chart description and table with the configurable parameters and their default values.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_CREATE_README_FILE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.input-directory"></a><code><a href="#quarkus-helm_quarkus.helm.input-directory">quarkus.helm.input-directory</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The input folder in which to place the user-defined Helm files. These files will be used as inputs to populate the generated Helm files. At the moment, the supported Helm files are: README.md, LICENSE, values.schema.json, app-readme.md or app-README.md, questions.yml or questions.yaml, the "crds" directory, and requirements.yml or requirements.yaml. Moreover, you can provide a custom <code>values.yaml</code> or <code>Chart.yaml</code> and the content will be merged with the auto-generated configuration. It also supports absolute paths. By default, it will use the folder "src/main/helm".</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_INPUT_DIRECTORY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>src/main/helm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.output-directory"></a><code><a href="#quarkus-helm_quarkus.helm.output-directory">quarkus.helm.output-directory</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The output folder in which to place the Helm generated folder. The folder is relative to the target output directory in Quarkus that is also configurable using the property <code>quarkus.package.output-directory</code>. It also supports absolute paths. By default, it will be generated in the folder named "helm".</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_OUTPUT_DIRECTORY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>helm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.repository.push"></a><code><a href="#quarkus-helm_quarkus.helm.repository.push">quarkus.helm.repository.push</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If true, it will perform the upload to a Helm repository.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_REPOSITORY_PUSH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.repository.deployment-target"></a><code><a href="#quarkus-helm_quarkus.helm.repository.deployment-target">quarkus.helm.repository.deployment-target</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The deployment target to push. Options are: <code>kubernetes</code>, <code>openshift</code>, <code>knative</code>&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_REPOSITORY_DEPLOYMENT_TARGET</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>${quarkus.kubernetes.deployment-target}</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.repository.type"></a><code><a href="#quarkus-helm_quarkus.helm.repository.type">quarkus.helm.repository.type</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Helm repository type. Options are: <code>CHARTMUSEUM</code>, <code>ARTIFACTORY</code>, and <code>NEXUS</code>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_REPOSITORY_TYPE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><code>chartmuseum</code>, <code>artifactory</code>, <code>nexus</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.repository.url"></a><code><a href="#quarkus-helm_quarkus.helm.repository.url">quarkus.helm.repository.url</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Helm repository URL.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_REPOSITORY_URL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.repository.username"></a><code><a href="#quarkus-helm_quarkus.helm.repository.username">quarkus.helm.repository.username</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Helm repository username.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_REPOSITORY_USERNAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.repository.password"></a><code><a href="#quarkus-helm_quarkus.helm.repository.password">quarkus.helm.repository.password</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Helm repository password.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_REPOSITORY_PASSWORD</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.map-system-properties"></a><code><a href="#quarkus-helm_quarkus.helm.map-system-properties">quarkus.helm.map-system-properties</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If enabled, the extension will check whether there are properties using system properties in the form of <code>${XXX}</code> and if so, it will expose these properties as env-var values within the generated container resource.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_MAP_SYSTEM_PROPERTIES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.disable-naming-validation"></a><code><a href="#quarkus-helm_quarkus.helm.disable-naming-validation">quarkus.helm.disable-naming-validation</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If true, the naming validation will be disabled. The naming validation rejects property names that contain "-" characters.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DISABLE_NAMING_VALIDATION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-profile-separator"></a><code><a href="#quarkus-helm_quarkus.helm.values-profile-separator">quarkus.helm.values-profile-separator</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Configuration for the separator string in the filename of profile specific values files i.e. values.profile.yaml, defaults to "."</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_PROFILE_SEPARATOR</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-schema.title"></a><code><a href="#quarkus-helm_quarkus.helm.values-schema.title">quarkus.helm.values-schema.title</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Title of the values schema json file.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_SCHEMA_TITLE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Values</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.maintainers.-maintainers-.name"></a><code><a href="#quarkus-helm_quarkus.helm.maintainers.-maintainers-.name">quarkus.helm.maintainers."maintainers".name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Name of the maintainer.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_MAINTAINERS__MAINTAINERS__NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.maintainers.-maintainers-.email"></a><code><a href="#quarkus-helm_quarkus.helm.maintainers.-maintainers-.email">quarkus.helm.maintainers."maintainers".email</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Email of the maintainer.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_MAINTAINERS__MAINTAINERS__EMAIL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.maintainers.-maintainers-.url"></a><code><a href="#quarkus-helm_quarkus.helm.maintainers.-maintainers-.url">quarkus.helm.maintainers."maintainers".url</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>URL profile of the maintainer.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_MAINTAINERS__MAINTAINERS__URL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.annotations-annotations"></a><code><a href="#quarkus-helm_quarkus.helm.annotations-annotations">quarkus.helm.annotations</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Annotations are additional mappings uninterpreted by Helm, made available for inspection by other applications.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_ANNOTATIONS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Map&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.name"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.name">quarkus.helm.dependencies."dependencies".name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Name of the dependency.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.version"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.version">quarkus.helm.dependencies."dependencies".version</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Version of the dependency.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__VERSION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.repository"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.repository">quarkus.helm.dependencies."dependencies".repository</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Repository of the dependency.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__REPOSITORY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.condition"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.condition">quarkus.helm.dependencies."dependencies".condition</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Dependency condition. If the property starts with <code>@.</code>, then the property won&#8217;t be added under the root element in the generated <code>values.yaml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__CONDITION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.tags"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.tags">quarkus.helm.dependencies."dependencies".tags</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Dependency tags.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__TAGS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.enabled"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.enabled">quarkus.helm.dependencies."dependencies".enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether this dependency should be loaded.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.alias"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.alias">quarkus.helm.dependencies."dependencies".alias</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Alias of the dependency.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__ALIAS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.wait-for-service"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.wait-for-service">quarkus.helm.dependencies."dependencies".wait-for-service</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Instruct the application to wait for the service that should be installed as part of this Helm dependency. You can set only a service name or a combination of a service name plus the service port (service:port).</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__WAIT_FOR_SERVICE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.wait-for-service-image"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.wait-for-service-image">quarkus.helm.dependencies."dependencies".wait-for-service-image</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If wait for service is set, it will use this image to configure the init-containers within the deployment resource.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__WAIT_FOR_SERVICE_IMAGE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>busybox:1.34.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.wait-for-service-port-command-template"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.wait-for-service-port-command-template">quarkus.helm.dependencies."dependencies".wait-for-service-port-command-template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If wait for service is set, it will use this command to run the init-containers within the deployment resource.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__WAIT_FOR_SERVICE_PORT_COMMAND_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>for i in $(seq 1 200); do nc -z -w3 ::service-name ::service-port &amp;&amp; exit 0; done; exit 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.dependencies.-dependencies-.wait-for-service-only-command-template"></a><code><a href="#quarkus-helm_quarkus.helm.dependencies.-dependencies-.wait-for-service-only-command-template">quarkus.helm.dependencies."dependencies".wait-for-service-only-command-template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If wait for service is set, it will use this command to run the init-containers within the deployment resource.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_DEPENDENCIES__DEPENDENCIES__WAIT_FOR_SERVICE_ONLY_COMMAND_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>until nslookup ::service-name; do echo waiting for service; sleep 2; done</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.property"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.property">quarkus.helm.values."values".property</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the property that will be present in the Helm values file. If the property starts with <code>@.</code>, then the property won&#8217;t be added under the root element in the generated <code>values.yaml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__PROPERTY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.paths"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.paths">quarkus.helm.values."values".paths</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>A comma-separated list of YAMLPath expressions to map the Dekorate auto-generated properties to the final Helm values file.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__PATHS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.profile"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.profile">quarkus.helm.values."values".profile</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The profile where this value reference will be mapped to. For example, if the profile is <code>dev</code>, then a <code>values.dev.yml</code> file will be created with the value.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__PROFILE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.value"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.value">quarkus.helm.values."values".value</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The value that the property will have in the Helm values file. If not set, the extension will resolve it from the generated artifacts.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__VALUE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.value-as-int"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.value-as-int">quarkus.helm.values."values".value-as-int</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The integer value that the property will have in the Helm values file. If not set, the extension will resolve it from the generated artifacts.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__VALUE_AS_INT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.value-as-bool"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.value-as-bool">quarkus.helm.values."values".value-as-bool</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The boolean value that the property will have in the Helm values file. If not set, the extension will resolve it from the generated artifacts.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__VALUE_AS_BOOL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.value-as-map-value-as-map"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.value-as-map-value-as-map">quarkus.helm.values."values".value-as-map</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The map value that the property will have in the Helm values file. If not set, the extension will resolve it from the generated artifacts.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__VALUE_AS_MAP</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Map&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.value-as-list"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.value-as-list">quarkus.helm.values."values".value-as-list</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>A list separated by comma that the property will have in the Helm values file. If not set, the extension will resolve it from the generated artifacts.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__VALUE_AS_LIST</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.expression"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.expression">quarkus.helm.values."values".expression</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If not provided, it will use <code>{{ .Values.. }}</code>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__EXPRESSION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.description"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.description">quarkus.helm.values."values".description</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Description of the property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__DESCRIPTION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.minimum"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.minimum">quarkus.helm.values."values".minimum</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Minimum value allowed for this property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__MINIMUM</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.maximum"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.maximum">quarkus.helm.values."values".maximum</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Maximum value allowed for this property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__MAXIMUM</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.pattern"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.pattern">quarkus.helm.values."values".pattern</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Pattern to validate the value of this property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__PATTERN</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values.-values-.required"></a><code><a href="#quarkus-helm_quarkus.helm.values.-values-.required">quarkus.helm.values."values".required</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If true, then this property is mandatory.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES__VALUES__REQUIRED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.expressions.-expressions-.path"></a><code><a href="#quarkus-helm_quarkus.helm.expressions.-expressions-.path">quarkus.helm.expressions."expressions".path</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The YAMLPath path where to include the template within the resource.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_EXPRESSIONS__EXPRESSIONS__PATH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.expressions.-expressions-.expression"></a><code><a href="#quarkus-helm_quarkus.helm.expressions.-expressions-.expression">quarkus.helm.expressions."expressions".expression</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The expression template to include.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_EXPRESSIONS__EXPRESSIONS__EXPRESSION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.property"></a><code><a href="#quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.property">quarkus.helm.add-if-statement."add-if-statement".property</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The property to use in the if statement. If the property starts with <code>@.</code>, then the property won&#8217;t be added under the root element in the generated <code>values.yaml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_ADD_IF_STATEMENT__ADD_IF_STATEMENT__PROPERTY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.on-resource-kind"></a><code><a href="#quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.on-resource-kind">quarkus.helm.add-if-statement."add-if-statement".on-resource-kind</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The resource kind where to include the if statement.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_ADD_IF_STATEMENT__ADD_IF_STATEMENT__ON_RESOURCE_KIND</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.on-resource-name"></a><code><a href="#quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.on-resource-name">quarkus.helm.add-if-statement."add-if-statement".on-resource-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The resource kind where to include the if statement.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_ADD_IF_STATEMENT__ADD_IF_STATEMENT__ON_RESOURCE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.with-default-value"></a><code><a href="#quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.with-default-value">quarkus.helm.add-if-statement."add-if-statement".with-default-value</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The default value of the property</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_ADD_IF_STATEMENT__ADD_IF_STATEMENT__WITH_DEFAULT_VALUE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.description"></a><code><a href="#quarkus-helm_quarkus.helm.add-if-statement.-add-if-statement-.description">quarkus.helm.add-if-statement."add-if-statement".description</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Provide custom description of the <code>add-if-statement</code> property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_ADD_IF_STATEMENT__ADD_IF_STATEMENT__DESCRIPTION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Determine if the resource should be installed or not.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-schema.properties.-properties-.name"></a><code><a href="#quarkus-helm_quarkus.helm.values-schema.properties.-properties-.name">quarkus.helm.values-schema.properties."properties".name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Name of the property to add or update. Example: <code>app.replicas</code>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_SCHEMA_PROPERTIES__PROPERTIES__NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-schema.properties.-properties-.description"></a><code><a href="#quarkus-helm_quarkus.helm.values-schema.properties.-properties-.description">quarkus.helm.values-schema.properties."properties".description</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Description of the property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_SCHEMA_PROPERTIES__PROPERTIES__DESCRIPTION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-schema.properties.-properties-.type"></a><code><a href="#quarkus-helm_quarkus.helm.values-schema.properties.-properties-.type">quarkus.helm.values-schema.properties."properties".type</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Type of the property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_SCHEMA_PROPERTIES__PROPERTIES__TYPE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>string</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-schema.properties.-properties-.minimum"></a><code><a href="#quarkus-helm_quarkus.helm.values-schema.properties.-properties-.minimum">quarkus.helm.values-schema.properties."properties".minimum</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Minimum value allowed for this property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_SCHEMA_PROPERTIES__PROPERTIES__MINIMUM</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-schema.properties.-properties-.maximum"></a><code><a href="#quarkus-helm_quarkus.helm.values-schema.properties.-properties-.maximum">quarkus.helm.values-schema.properties."properties".maximum</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Maximum value allowed for this property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_SCHEMA_PROPERTIES__PROPERTIES__MAXIMUM</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-schema.properties.-properties-.pattern"></a><code><a href="#quarkus-helm_quarkus.helm.values-schema.properties.-properties-.pattern">quarkus.helm.values-schema.properties."properties".pattern</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Pattern to validate the value of this property.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_SCHEMA_PROPERTIES__PROPERTIES__PATTERN</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-helm_quarkus.helm.values-schema.properties.-properties-.required"></a><code><a href="#quarkus-helm_quarkus.helm.values-schema.properties.-properties-.required">quarkus.helm.values-schema.properties."properties".required</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If true, then this property is mandatory.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_HELM_VALUES_SCHEMA_PROPERTIES__PROPERTIES__REQUIRED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://helm.sh/">Helm</a></p>
+</li>
+<li>
+<p><a href="https://dekorate.io/">Dekorate</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

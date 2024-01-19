@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quarkus  Web Bundler - Advanced Guides :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-web-bundler/dev/advanced-guides.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-web-bundler" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Web Bundler</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="main-concepts.html">Main Concepts</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="advanced-guides.html">Advanced Guides</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="examples.html">Examples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="config-reference.html">Config Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Web Bundler</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Web Bundler</a></li>
+    <li><a href="advanced-guides.html">Advanced Guides</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-web-bundler/edit/main/docs/modules/ROOT/pages/advanced-guides.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Quarkus <span class="image"><img src="_images/logo.svg" alt="logo" width="25em"></span> Web Bundler - Advanced Guides</h1>
+<div class="sect1">
+<h2 id="_web_root"><a class="anchor" href="#_web_root"></a>Web Root</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Web Root is <code>src/main/resources/web</code>, this is where the Web Bundler will look for stuff to bundle and serve.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="static"><a class="anchor" href="#static"></a>Static files</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are 2 ways to add static files (fonts, images, music, video, &#8230;&#8203;) to your app:
+- Files in <code>src/main/resources/web/static/&#42;&#42;</code> will be served statically under <a href="http://localhost:8080/static/" class="bare">http://localhost:8080/static/</a> (you can choose another directory name <a href="config-reference.html#quarkus-web-bundler_quarkus.web-bundler.static" class="xref page">Config Reference</a>). For convenience, those static files are excluded (marked as external) from the bundling by default. This allows to reference them from scripts or styles without errors (e.g. <code>import '/static/foo.png';</code>).
+- Other files imported from scripts or styles will be bundled and processed by the configured loaders (see <a href="#loaders">How is it bundled (Loaders)</a>) allowing different options (like embedding them as data-url).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="html-templates"><a class="anchor" href="#html-templates"></a>html templates rendering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Web-Bundler is natively integrated with Qute to render html templates at build-time (this won&#8217;t affect runtime). This way you may create SPA out of the box.  For this, just provide an <code>index.html</code> file (or any other <code>.html</code> file) in the <code>src/main/resources/web</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>Combined with the <a href="#bundle-tag">{#bundle /} tag</a>, this file will be rendered with the scripts and styles tags to include in your html template. This file will be served as the default index file (e.g. <a href="http://localhost:8080/" class="bare">http://localhost:8080/</a>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can use the Qute <code>config:</code> <a href="https://quarkus.io/guides/qute-reference#config">namespace</a>, it will be evaluated a build-time (runtime config will be ignored).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This rendering option is happening at build time, so you won&#8217;t be able to access any Qute runtime data in this file. If you want to render data (for example in a server-side rendering app with htmx), you should add the Qute Web extension (or <a href="https://quarkiverse.github.io/quarkiverse-docs/quarkus-renarde/dev/">Renarde extension</a> for MVC with Qute) and use <code>src/main/resources/templates/</code> directory instead. The <a href="#bundle-tag">{#bundle /} tag</a> will also work in this case.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bundling"><a class="anchor" href="#_bundling"></a>Bundling</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, directory <code>src/main/resources/web/app</code> is destined to contain the scripts, styles and possibly assets for your app. It will be bundled and served into <code>/static/bundle/main-[hash].[ext].</code> (see <a href="#entry-points">Entry-Points</a> for more options).</p>
+</div>
+<div class="sect2">
+<h3 id="importing-web-dependencies"><a class="anchor" href="#importing-web-dependencies"></a>Importing Web Dependencies</h3>
+<div class="paragraph">
+<p>Once added in the pom.xml, the web dependencies can be imported and used with the ESM import syntax, they will automatically be bundled.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Web Dependencies (script and styles) need to be imported in order to be bundled, dead code will be eliminated during the build.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">web/app/script.js</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import $ from 'jquery';
+import 'bootstrap/dist/css/bootstrap.css';
+
+$('.hello').innerText('Hello');</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Styles can be also be imported from a scss file:</p>
+</div>
+<div class="listingblock">
+<div class="title">web/app/style.scss</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-scss hljs" data-lang="scss">@import "bootstrap/dist/css/bootstrap.css";</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+It is currently not possible to import <code>scss</code> from the dependencies (<a href="https://github.com/quarkiverse/quarkus-web-bundler/issues/58">more info</a>).
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="what-is-bundled"><a class="anchor" href="#what-is-bundled"></a>What is bundled</h3>
+<div class="sect3">
+<h4 id="indexing"><a class="anchor" href="#indexing"></a>Indexing</h4>
+<div class="paragraph">
+<p><strong>Only what&#8217;s imported will be part of the resulting bundle</strong>, to make it easy, the Web Bundler will automatically generate an index importing all the files found in an entry-point directory.</p>
+</div>
+<div class="paragraph">
+<p>Of course, you can also provide this index manually (named <code>index.js,ts,jsx,tsx</code>) and choose what to import. Example:</p>
+</div>
+<div class="listingblock">
+<div class="title">src/main/resources/web/app/index.js</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import './my-script.js'
+import './my-style.scss'
+import './example.png'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="entry-points"><a class="anchor" href="#entry-points"></a>Entry-Points</h4>
+<div class="paragraph">
+<p>You may configure different entry-points (to generate different bundles):</p>
+</div>
+<div class="listingblock">
+<div class="title">src/main/resources/application.properties</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.web-bundler.bundle.page-1=true <i class="conum" data-value="1"></i><b>(1)</b>
+quarkus.web-bundler.bundle.page-2=true <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Bundle <code>src/main/resources/web/page-1/&#8230;&#8203;</code> into <code>/static/bundle/page-1-[hash].[ext]</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Bundle <code>src/main/resources/web/page-2/&#8230;&#8203;</code> into <code>/static/bundle/page-2-[hash].[ext]</code></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>or customize the directory name and bundled file name (and possibly merge multiple directories into one bundle):</p>
+</div>
+<div class="listingblock">
+<div class="title">src/main/resources/application.properties</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.web-bundler.bundle.foo=true <i class="conum" data-value="1"></i><b>(1)</b>
+quarkus.web-bundler.bundle.bar=true <i class="conum" data-value="2"></i><b>(2)</b>
+quarkus.web-bundler.bundle.bar.key=my-key
+quarkus.web-bundler.bundle.bar.dir=my-dir
+quarkus.web-bundler.bundle.baz=true <i class="conum" data-value="1"></i><b>(1)</b>
+quarkus.web-bundler.bundle.baz.key=foo</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Bundle <code>src/main/resources/web/foo/&#8230;&#8203;</code> and <code>src/main/resources/web/baz/&#8230;&#8203;</code> together into <code>/static/bundle/foo-[hash].[ext]</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Bundle <code>src/main/resources/web/my-dir/&#8230;&#8203;</code> into <code>/static/bundle/my-key-[hash].[ext]</code></td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+By default, as soon as more than one entry-point key is configured, shared code and web dependencies are split off into a separate file. That way if the user first browses to one page and then to another page, they don&#8217;t have to download all the JavaScript for the second page from scratch if the shared part has already been downloaded and cached by their browser. The path of the shared static script is <code>/static/bundle/chunk-[hash].js</code>. This setup is perfect if you create an app with different pages using different scripts, libraries and styles.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="loaders"><a class="anchor" href="#loaders"></a>How is it bundled (Loaders)</h3>
+<div class="paragraph">
+<p>Bases on the files extensions, the Web Bundler will use <a href="config-reference.html#quarkus-web-bundler_quarkus.web-bundler.loaders.js" class="xref page">pre-configured loaders</a> to bundle them. For scripts and styles, the default configuration should be enough.</p>
+</div>
+<div class="paragraph">
+<p>For other assets (svg, gif, png, jpg, ttf, &#8230;&#8203;) imported from your scripts and styles using their relative path, you may choose the loader based on the file extension allowing different options (e.g. serving, embedding the file as data-url, binary, base64, &#8230;&#8203;). By default, they will automatically be copied and served using the <a href="config-reference.html#quarkus-web-bundler_quarkus.web-bundler.loaders.file" class="xref page">file loader</a>.</p>
+</div>
+<div class="paragraph">
+<p>For example, <code>url('./example.png')</code> in a style or <code>import example from './example.png';</code> in a script will be processed, the file will be copied with a static name and the path will be replaced by the new file static path (e.g. <code>/static/bundle/assets/example-QH383.png</code>). The <code>example</code> variable will contain the public path to this file to be used in a component img <code>src</code> for example.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For convenience, when using a file located in the static directory (e.g. <code>url('/static/example.png')</code>, the path will not be processed because all files under <code>/static/&#42;&#42;</code> are marked as external (to be ignored from the bundling). Since <code>/static/example.png</code> will be served by Quarkus (See <a href="#static">Static files</a>), it is ok.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scss_sass"><a class="anchor" href="#_scss_sass"></a>SCSS, SASS</h3>
+<div class="paragraph">
+<p>You can use scss or sass files out of the box. Local import are supported. Importing partials is also supported begin with <code>_</code> (as in <code>_code.scss</code> imported with <code>@import 'code';</code>).</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+It is currently not possible to import <code>scss</code> from the dependencies (<a href="https://github.com/quarkiverse/quarkus-web-bundler/issues/58">more info</a>).
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="qute-components"><a class="anchor" href="#qute-components"></a>Server-Side Qute Components</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This features requires <code>quarkus-qute</code> or <code>quarkus-qute-web</code> in the project (and this is not made to be used with the build-time template rendering).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This is not always needed but if you need to add specific script and/or style to your <a href="https://quarkus.io/guides/qute-reference#user_tags">Qute tags</a> (Server Side Qute Components). This will help you do it elegantly.</p>
+</div>
+<div class="paragraph">
+<p>To enable server-side components, add this in the <code>application.properties</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.web-bundler.bundle.components=true
+quarkus.web-bundler.bundle.components.key=main <i class="conum" data-value="1"></i><b>(1)</b>
+quarkus.web-bundler.bundle.components.qute-tags=true <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>use <code>main</code> to have a single merged bundle with the <code>app</code> (or remove this line to use <code>qute-components</code> as default)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>activate qute-tags support (default is <code>false</code>)</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is a nice convention to define your components: <code>src/main/resources/web/components/[name]/[name].{html,css,scss,js,ts,&#8230;&#8203;};</code>. The scripts, styles and assets will be bundled, the html template will be usable as a <a href="https://quarkus.io/guides/qute-reference#user_tags">Qute tag</a>.</p>
+</div>
+<div class="paragraph">
+<p>Example:
+- <code>src/main/resources/web/components/hello/hello.html</code>
+- <code>src/main/resources/web/components/hello/hello.js</code>
+- <code>src/main/resources/web/components/hello/hello.scss</code></p>
+</div>
+<div class="paragraph">
+<p>This way you can use <code>{#hello}</code> in your templates and the scripts &amp; styles will be bundled.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You may create different qute components groups to be used in different pages.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="web-dependencies"><a class="anchor" href="#web-dependencies"></a>Web Dependencies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Web Bundler is integrated with NPM dependencies through <a href="#mvnpm">MVNPM (default)</a> (default) or <a href="#webjars">WebJars</a>.
+Once added in the pom.xml the dependencies are directly available through import from the scripts and styles.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you don&#8217;t import a Web Dependency from an entry-point (<a href="#indexing">Indexing</a>), it won&#8217;t be bundled (dead code elimination).
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="mvnpm"><a class="anchor" href="#mvnpm"></a>MVNPM (default)</h3>
+<div class="paragraph">
+<p>mvnpm (Maven NPM) is a maven repository facade on top of the NPM Registry.</p>
+</div>
+<div class="paragraph">
+<p>Lookup for packages on <a href="https://mvnpm.org" class="bare">https://mvnpm.org</a> or <a href="https://www.npmjs.com/" class="bare">https://www.npmjs.com/</a> then add them as web dependencies to your pom.xml:</p>
+</div>
+<div class="listingblock">
+<div class="title">pom.xml</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">...
+&lt;dependencies&gt;
+    ...
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mvnpm&lt;/groupId&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+        &lt;artifactId&gt;jquery&lt;/artifactId&gt; <i class="conum" data-value="2"></i><b>(2)</b>
+        &lt;version&gt;3.7.0&lt;/version&gt; <i class="conum" data-value="3"></i><b>(3)</b>
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+...</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>use <code>org.mvnpm</code> or <code>org.mvnpm.at.something</code> for <code>@something/dep</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>All dependencies published on NPM are available</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Any <a href="https://www.npmjs.com/package/jquery?activeTab=versions">published NPM version</a> for your dependency</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If a package or a version in not yet available in Maven Central:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You may use the mvnpm.org website to synchronize new versions with Maven Central (Click on the Maven Central icon)</p>
+</li>
+<li>
+<p>If configured with the mvnpm repository, when requesting a dependency, it will inspect the registry to see if it exists and if it does, convert it to a Maven dependency and publish it to Maven Central so that future developers (and CI) won&#8217;t need the repository.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Configure the <code>mvnpm-repo</code> profile in your <code>~/.m2/settings.xml</code>:
+.settings.xml</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;settings&gt;
+    &lt;profiles&gt;
+        &lt;profile&gt;
+            &lt;id&gt;mvnpm-repo&lt;/id&gt;
+            &lt;repositories&gt;
+                &lt;repository&gt;
+                    &lt;id&gt;central&lt;/id&gt;
+                    &lt;name&gt;central&lt;/name&gt;
+                    &lt;url&gt;https://repo.maven.apache.org/maven2&lt;/url&gt;
+                &lt;/repository&gt;
+                &lt;repository&gt;
+                    &lt;snapshots&gt;
+                        &lt;enabled&gt;false&lt;/enabled&gt;
+                    &lt;/snapshots&gt;
+                    &lt;id&gt;mvnpm.org&lt;/id&gt;
+                    &lt;name&gt;mvnpm&lt;/name&gt;
+                    &lt;url&gt;https://repo.mvnpm.org/maven2&lt;/url&gt;
+                &lt;/repository&gt;
+            &lt;/repositories&gt;
+        &lt;/profile&gt;
+    &lt;/profiles&gt;
+&lt;/settings&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+I only use <code>-Pmvnpm-repo</code> when locking my project or updating mvnpm versions.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In case of web dependencies versions conflicts, you can set the version to use for this dependency in the project dependencyManagement (even when using the locker).
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="node_modules"><a class="anchor" href="#node_modules"></a>Node Modules for bundling</h3>
+<div class="paragraph">
+<p>To deal with Web Dependencies, the Web Bundler manages a node_modules directory. The default location for it is the build direcotry (i.e. <code>target/node_modules</code> on Maven). For a good IDE support (detection of imports and types), you may use the project directory instead <code>quarkus.web-bundler.dependencies.node-modules=node_modules</code> <strong>and add the <code>node_modules/</code> to the <code>.gitignore</code></strong>, the IDE will look recursivelly in parent directories for imports and the Web Bundler too.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locking"><a class="anchor" href="#locking"></a>Locking dependencies</h3>
+<div class="paragraph">
+<p>As the NPM ecosystem is over-using version ranges for dependencies, just a few npm dependencies can lead to a big amount of poms to download in order to get the right versions for your project. This leads to long lasting minutes of downloading poms when cloning or during CI. To solve this problem and also to make your build reproducible it is highly recommended to lock your web dependencies versions. <strong>This way it will be long only the first time and then it will be fast and reproducible.</strong></p>
+</div>
+<div class="sect3">
+<h4 id="maven-locking"><a class="anchor" href="#maven-locking"></a>Locking with Maven (mvnpm Locker Maven Plugin)</h4>
+<div class="paragraph">
+<p>As Maven doesn&#8217;t provide a native version locking system, the mvnpm team has implemented a way to easily generate and use a locking pom.xml (BOM). The locker Maven Plugin will create a version locker BOM for your org.mvnpm and org.webjars dependencies. It is essential as NPM dependencies are over using ranges. After the locking, the quantity of files to download is considerably reduced (better for reproducibility, contributors and CI).</p>
+</div>
+<div class="paragraph">
+<p>It is easy to set up and update, <a href="https://github.com/mvnpm/locker#lock-your-mvnpm-and-webjars-versions">here is the documentation</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="gradle-locking"><a class="anchor" href="#gradle-locking"></a>Locking with Gradle</h4>
+<div class="paragraph">
+<p>Gradle provides a <a href="https://docs.gradle.org/current/userguide/dependency_locking.html">native version locking system</a>, to install it, add this:</p>
+</div>
+<div class="listingblock">
+<div class="title">build.gradle</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">dependencyLocking {
+    lockAllConfigurations()
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then run <code>gradle dependencies --write-locks</code> to generate the lockfile.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="webjars"><a class="anchor" href="#webjars"></a>WebJars</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Adding new dependencies or recent versions has to be done manually from their website.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>WebJars are client-side web libraries (e.g. jQuery &amp; Bootstrap) packaged into JAR (Java Archive) files. You can browse the repository from <a href="https://www.webjars.org/" target="_blank" rel="noopener">the website</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">application.properties</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.web-bundler.dependencies.type=webjars</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">pom.xml</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.webjars.npm&lt;/groupId&gt;
+    &lt;artifactId&gt;jquery&lt;/artifactId&gt;
+    &lt;version&gt;3.7.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bundle-paths"><a class="anchor" href="#bundle-paths"></a>Bundle Paths</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After the bundling is done, the bundle files will be served by Quarkus under <code>{quarkus.http.root-path}/static/bundle/&#8230;&#8203;</code> by default (<a href="config-reference.html#quarkus-web-bundler_quarkus.web-bundler.bundle-path" class="xref page">Config Reference</a>).</p>
+</div>
+<div class="paragraph">
+<p>This may also be configured with an external URL (e.g. 'https://my.cdn.org/'), in which case, Bundle files will NOT be served by Quarkus and all resolved paths in the bundle and mapping will automatically point to this url (a CDN for example).</p>
+</div>
+<div class="paragraph">
+<p>In production, it is a good practise to have a hash inserted in the scripts and styles file names (E.g.: <code>main-XKHKUJNQ.js</code>) to differentiate builds (make them static). This way they can be cached without a risk of missing the most recent builds.</p>
+</div>
+<div class="paragraph">
+<p>In the Web Bundler, we also do it in dev mode, this way the app is as close as possible to production. You won&#8217;t have surprise when deploying a new version of your application.</p>
+</div>
+<div class="paragraph">
+<p>To make it easy there are several ways to resolve the bundle files public paths from the templates and the code.</p>
+</div>
+<div class="sect2">
+<h3 id="bundle-tag"><a class="anchor" href="#bundle-tag"></a>{#bundle /} tag</h3>
+<div class="paragraph">
+<p>From any Qute template you can use the <code>{#bundle /}</code> tag to help insert the bundled scripts and styles in your html page. examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">{#bundle /}
+Output:
+&lt;script type="text/javascript" src="/static/bundle/main-[hash].js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" media="screen" href="/static/bundle/main-[hash].css"&gt;
+
+{#bundle key="components"/}
+Output:
+&lt;script type="text/javascript" src="/static/bundle/components-[hash].js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" media="screen" href="/static/bundle/components-[hash].css"&gt;
+
+{#bundle tag="script"/}
+Output:
+&lt;script type="text/javascript" src="/static/bundle/main-[hash].js"&gt;&lt;/script&gt;
+
+{#bundle tag="style"/}
+Output:
+&lt;link rel="stylesheet" media="screen" href="/static/bundle/main-[hash].css"&gt;
+
+{#bundle key="components" tag="script"/}
+Output:
+&lt;script type="text/javascript" src="/static/bundle/components-[hash].js"&gt;&lt;/script&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inject_bundle_bean"><a class="anchor" href="#_inject_bundle_bean"></a>Inject <code>Bundle</code> bean</h3>
+<div class="paragraph">
+<p>This bean can be injected in the code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject
+Bundle bundle;
+
+...
+
+System.out.println(bundle.script("main"));
+System.out.println(bundle.style("main"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or in a Qute template:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">{inject:bundle.script("main")}
+{inject:bundle.style("main")}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

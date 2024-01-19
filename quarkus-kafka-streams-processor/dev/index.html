@@ -1,0 +1,2598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quarkus Kafka Streams Processor :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-kafka-streams-processor/dev/index.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-kafka-streams-processor" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Quarkus Kafka Streams Processor</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Quarkus Kafka Streams Processor</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Quarkus Kafka Streams Processor</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Quarkus Kafka Streams Processor</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-kafka-streams-processor/edit/main/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Quarkus Kafka Streams Processor</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This extension eases the implementation of event-driven architecture streaming microservices based on <a href="https://kafka.apache.org/documentation/streams/">Kafka Streams</a>’ Processor API.
+It avoids Kafka Streams' users a lot of boilerplate code to have a dedicated topology and a proper production readiness (health, observability, error handling).
+All that is left to develop is a simple Processor class.
+The extension takes care of the rest.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_streaming_processor"><a class="anchor" href="#_streaming_processor"></a>Streaming processor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A streaming microservice has some requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Kafka Streams processors are not thread-safe, so a processor scope is <code>@jakarta.enterprise.context.Dependent</code> by default.</p>
+</li>
+<li>
+<p>An incoming message, from an input topic, can be acknowledged only when it has been processed and its result message has been produced and stored in a Kafka output topic.</p>
+</li>
+<li>
+<p>If an incoming message could not be acknowledged (e.g: a microservice crash) then the incoming message will be redelivered (at-least-once guarantee).</p>
+</li>
+<li>
+<p>Incoming messages are processed in the order of arrival (ordering guarantee)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are currently several bootstraps or libraries that support writing stream processor-based applications on different broker technologies.
+This extension&#8217;s processor solution is based on Kafka Streams' Processor API.</p>
+</div>
+<div class="sect2">
+<h3 id="_kafka_streams"><a class="anchor" href="#_kafka_streams"></a>Kafka Streams</h3>
+<div class="paragraph">
+<p>Kafka Streams is an <a href="https://github.com/apache/kafka/tree/trunk/streams">opensource client library</a> that allows to write streaming applications.</p>
+</div>
+<div class="paragraph">
+<p>It is enabled by the quarkus-kafka-streams extension:</p>
+</div>
+<div class="listingblock">
+<div class="title">pom.xml</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-kafka-streams&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Only one threading model is supported: 1 thread per topic-partition (see <a href="https://kafka.apache.org/25/documentation/streams/architecture.html#streams_architecture_threads">details</a>)</p>
+</div>
+<div class="paragraph">
+<p>The number of partitions on the source topic determines up to how many threads can consume in parallel.</p>
+</div>
+<div class="paragraph">
+<p>Synchronous/blocking programing must be used to ensure guarantee of execution and ordering.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There is a <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-408%3A+Add+Asynchronous+Processing+To+Kafka+Streams">proposal under discussion</a> for adding asynchronous processing to Kafka Streams.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_a_simplified_processor_api"><a class="anchor" href="#_a_simplified_processor_api"></a>A simplified Processor API</h3>
+<div class="paragraph">
+<p>On top of Kafka Streams, the quarkus-kafka-streams-processor extension adds features to help you to write streaming microservices.</p>
+</div>
+<div class="paragraph">
+<p>The following dependency needs to be added:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;project&gt;
+    &lt;dependencyManagement&gt;
+      &lt;dependencies&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;io.quarkiverse.kafkastreamsprocessor&lt;/groupId&gt;
+          &lt;artifactId&gt;quarkus-kafka-streams-processor-bom&lt;/artifactId&gt;
+          &lt;version&gt;${quarkus.kafkastreamsprocessor.version}&lt;/version&gt;
+          &lt;type&gt;bom&lt;/type&gt;
+          &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+      &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;
+    &lt;dependencies&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;io.quarkiverse.kafkastreamsprocessor&lt;/groupId&gt;
+        &lt;artifactId&gt;quarkus-kafka-streams-processor-api&lt;/artifactId&gt;
+      &lt;/dependency&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;io.quarkiverse.kafkastreamsprocessor&lt;/groupId&gt;
+        &lt;artifactId&gt;quarkus-kafka-streams-processor&lt;/artifactId&gt;
+        &lt;scope&gt;runtime&lt;/scope&gt;
+      &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With the extension, it is expected to define an annotated  <a href="https://docs.confluent.io/current/streams/developer-guide/processor-api.html">Kafka Streams' Processor</a>.
+It is discovered as a CDI bean and instrumented by the Quarkus runtime.
+The difference here with the fully fledged <a href="https://docs.confluent.io/current/streams/developer-guide/processor-api.html">Kafka Streams Processor API</a> is that there is no need to build a custom Topology for each new microservice.
+It is built by the Quarkus runtime.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="title">PingProcessor.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Slf4j
+@Processor <i class="conum" data-value="1"></i><b>(1)</b>
+public class PingProcessor extends ContextualProcessor&lt;String, Ping, String, Ping&gt; { <i class="conum" data-value="2"></i><b>(2)</b>
+
+  @Override
+  public void process(Record&lt;String, Ping&gt; record) { <i class="conum" data-value="3"></i><b>(3)</b>
+    resultMessage = countChars(record.value().getMessage());
+    Ping pong = Ping.newBuilder().setMessage(resultMessage).build();
+    context().forward(record.withValue(pong)); <i class="conum" data-value="4"></i><b>(4)</b>
+  }
+
+  /**
+   * Counts the nb of characters and returns it as string.
+   */
+  private String countChars(String input) {
+    return String.valueOf(input.length());
+  }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Processors are beans managed by CDI, and as such need to be annotated with
+<code>@io.quarkiverse.kafkastreamsprocessor.api.Processor</code> so that any other CDI dependency may be injected.
+Kafka Streams' processors are not thread-safe, so a processor scope is <code>@jakarta.enterprise.context.Dependent</code> by default.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Directly extend <code>org.apache.kafka.streams.processor.api.ContextualProcessor</code>, specifying the type of keys and values.
+For keys, only type <code>String</code> is supported.
+For values, see <a href="#_data_serialization">supported types</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The <code>process</code> method is called for each incoming message.
+Any processing must be done synchronously.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The <code>forward</code> method allows to produce an outgoing message.
+Internally Kafka Streams links the acknowledgment on the outgoing message with the commit of the associated incoming message.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_topology_builder"><a class="anchor" href="#_topology_builder"></a>Topology builder</h3>
+<div class="paragraph">
+<p>In short (see <a href="https://kafka.apache.org/24/documentation/streams/core-concepts">core concepts</a>), in Kafka Streams a Topology is made of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sources: 1 or more input topics</p>
+</li>
+<li>
+<p>Processors: a graph of 1 or more record handlers</p>
+</li>
+<li>
+<p>Stores (optional): for stateful use cases, the processor must be assigned one or multiple stores to keep the state.</p>
+</li>
+<li>
+<p>Sinks: 1 or more output topics</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The extension will automatically build the following topology:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Scan for a CDI bean of type <code>org.apache.kafka.streams.processor.api.Processor&lt;KIn, VIn, KOut, VOut&gt;</code> (single processor).
+The deprecated type <code>org.apache.kafka.streams.processor.Processor&lt;K, V&gt;</code> is also supported for backward-compatibility.</p>
+</li>
+<li>
+<p>Register a source for topics in <code>kafkastreamsprocessor.input.topic</code>, String key serializer and Protobuf value deserializer based on the declared type <code>&lt;V&gt;</code> of the processor.</p>
+</li>
+<li>
+<p>Register as many sinks as topics listed in properties matching <code>kafkastreamsprocessor.output.sinks.&lt;sink&gt;.topic</code>, String key serializer and Protobuf value serializer.
+Sink name is taken from the properties name.
+If no <code>kafkastreamsprocessor.output.sinks.&lt;sink&gt;.topic</code> properties are defined and a single topic is defined in <code>kafkastreamsprocessor.output.topic</code>, a default sink is used.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Please consider two kind of properties:</p>
+</div>
+<div class="sect2">
+<h3 id="_first_class_citizen_properties"><a class="anchor" href="#_first_class_citizen_properties"></a>First class citizen properties</h3>
+<div class="paragraph">
+<p>First class citizen properties are a set of properties prefixed with <code>quarkus.kafka-streams</code>.
+They are consumed by the Quarkus kafka-streams extension itself (used at build time and overridable, for some of them, at runtime).</p>
+</div>
+<div class="paragraph">
+<p>In Kafka Streams Processor the following configuration keys are required:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.input.topic">kafkastreamsprocessor.input.topic</a></code></p>
+</li>
+<li>
+<p><code><a href="#kafka-streams-processor-configuration-keys_kafka.streams.processor-sink-topic">kafkastreamsprocessor.output.topic</a></code> or <code><a href="#kafka-streams-processor-configuration-keys_kafka.streams.processor-sink-topic">kafkastreamsprocessor.output.sinks.&lt;sink&gt;.topic</a></code></p>
+</li>
+<li>
+<p><code><a href="#kafka-streams-processor-configuration-keys_quarkus.kafka-streams.topics">quarkus.kafka-streams.topics</a></code></p>
+</li>
+<li>
+<p><code><a href="#kafka-streams-processor-configuration-keys_quarkus.kafka-streams.application-id">quarkus.kafka-streams.application-id</a></code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Refer to <a href="https://quarkus.io/guides/kafka-streams#configuration-reference">Kafka Streams extension&#8217;s configuration reference</a> for a full list.</p>
+</div>
+<div class="paragraph">
+<p>All the properties used in the extension are recapped
+<code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.input.topic">here</a></code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pass_through_properties"><a class="anchor" href="#_pass_through_properties"></a>Pass-through properties</h3>
+<div class="paragraph">
+<p>Due to the important number of properties that can be set to configure a Kafka Streams application, it&#8217;s impossible for Quarkus extension to know them all.</p>
+</div>
+<div class="paragraph">
+<p>But it&#8217;s possible to use pass-through properties in the configuration of your application, using the name of property but prefixed with <code>kafka-streams</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># First citizen property
+quarkus.kafka-streams.bootstrap-servers=localhost:9092
+
+# Pass-through properties
+kafka-streams.producer.linger.ms=0
+kafka-streams.compression.type=gzip</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_override_pass_through_properties"><a class="anchor" href="#_override_pass_through_properties"></a>Override pass-through properties</h3>
+<div class="paragraph">
+<p>Overriding pass-through properties at runtime is a little bit hacky because you need to prefix the property with <code>quarkus.</code>
+Then, you can pass it as a Java system property.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Passing the property as an environment variable with Microprofile Config convention <strong>IS NOT</strong> working.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Fo example, the possible way to override a pass-through property in a Kafka Streams Processor microservice would be to use the corresponding system property in the JVM commandline:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">-Dquarkus.kafka-streams.producer.linger.ms=50</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_serialization"><a class="anchor" href="#_data_serialization"></a>Data serialization</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Data serialization refers to the process of converting complex data structures or objects into a format that can be easily transmitted over a network.
+The extension&#8217;s processors support different serialization formats.
+By analyzing the types of declared input and output payloads of the processor, it&#8217;s possible to infer the type of data to serialize and set up the correct serializer and deserializer.</p>
+</div>
+<div class="paragraph">
+<p>As of today, the extension&#8217;s processors support three first-class citizen formats and one customization feature:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_json">JSON objects</a></p>
+</li>
+<li>
+<p><a href="#_serialization_to_protobuf_and_its_caveats">Protobuf generated classes</a></p>
+</li>
+<li>
+<p>Other data format can be supported through the <a href="#_serdes_customization">Serializer/Deserializer customization</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+JSON is the default serialization format.
+If the payload cannot be serialized to JSON, an error is thrown.
+Depending on the Global DLQ <a href="#_error_management">Error management</a> the message will be produced in the DLQ, and the incoming message will be acknowledged in the input topic.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_json"><a class="anchor" href="#_json"></a>JSON</h3>
+<div class="paragraph">
+<p>JSON is a first class citizen serialization format, the SDK will use JSON as default serialization format.</p>
+</div>
+<div class="sect3">
+<h4 id="_example"><a class="anchor" href="#_example"></a>Example</h4>
+<div class="paragraph">
+<p>In this example, we implement a processor working with a POJO as value type.
+The POJO is read from kafka, or written to kafka, with the POJO&#8217;s JSON textual representation.</p>
+</div>
+<div class="listingblock">
+<div class="title">PojoProcessor.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Unresolved include directive in modules/ROOT/pages/index.adoc - include::../../../../integration-tests/json-pojo/src/main/java/io/quarkiverse/kafkastreamsprocessor/sample/jsonpojo/PojoProcessor.java[]</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Your Processor is declared with the annotation as for a regular processor.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The handled value type, is a class that can be serialized in JSON.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Same POJO value in the <em>process()</em> method.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Similarly, a POJO value can be sent down to the output topic.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configuring_json_serialization"><a class="anchor" href="#_configuring_json_serialization"></a>Configuring JSON serialization</h4>
+<div class="paragraph">
+<p>In order to customize the JSON serialization, the SDK relies on the <code>ObjectMapper</code> customization from <a href="https://quarkus.io/guides/rest-json#json">Quarkus</a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_serialization_to_protobuf_and_its_caveats"><a class="anchor" href="#_serialization_to_protobuf_and_its_caveats"></a>Serialization to Protobuf and its caveats</h3>
+<div class="paragraph">
+<p>Protobuf values and String are the first class citizen data types in Kafka Streams Processor messaging.</p>
+</div>
+<div class="paragraph">
+<p>To ease development with Protobuf, various libraries support code generation from <code>.proto</code> files or
+<a href="https://www.openapis.org">OpenAPI</a> descriptors, for instance <a href="https://openapi-generator.tech">openapi-generator</a>.</p>
+</div>
+<div class="paragraph">
+<p>The main problem with this approach is that certain details of the serialization logic are implementation-dependent and may have impacts on the usability of the generated APIs.</p>
+</div>
+<div class="sect3">
+<h4 id="_null_values"><a class="anchor" href="#_null_values"></a>Null values</h4>
+<div class="paragraph">
+<p>One such case in the handling of optional elements, i.e. how to detect in business code if an element was absent, or present but with an empty value.</p>
+</div>
+<div class="paragraph">
+<p>There are multiple solutions to this problem, e.g.:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use built-in primitive types</p>
+</li>
+<li>
+<p>Use custom Nullable types instead of primitives</p>
+</li>
+<li>
+<p>Use built-in wrapper types instead of primitives</p>
+</li>
+<li>
+<p>Use optional in proto3</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_serializer_deserializer_customization"><a class="anchor" href="#_serializer_deserializer_customization"></a>Serializer &amp; Deserializer Customization</h4>
+<div class="sect4">
+<h5 id="_api"><a class="anchor" href="#_api"></a>API</h5>
+<div class="paragraph">
+<p>The SDK provides the interface <code>io.quarkiverse.kafkastreamsprocessor.api.configuration.ConfigurationCustomizer</code> which allows you to specify the serializer and deserializer you need.
+You need to declare a bean implementing that interface.</p>
+</div>
+<div class="paragraph">
+<p>It is available through the following dependency:</p>
+</div>
+<div class="listingblock">
+<div class="title">pom.xml</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkiverse.kafkastreamsprocessor&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-kafka-streams-processor-api&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_2"><a class="anchor" href="#_example_2"></a>Example</h5>
+<div class="paragraph">
+<p>In this example, we implement a processor working with a POJO as value type.
+The POJO is read from kafka, or written to kafka, with a custom serialization format provided by sink and source serializer/deserializer that need to be known at build time.</p>
+</div>
+<div class="listingblock">
+<div class="title">PojoProcessor.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Unresolved include directive in modules/ROOT/pages/index.adoc - include::../../../../integration-tests/json-pojo/src/main/java/io/quarkiverse/kafkastreamsprocessor/sample/jsonpojo/PojoProcessor.java[]</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Your Processor is declared with the annotation as for a regular processor.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The handled value type, in this example, is a simple POJO, nothing fancy.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Same POJO value in the <em>process()</em> method.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Similarly, a POJO value can be sent down to the output topic.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_serdes_customization"><a class="anchor" href="#_serdes_customization"></a>Ser/Des Customization</h3>
+<div class="listingblock">
+<div class="title">SampleConfigurationCustomizer.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Dependent
+public class SampleConfigurationCustomizer implements ConfigurationCustomizer {
+  @Override
+  public void fillConfiguration(Configuration configuration) {
+      configuration.setSinkValueSerializer(new MyCustomSerializer&lt;SamplePojo&gt;());
+    configuration.setSourceValueSerde(new MyCustomSerde(SamplePojo));
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>io.quarkiverse.kafkastreamsprocessor.api.configuration.ConfigurationCustomizer</code> implementation provided sets the required Serializer and Deserializer into the method&#8217;s <code>io.quarkiverse.kafkastreamsprocessor.api.configuration.Configuration</code> object.
+In this example, we set a custom serialization through the usage of Kafka Serdes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_error_management"><a class="anchor" href="#_error_management"></a>Error management</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_strategy_for_error_management"><a class="anchor" href="#_strategy_for_error_management"></a>Strategy for error management</h3>
+<div class="paragraph">
+<p>When an exception occurs while processing a record, different strategies have been defined:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>"continue"</strong> (default) : drop the message and continue processing</p>
+</li>
+<li>
+<p><strong>"fail"</strong> (not implemented yet) : fail and stop processing more message</p>
+</li>
+<li>
+<p><strong>"dead-letter-queue"</strong> : send the message to the DLQ and continue processing</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dlq_monitoring"><a class="anchor" href="#_dlq_monitoring"></a>DLQ monitoring</h3>
+<div class="paragraph">
+<p>Such exception occurs are counted by a <a href="#_monitoring">custom metric</a> of this extension.
+If the <code>dead-letter-queue</code> strategy is chosen, the messages produced to the DLQ topics are counted.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dead_letter_queue_strategy"><a class="anchor" href="#_dead_letter_queue_strategy"></a>Dead-letter-queue strategy</h3>
+<div class="paragraph">
+<p>In the case of a <code>dead-letter-queue</code> strategy, the DLQ topic is added to the readiness probe to ensure the ability to produce the poisonous message to this topic.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This local DLQ is meant only to store the poisonous message that the application could not consume successfully.
+For error happening at production time, one can use a global DLQ defined for this purpose.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_global_dead_letter_queue"><a class="anchor" href="#_global_dead_letter_queue"></a>Global Dead Letter Queue</h4>
+<div class="paragraph">
+<p>When a microservice cannot produce to a downstream Kafka broker and that <code>the error cannot be managed by the application</code>, the message will be produced in a <code>global DLQ</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following value must be set in the application.properties file</p>
+</div>
+<div class="listingblock">
+<div class="title">application.properties</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">kafkastreamsprocessor.global-dlq.topic=&lt;global-dlq-topic&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, the maximum size for the message is <code>java.lang.Integer.MAX_VALUE</code> for the global DLQ.
+It can be modified with:</p>
+</div>
+<div class="listingblock">
+<div class="title">application.properties</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">kafkastreamsprocessor.global-dlq.max-message-size=3000</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All the properties used in the extension are recapped
+<code><a href="#kafka-streams-processor-configuration-keys_resiliency.kafka.globalDlq.enabled">here</a></code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_error_metadata"><a class="anchor" href="#_error_metadata"></a>Error metadata</h4>
+<div class="paragraph">
+<p>For tracking purpose following headers are added to the record:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>dead-letter-reason</code>: The reason of the failure if any (Exception message)</p>
+</li>
+<li>
+<p><code>dead-letter-cause</code>: The cause of the failure if any (Exception cause)</p>
+</li>
+<li>
+<p><code>dead-letter-topic</code>: The original topic of the record, in this case the output topic where production failed</p>
+</li>
+<li>
+<p><code>dead-letter-partition</code>: The original partition of the record</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_readiness_probe_impacts"><a class="anchor" href="#_readiness_probe_impacts"></a>Readiness probe impacts</h4>
+<div class="paragraph">
+<p>Note that if the global DLQ has been installed in the platform chart, every Kafka Streams Processor microservice will then take into account the presence of this topic in their readiness probe.</p>
+</div>
+<div class="paragraph">
+<p>By convention the suffix of the topic of the global DLQ is : <code>global-dlq</code> but this topic is prefixed with the following rules:
+Kafka topics are now automatically prefixed by the Kubernetes namespace, in order to support multi-tenant Kafka clusters.
+This will prevent conflicts between applications deployed in different namespaces, but using a shared Kafka cluster.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retries"><a class="anchor" href="#_retries"></a>Retries</h3>
+<div class="paragraph">
+<p>In order to improve resiliency and to avoid losing messages due to the temporary unavailability of an external system (database, HTTP endpoint, &#8230;&#8203;), the Kafka Streams Processor SDK has a retry logic for the exceptions raised during the process of the message.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The retry relies on the at-least-once guarantees of messaging: the processing must already support being called multiple times with the same message, and must make sure any external interaction is idempotent.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A <code>RetryDecorator</code> has been introduced inside the topology definition.
+Its responsibility is to retry indefinitely the <code>@io.quarkiverse.kafkastreamsprocessor.api.Processor</code> <code>retryableProcess</code> method when a <code>io.quarkiverse.kafkastreamsprocessor.api.exception.RetryableException</code> is raised.</p>
+</div>
+<div class="sect3">
+<h4 id="_configuration_2"><a class="anchor" href="#_configuration_2"></a>Configuration</h4>
+<div class="paragraph">
+<p>The default behavior can be overriden via the following configuration, ie:</p>
+</div>
+<div class="listingblock">
+<div class="title">application.properties</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">kafkastreamsprocessor.retry.max-retries=-1
+kafkastreamsprocessor.retry.retry-on=io.quarkiverse.kafkastreamsprocessor.api.exception.RetryableException</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As this implementation is based on <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#_retry_usage">Eclipse Microprofile Fault Tolerance</a> it&#8217;s also possible to override some default policy (ie: maxDuration, jitter&#8230;&#8203;) under the prefix <code>kafkastreamsprocessor.retry.</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ad_hoc_usage"><a class="anchor" href="#_ad_hoc_usage"></a>Ad hoc usage</h4>
+<div class="paragraph">
+<p>You can also use the Fault Tolerance <code>@org.eclipse.microprofile.faulttolerance.Retry</code> annotation for some other logic in your code.</p>
+</div>
+<div class="listingblock">
+<div class="title">PingerService.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class PingerService {
+    @Retry <i class="conum" data-value="1"></i><b>(1)</b>
+    @Override
+    public Response ping(String message) {
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Define the method to retry with <code>org.eclipse.microprofile.faulttolerance.Retry</code> annotation</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">application.properties</div>
+<div class="content">
+<pre># Override max retry default value
+io.quarkiverse.kafkastreamsprocessor.example.PingerService/Retry/maxRetries=3</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_monitoring"><a class="anchor" href="#_monitoring"></a>Monitoring</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_kafka_metrics_cardinality"><a class="anchor" href="#_kafka_metrics_cardinality"></a>Kafka metrics cardinality</h3>
+<div class="paragraph">
+<p>Users have to pay attention to some specificities of <a href="https://docs.confluent.io/platform/current/streams/monitoring.html">Kafka Streams metrics</a>: some metrics have labels whose values are <strong>dynamic</strong>.
+There&#8217;s a possible impact on Prometheus because this could drastically increase the amount of data needed to store the time series.
+To understand how IDs label are computed, one can read the following documentation on <a href="https://docs.confluent.io/platform/current/streams/monitoring.html#get-runtime-information-on-kafkastreams-clients">KafkaStreams runtime information</a></p>
+</div>
+<div class="paragraph">
+<p>To mitigate the impact, it is a good practice to fix arbitrary prefix to dynamic labels but still, the dynamicity cannot be removed entirely.</p>
+</div>
+<div class="paragraph">
+<p>As an example, all Kafka metrics have in common the label <code>client_id</code>, the resulting computation of the label by the SDK is:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example metric</div>
+<div class="content">
+<pre>kafka_consumer_fetch_manager_records_consumed_total{client_id="application-name-StreamThread-1-consumer",kafka_version="3.6.3",topic="ping-events",} 1.0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The metric <code>client_id</code> value is formed of :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>quarkus-kafka-streams-processor-simple-sample</code> which is the client id defined in <code>kafka-streams.client.id</code> config property</p>
+</li>
+<li>
+<p><code>StreamThread-1-consumer</code> which is computed by KafkaStreams and depends on the number of threads.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So it is a good practice to set <code>kafka-streams.client.id</code> with the name of the microservice.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quarkus_kafka_streams_processor_metric_list"><a class="anchor" href="#_quarkus_kafka_streams_processor_metric_list"></a>quarkus-kafka-streams-processor metric list</h3>
+<div class="paragraph">
+<p>This list includes the additional metrics, on top of the Kafka Streams and the general Kafka ones, that this extension instruments:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Messaging metrics</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 22.2222%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Micrometer metric name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kafkastreamsprocessor.processor.errors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Counter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of errors encountered during Kafka Streams message processing</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Punctuation metrics</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 22.2222%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Micrometer metric name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kafkastreamsprocessor.punctuation.errors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Counter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of times a Punctuator&#8217;s execution failed with an exception since the start of the microservice.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Dead Letter Queue Metrics</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 22.2222%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Micrometer metric name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kafkastreamsprocessor.dlq.sent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Counter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of messages sent to DLQ. This metrics differs from the kafkastreamsprocessor.processor.errors in that the deserialization errors are taken into account. If no DLQ strategy is chosen, then this metric will be 0. Messages too large for the DLQ will be counted both in this metrics and in kafkastreamsprocessor.global.dlq.sent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kafkastreamsprocessor.global.dlq.sent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Counter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of messages sent to global DLQ.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_comparison_between_reactive_messaging_kafka_and_kafka_streams"><a class="anchor" href="#_a_comparison_between_reactive_messaging_kafka_and_kafka_streams"></a>A comparison between Reactive Messaging Kafka and Kafka Streams</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These two technologies can be used to create streaming microservices to be used in Event-Driven architecture applications.</p>
+</div>
+<div class="paragraph">
+<p>As explained in the <a href="#_streaming_processor">Streaming processor</a> introduction, a streaming microservice has some requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An incoming message, from an input topic, can be acknowledged only when it has been processed and its result message has been produced and stored in a Kafka output topic.</p>
+</li>
+<li>
+<p>If an incoming message could not be acknowledged (e.g: a microservice crash) then the incoming message will be redelivered (at-least-once guarantee).</p>
+</li>
+<li>
+<p>Incoming messages are processed in the order of arrival (ordering guarantee)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the Kafka Streams bootstrap, the guarantee of ordering from the source topic has a direct impact on the message consumption and the scalability model.
+As explained in the <a href="#_kafka_streams">Kafka Streams</a>, the number of partitions of the source topic determines how many threads can consume in parallel.</p>
+</div>
+<div class="paragraph">
+<p>In other terms, for an input topic, it&#8217;s not possible to process more that <code>x</code> messages in parallel where <code>x</code> is the number of partitions of the source topic.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Starting asynchronous processing in a Kafka Streams microservice would lead to loss of messages: acknowledgement of the incoming messages will be de-synchronized from the production of messages once outgoing messages have been processed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Reactive messaging has a different architecture and threading model compared to Kafka Streams.
+But by default, when processing messages it comes with the same guarantees seen above.</p>
+</div>
+<div class="paragraph">
+<p>However, it&#8217;s possible to alter the behaviour of the message processing with annotations to improve, in a drastic manner, the concurrency of a microservice.
+The purpose of increasing concurrency is to be able to cope with streaming microservice that need to call slow remote APIs, this is the bridging from event-driven to service-oriented architecture.</p>
+</div>
+<div class="sect2">
+<h3 id="_concurrent_processing_in_reactive_messaging"><a class="anchor" href="#_concurrent_processing_in_reactive_messaging"></a>Concurrent processing in Reactive Messaging</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">  @Incoming("ping-events") <i class="conum" data-value="1"></i><b>(1)</b>
+  @Outgoing("pong-events") <i class="conum" data-value="2"></i><b>(2)</b>
+  @Blocking(ordered = false) <i class="conum" data-value="3"></i><b>(3)</b>
+  public Ping process(Ping ping) {
+    return api.remoteCall();
+  }</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>@Incoming</code> is declaring this method as a subscriber for the channel named <code>ping-events</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>@Outgoing</code> is declaring this method as a producer for the channel named <code>pong-events</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>@io.smallrye.reactive.messaging.annotations.Blocking</code> Indicates that this method is running out of the processing thread, inside a worker thread and the order of the messages is not important.
+Note that once the execution is finished the result is handled back to the processing thread.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_guarantee_of_delivery_in_concurrent_processing"><a class="anchor" href="#_guarantee_of_delivery_in_concurrent_processing"></a>Guarantee of delivery in concurrent processing</h3>
+<div class="paragraph">
+<p>In Kafka Streams, performing asynchronous calls would lead to the possibility of messages not being redelivered.
+What about the guarantee of delivery when processing concurrent messages in Reactive Messaging?</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s up to the <a href="https://smallrye.io/smallrye-reactive-messaging/3.21.0/kafka/receiving-kafka-records/#acknowledgement">acknowledgement policy</a> to commit incoming messages when it has been processed concurrently.
+The default strategy is throttled and guarantees at-least-once delivery</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>throttled</code> keeps track of received messages and commits to the next offset after the latest acked message in sequence.
+This strategy guarantees at-least-once delivery even if the channel performs asynchronous processing.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_effects_of_throttled_unprocessed_record_max_age_ms_on_the_liveness_probe"><a class="anchor" href="#_effects_of_throttled_unprocessed_record_max_age_ms_on_the_liveness_probe"></a>Effects of throttled.unprocessed-record-max-age.ms on the liveness probe</h3>
+<div class="paragraph">
+<p>When using the <code>throttled</code> strategy, the commit of the sequence of messages will happen only when all messages have been processed (ordered or not).</p>
+</div>
+<div class="paragraph">
+<p>If the processing method does not return before reaching the <code>throttled.unprocessed-record-max-age.ms</code> timeout, the microservice will be considered as <code>unhealthy</code> and the liveness probe will fail and the microservice will be restarted.
+It means that, for example, if a remote API takes too long to respond for some queries, and its timeout is configured with a value above <code>throttled.unprocessed-record-max-age.ms</code>, then messages will be received again after the restart, acting like a poison pill.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_processors_summary"><a class="anchor" href="#_processors_summary"></a>Processors summary</h3>
+<div class="paragraph">
+<p>Here&#8217;s a recap of the guarantees offered by the different way of processing messages.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Processor</th>
+<th class="tableblock halign-left valign-top">Guarantee of order</th>
+<th class="tableblock halign-left valign-top">At-least-once delivery</th>
+<th class="tableblock halign-left valign-top">Max concurrency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default Kafka Streams</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of partitions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kafka Streams asynchronous</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of threads</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default Reactive Messaging</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of partitions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reactive Messaging with @Blocking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of partitions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reactive Messaging with @Blocking(order=false)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of threads</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_stateful_eda"><a class="anchor" href="#_stateful_eda"></a>Stateful EDA</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h3>
+<div class="paragraph">
+<p>To support stateful requirements, Kafka Streams' Processor need to implement a <a href="https://kafka.apache.org/25/documentation/streams/developer-guide/processor-api.html#state-stores">State-Store</a>.
+By default, no State-Store are linked to the <code>io.quarkiverse.kafkastreamsprocessor.api.Processor</code> but the application can override this configuration.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_api_2"><a class="anchor" href="#_api_2"></a>API</h3>
+<div class="paragraph">
+<p>The SDK provides the interface <code>io.quarkiverse.kafkastreamsprocessor.api.configuration.ConfigurationCustomizer</code> which allows you to specify the State-Store you need.
+You need to declare a bean implementing that interface.</p>
+</div>
+<div class="paragraph">
+<p>It is available through the following dependency:</p>
+</div>
+<div class="listingblock">
+<div class="title">pom.xml</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkiverse.kafkastreamsprocessor&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-kafka-streams-processor-api&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_3"><a class="anchor" href="#_example_3"></a>Example</h3>
+<div class="paragraph">
+<p>In this example, we implement a processor which is using a State-Store.</p>
+</div>
+<div class="sect3">
+<h4 id="_processor"><a class="anchor" href="#_processor"></a>Processor</h4>
+<div class="listingblock">
+<div class="title">StateStoreProcessor.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Unresolved include directive in modules/ROOT/pages/index.adoc - include::../../../../integration-tests/stateful/src/main/java/io/quarkiverse/kafkastreamsprocessor/sample/stateful/PingProcessor.java[]</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Your Processor is declared with the annotation as for a regular processor.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The definition and initialization of your state store.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_statestore_customization"><a class="anchor" href="#_statestore_customization"></a>StateStore Customization</h4>
+<div class="listingblock">
+<div class="title">SampleConfigurationCustomizer.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Unresolved include directive in modules/ROOT/pages/index.adoc - include::../../../../integration-tests/stateful/src/main/java/io/quarkiverse/kafkastreamsprocessor/sample/stateful/SampleConfigurationCustomizer.java[]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>io.quarkiverse.kafkastreamsprocessor.api.configuration.ConfigurationCustomizer</code> implementation provided sets the required State-Store configurations into the method&#8217;s
+<code>io.quarkiverse.kafkastreamsprocessor.api.configuration.Configuration</code> object.
+In this example a <code>ping-data</code> key/value store has been created.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_punctuation"><a class="anchor" href="#_punctuation"></a>Punctuation</h3>
+<div class="paragraph">
+<p>Kafka Streams allows you to define Punctuator that are sort of scheduled tasks that Kafka Streams triggers (<a href="https://kafka.apache.org/10/documentation/streams/developer-guide/processor-api.html#id2">Kafka Streams documentation</a>).
+One key issue with Punctuators is that they do not support Exceptions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a checked Exception cannot be thrown as the method signature does not allow it</p>
+</li>
+<li>
+<p>a RuntimeException because Kafka Streams does not catch it.
+It basically crashes your whole microservice.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To work around the latter point and increase stability, the <code>quarkus-kafka-streams-processor</code> extension wraps a <code>Punctuator</code> before it is added in Kafka Streams to catch the RuntimeException and log an error instead.
+Exceptions are also counted with a dedicated metric.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_custom_decorators"><a class="anchor" href="#_custom_decorators"></a>Custom decorators</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The extension proposes some capabilities to customize more finely the behaviour of the different layers of decoration in addition to the ones that this extension brings to the table.</p>
+</div>
+<div class="sect2">
+<h3 id="_processor_decorator"><a class="anchor" href="#_processor_decorator"></a>Processor decorator</h3>
+<div class="paragraph">
+<p>The following decoration layer is already extensively used in this extension&#8217;s source code and allows to use composition around the main processor class you have to define.
+Example of a new decorator:</p>
+</div>
+<div class="listingblock">
+<div class="title">ProcessorDecorator.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Decorator <i class="conum" data-value="1"></i><b>(1)</b>
+@Priority(150) <i class="conum" data-value="2"></i><b>(2)</b>
+public class ProcessorDecorator&lt;KIn, VIn, KOut, VOut&gt; implements Processor&lt;KIn, VIn, KOut, VOut&gt; { <i class="conum" data-value="3"></i><b>(3)</b>
+    @lombok.experimental.Delegate(excludes = Excludes.class)
+    private final Processor&lt;KIn, VIn, KOut, VOut&gt; delegate; <i class="conum" data-value="4"></i><b>(4)</b>
+
+    private final MyBean bean;
+
+    @Inject
+    public TracingDecorator(@Delegate Processor&lt;KIn, VIn, KOut, VOut&gt; delegate, MyBean bean) { <i class="conum" data-value="5"></i><b>(5)</b>
+        this.delegate = delegate;
+        this.bean = bean;
+    }
+
+    @Override
+    public void process(Record&lt;KIn, VIn&gt; record) { <i class="conum" data-value="6"></i><b>(6)</b>
+      // use bean before
+      delegate.process(record);
+      // use bean after
+    }
+
+    private interface Excludes {
+        &lt;KIn, VIn&gt; void process(Record&lt;KIn, VIn&gt; record);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Decorator annotation to profit from the <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#decorators">decorator</a> feature of CDI</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Force the instantiation of the decorator with the Priority annotation.
+Indeed, otherwise the decorator is not taken into account by Quarkus.
+The priority is to be set based on the priorities of the existing decorators which are:
+<div class="listingblock">
+<div class="title">ProcessorDecoratorPriorities.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Unresolved include directive in modules/ROOT/pages/index.adoc - include::../../../../api/src/main/java/io/quarkiverse/kafkastreamsprocessor/api/decorator/processor/ProcessorDecoratorPriorities.java[]</code></pre>
+</div>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The decorator should have the same generics declaration <code>&lt;KIn, VIn, KOut, VOut&gt;</code> as the <code>Processor&lt;KIn, VIn, KOut, VOut&gt;</code> interface that it implements</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Delegate reference to use when decorating methods.
+It is annotated with lombok&#8217;s <a href="https://projectlombok.org/features/experimental/Delegate">Delegate</a> annotation to generate passthrough decorated methods that this Decorator class won&#8217;t decorate.
+The selection is done through a blacklist of method signatures gathered in a private <code>Excludes</code> interface declared at the end of the class.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Injection constructor which must have a delegate argument annotated with the <code>Delegate</code> annotation from CDI.
+You can also, as a regular CDI bean, inject any another CDI bean reference to be used in this decorator.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Example of decorated method, here the main <code>process</code> method of <code>Processor</code> API of Kafka Streams.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Such a decorator will automatically been taken into account by CDI through the combination of <code>Decorator</code> and <code>Priority</code> annotations.
+The priority will control at which point your decorator will be called among all other decorators.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_producer_interceptor"><a class="anchor" href="#_producer_interceptor"></a>Producer interceptor</h3>
+<div class="paragraph">
+<p>Kafka Streams already has the notion of a <a href="https://kafka.apache.org/36/javadoc/org/apache/kafka/clients/producer/ProducerInterceptor.html">ProducerInterceptor</a>.
+But as the rest of Kafka Streams SPI, it is based on a class name and a default constructor for instantiation.
+It does not support CDI resolution.</p>
+</div>
+<div class="paragraph">
+<p>This is why this extension&#8217;s API defines a <code>ProducerOnSendInterceptor</code> interface that is instrumentated through CDI.
+Example of usage:</p>
+</div>
+<div class="listingblock">
+<div class="title">MyProducerInterceptor.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ApplicationScoped <i class="conum" data-value="1"></i><b>(1)</b>
+public class HeaderAddingProducerInterceptor implements ProducerOnSendInterceptor { <i class="conum" data-value="2"></i><b>(2)</b>
+    @Override
+    public int priority() { <i class="conum" data-value="3"></i><b>(3)</b>
+        return 200;
+    }
+
+    @Override
+    public ProducerRecord&lt;byte[], byte[]&gt; onSend(ProducerRecord&lt;byte[], byte[]&gt; producerRecord) { <i class="conum" data-value="4"></i><b>(4)</b>
+        producerRecord.headers().remove("header");
+        producerRecord.headers().add("header", "headervalue".getBytes(StandardCharsets.UTF_8));
+        return producerRecord;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Producer interceptors are discovered by CDI by the <code>ApplicationScoped</code> annotation</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The interceptor class should extend <code>ProducerOnSendInterceptor</code>.
+<code>ProducerOnSendInterceptor</code> extends <code>ProducerInterceptor&lt;byte[], byte[]&gt;</code> and overrides some of its methods with default implementations to exempt their forced implementations further down the line.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>This is not mandatory.
+But it allows to control in which order multiple interceptor that would defined are called.
+The default priority is <code>100</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The intercepted method call which allow to modify the ProducerRecord before it is finally sent to Kafka.
+In this example, we replace a header named <code>header</code> with another value <code>headervalue</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_punctuator_decorator"><a class="anchor" href="#_punctuator_decorator"></a>Punctuator decorator</h3>
+<div class="paragraph">
+<p>A Kafka Streams <a href="https://kafka.apache.org/36/javadoc/org/apache/kafka/streams/processor/Punctuator.html">Punctuator</a> is a callback to use with <a href="https://kafka.apache.org/36/javadoc/org/apache/kafka/streams/processor/ProcessorContext.html#schedule(java.time.Duration,org.apache.kafka.streams.processor.PunctuationType,org.apache.kafka.streams.processor.Punctuator)">ProcessorContext#schedule(&#8230;&#8203;)</a>.
+It allows to schedule a periodic operation, depending on batch of incoming messages or on a timely manner.</p>
+</div>
+<div class="paragraph">
+<p>We propose in the extension a way to decorate <em>any</em> <code>Punctuator</code> a microservice would create.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The extension does not give the capability to narrow the decoration on only a given instance or class of <code>Punctuator</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The decoration happens through the implementation of a <code>DecoratedPunctuator</code> interface with a bit the same idea as for the <a href="#_processor_decorator">Processor decorator</a>: usage of the CDI <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#decorators">Decorator</a> feature.
+Example of decoration:</p>
+</div>
+<div class="listingblock">
+<div class="title">MyDecoratedPunctuator.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Decorator <i class="conum" data-value="1"></i><b>(1)</b>
+@Priority(150) <i class="conum" data-value="2"></i><b>(2)</b>
+public class CdiRequestContextPunctuatorDecorator implements DecoratedPunctuator { <i class="conum" data-value="3"></i><b>(3)</b>
+    @lombok.experimental.Delegate(excludes = Excludes.class)
+    private final DecoratedPunctuator delegate; <i class="conum" data-value="4"></i><b>(4)</b>
+
+    private final MyBean myBean;
+
+    @Inject
+    public CdiRequestContextPunctuatorDecorator(@Delegate DecoratedPunctuator delegate, MyBean myBean) { <i class="conum" data-value="5"></i><b>(5)</b>
+        this.delegate = delegate;
+        this.myBean = myBean;
+    }
+
+    @Override
+    public void punctuate(long timestamp) { <i class="conum" data-value="6"></i><b>(6)</b>
+        // use before punctuate the myBean reference
+        delegate.punctuate(timestamp);
+        // use after punctuate the myBean reference
+    }
+
+    private interface Excludes {
+        void punctuate(long timestamp);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Decorator annotation to profit from the <a href="https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html#decorators">decorator</a> feature of CDI</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Force the instantiation of the decorator with the Priority annotation.
+Indeed, otherwise the decorator is not taken into account by Quarkus.
+The priority is to be set based on the priorities of the existing decorators which are:
+<div class="listingblock">
+<div class="title">PunctuatorDecoratorPriorities.java</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">Unresolved include directive in modules/ROOT/pages/index.adoc - include::../../../../api/src/main/java/io/quarkiverse/kafkastreamsprocessor/api/decorator/punctuator/PunctuatorDecoratorPriorities.java[]</code></pre>
+</div>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The decorator should extend the <code>DecoratedPunctuator</code> interface defined by this extension.
+It won&#8217;t be considered otherwise.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Delegate reference to use when decorating methods.
+It is annotated with lombok&#8217;s <a href="https://projectlombok.org/features/experimental/Delegate">Delegate</a> annotation to generate passthrough decorated methods that this Decorator class won&#8217;t decorate.
+The selection is done through a blacklist of method signatures gathered in a private <code>Excludes</code> interface declared at the end of the class.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Injection constructor which must have a delegate argument annotated with the <code>Delegate</code> annotation from CDI.
+Is showcased here also the injection of another bean to be used in this decorator.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Example of decorated method, here the main <code>punctuate</code> method of the <code>Punctuator</code> interface.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="extension-configuration-reference"><a class="anchor" href="#extension-configuration-reference"></a>Extension configuration reference</h2>
+<div class="sectionbody">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="kafka-streams-processor-configuration-keys"></a><a href="#kafka-streams-processor-configuration-keys">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.input.topic"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.input.topic">kafkastreamsprocessor.input.topic</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Kafka topics for incoming messages (comma separated if multiple topics).</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_INPUT_TOPIC</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.output.topic"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.output.topic">kafkastreamsprocessor.output.topic</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Kafka topics for outgoing messages.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_OUTPUT_TOPIC</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafka.streams.processor-sink-topic"></a><code><a href="#kafka-streams-processor-configuration-keys_kafka.streams.processor-sink-topic">kafka.streams.processor&lt;sink&gt;.topic</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The Kafka topic for outgoing messages for the given sink name.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKA_STREAMS_PROCESSOR__sink__TOPIC</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.dlq.topic"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.dlq.topic">kafkastreamsprocessor.dlq.topic</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Dead letter Queue name</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_DLQ_TOPIC</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.global-dlq.topic"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.global-dlq.topic">kafkastreamsprocessor.global-dlq.topic</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Global Dead letter Queue to produce error messages note manage by the application</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_GLOBAL_DLQ_TOPIC</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.global-dlq.max-message-size"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.global-dlq.max-message-size">kafkastreamsprocessor.global-dlq.max-message-size</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Global Dead letter Queue maximum request size</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_GLOBAL_DLQ_PRODUCER_MAX_MESSAGE_SIZE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">java.lang.Integer.MAX_VALUE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_resiliency.kafka.globalDlq.enabled"></a><code><a href="#kafka-streams-processor-configuration-keys_resiliency.kafka.globalDlq.enabled">resiliency.kafka.globalDlq.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable the production of the error message in the global DLQ when the application can not manage the error.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>RESILIENCY_KAFKA_GLOBALDLQ_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.error-strategy"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.error-strategy">kafkastreamsprocessor.error-strategy</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Kafka Streams Processor error strategy</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_ERROR_STRATEGY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">continue</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.max-retries"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.max-retries">kafkastreamsprocessor.retry.max-retries</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Max number of retries. See <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#retry">microprofile doc</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_RETRY_MAX_RETRIES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">-1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.delay"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.delay">kafkastreamsprocessor.retry.delay</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The delay between retries. See <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#retry">microprofile doc</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_RETRY_DELAY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.delay-unit"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.delay-unit">kafkastreamsprocessor.retry.delay-unit</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The unit for delay. Default milliseconds. See <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#retry">microprofile doc</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_RETRY_DELAY_UNIT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ChronoUnit</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">MILLIS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.max-duration"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.max-duration">kafkastreamsprocessor.retry.max-duration</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The max duration. See <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#retry">microprofile doc</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_RETRY_MAX_DURATION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">180000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.duration-unit"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.duration-unit">kafkastreamsprocessor.retry.duration-unit</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The unit for max duration. See <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#retry">microprofile doc</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_RETRY_DURATION_UNIT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ChronoUnit</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">MILLIS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.jitter"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.jitter">kafkastreamsprocessor.retry.jitter</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Jitter value to randomly vary retry delays for. See <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#retry">microprofile doc</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_RETRY_JITTER</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">200</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.jitter-delay-unit"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.jitter-delay-unit">kafkastreamsprocessor.retry.jitter-delay-unit</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The delay unit for jitter. Default is milliseconds. See <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#retry">microprofile doc</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_RETRY_JITTER_DELAY_UNIT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ChronoUnit</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">MILLIS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.retry-on"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.retry-on">kafkastreamsprocessor.retry.retry-on</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The list of exception types that should trigger a retry.
+Default is the provided io.quarkiverse.kafkastreamsprocessor.api.exception.RetryableException.
+See <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#retry">microprofile doc</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_RETRY_RETRY_ON</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Exception class names</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>[io.quarkiverse.kafkastreamsprocessor.api.exception.RetryableException]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.abort-on"></a><code><a href="#kafka-streams-processor-configuration-keys_kafkastreamsprocessor.retry.abort-on">kafkastreamsprocessor.retry.abort-on</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The list of exception types that should &lt;i&gt;not&lt;/i&gt; trigger a retry.
+Default is empty list
+See <a href="https://download.eclipse.org/microprofile/microprofile-fault-tolerance-3.0/microprofile-fault-tolerance-spec-3.0.html#retry">microprofile doc</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKASTREAMSPROCESSOR_RETRY_ABORT_ON</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Exception class names</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>[]</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_from_other_extension"><a class="anchor" href="#_configuration_from_other_extension"></a>Configuration from other extension</h2>
+<div class="sectionbody">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Configuration property</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_quarkus.kafka-streams.topics"></a><code><a href="https://quarkus.io/guides/kafka-streams#quarkus-kafka-streams_quarkus.kafka-streams.topics">quarkus.kafka-streams.topics</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>A comma-separated list of topic names.</p>
+</div>
+<div class="paragraph">
+<p>The micro-service will only be ready once all these topics are present in the Kafka cluster.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_KAFKA_STREAMS_TOPIC</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_quarkus.kafka-streams.application-id"></a><code><a href="https://quarkus.io/guides/kafka-streams#quarkus-kafka-streams_quarkus.kafka-streams.application-id">quarkus.kafka-streams.application-id</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>A unique identifier for this Kafka Streams application.</p>
+</div>
+<div class="paragraph">
+<p>It is used as Kafka consumer group id, so multiple replicas of micro-service balance their partition workload.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_KAFKA_STREAMS_APPLICATION_ID</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">${quarkus.application.name}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafka-streams.producer.linger.ms"></a><code><a href="https://docs.confluent.io/platform/current/installation/configuration/producer-configs.html#linger-ms">kafka-streams.producer.linger.ms</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>It is the number of milliseconds a producer is willing to wait before sending a batch out.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKA_STREAMS_PRODUCER_LINGER_MS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="kafka-streams-processor-configuration-keys_kafka-streams.compression.type"></a><code><a href="https://docs.confluent.io/platform/current/installation/configuration/topic-configs.html#compression-type">kafka-streams.compression.type</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The compression type for all data generated by the producer.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>KAFKA_STREAMS_COMPRESSION_TYPE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Possible values:</p>
+<p class="tableblock">none
+gzip
+snappy
+lz4
+zstd</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">none</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quarkus IronJacamar :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-ironjacamar/dev/index.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-ironjacamar" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">IronJacamar</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">IronJacamar</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">IronJacamar</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">IronJacamar</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-ironjacamar/edit/main/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Quarkus IronJacamar</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This extension allows you to deploy JCA Resource Adapters in Quarkus.
+IronJacamar is a Jakarta Connector Architecture (JCA) implementation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>io.quarkiverse.ironjacamar:quarkus-ironjacamar</code> extension first to your build file.</p>
+</div>
+<div class="paragraph">
+<p>For instance, with Maven, add the following dependency to your POM file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.ironjacamar&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-ironjacamar&lt;/artifactId&gt;
+    &lt;version&gt;1.1.2&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integration"><a class="anchor" href="#_integration"></a>Integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We recommend you to create a Quarkus extension dedicated for your Resource Adapter.
+This will allow you to build your Resource Adapter to native and perform the optimizations needed to run in Quarkus.
+If you don&#8217;t want to create a Quarkus extension for your Resource Adapter, just implement the <code>ResourceAdapterFactory</code> in your application code and you&#8217;ll be fine.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementing_a_resourceadapterfactory"><a class="anchor" href="#_implementing_a_resourceadapterfactory"></a>Implementing a <code>ResourceAdapterFactory</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <code>ResourceAdapterFactory</code> is an SPI that the IronJacamar extension introduces to create <code>ResourceAdapter</code>, <code>ManagedConnectionFactory</code> and <code>ActivationSpec</code> instances.
+You must use the <code>@ResourceAdapterKind</code> annotation on it to specify the resource adapter kind that will be used to identify the factory in the application code.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ResourceAdapterKind(value = "artemis") <i class="conum" data-value="1"></i><b>(1)</b>
+@ResourceAdapterTypes(connectionFactoryTypes = { jakarta.jms.ConnectionFactory.class }) <i class="conum" data-value="2"></i><b>(2)</b>
+public class ArtemisResourceAdapterFactory implements ResourceAdapterFactory {...} <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The value is the name of the resource adapter kind.
+Because a Quarkus application can manage multiple resource adapters, this is used in the configuration to select the proper resource adapter to be configured and started.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The connection factory types that this resource adapter supports.
+This must be the types that the object returned in the <code>jakarta.resource.spi.ManagedConnectionFactory.createConnectionFactory(jakarta.resource.spi.ConnectionManager)</code> has.
+That will allow you to <code>@Inject</code> this object in your application code (eg. <code>@Inject ConnectionFactory</code> in this example).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The implementation of the <code>ResourceAdapterFactory</code> interface.
+This is the class that will be instantiated by the IronJacamar extension to create the resource adapter instance.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_a_resourceendpoint"><a class="anchor" href="#_using_a_resourceendpoint"></a>Using a <code>ResourceEndpoint</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Resource endpoints are activated in the ResourceAdapter (think EJB&#8217;s <code>@MessageDriven</code> annotation) and are declared using the <code>@ResourceEndpoint</code> annotation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.quarkiverse.ironjacamar.ResourceEndpoint;
+
+@ResourceEndpoint(activationSpecConfigKey = "myqueue") <i class="conum" data-value="1"></i><b>(1)</b>
+public class MyResourceEndpoint implements jakarta.jms.MessageListener {...} <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>An optional activation spec configuration key.
+The <code>activationSpecConfigKey</code> is the key that will be consumed from the configuration (see the <code>application.properties</code> example below)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The resource endpoint implementation.
+Because the Artemis ResourceAdapter implementation expects a <code>jakarta.jms.MessageListener</code> instance, you must implement this interface.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The configuration may vary according to what the chosen <code>ResourceAdapterFactory</code> implementation expects.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Important</dt>
+<dd>
+<p>The required interface may vary according to the resource adapter used.
+If you are unsure of what to use, look at your resource adapter documentation.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_in_your_application"><a class="anchor" href="#_in_your_application"></a>In your application</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.ironjacamar.ra.kind=artemis <i class="conum" data-value="1"></i><b>(1)</b>
+
+quarkus.ironjacamar.ra.config.connection-parameters=host=localhost;port=5445;protocols=HORNETQ <i class="conum" data-value="2"></i><b>(2)</b>
+quarkus.ironjacamar.ra.config.protocol-manager-factory=org.apache.activemq.artemis.core.protocol.hornetq.client.HornetQClientProtocolManagerFactory
+quarkus.ironjacamar.ra.config.user=guest
+quarkus.ironjacamar.ra.config.password=guest
+
+quarkus.ironjacamar.activation-spec.myqueue.config.destination-type=jakarta.jms.Queue <i class="conum" data-value="3"></i><b>(3)</b>
+quarkus.ironjacamar.activation-spec.myqueue.config.destination=jms.queue.MyQueue
+quarkus.ironjacamar.activation-spec.myqueue.config.max-session=2
+quarkus.ironjacamar.activation-spec.myqueue.config.rebalance-connections=true</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This is the resource adapter kind.
+It must match the value of the <code>@ResourceAdapterKind</code> annotation in the <code>ResourceAdapterFactory</code> implementation.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>(Optional) You can specify the resource adapter configuration that will be passed to your <code>ResourceAdapterFactory#createResourceAdapter</code> implementation method.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>(Optional) You can specify optional activation spec configuration <code>ResourceAdapterFactory#createActivationSpec</code> implementation method.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_multiple_resource_adapters"><a class="anchor" href="#_multiple_resource_adapters"></a>Multiple Resource Adapters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can configure more than one <code>ResourceAdapter</code> instance in your application.
+Just name the resource adapter in the configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.ironjacamar.main.ra.kind=artemis <i class="conum" data-value="1"></i><b>(1)</b>
+quarkus.ironjacamar.other.ra.kind=artemis</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To reference in the code, you must use the <code>@io.smallrye.common.annotation.Identifier</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.quarkiverse.ironjacamar.ResourceEndpoint;
+import io.smallrye.common.annotation.Identifier;
+
+import jakarta.inject.Inject;
+
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.Message;
+import jakarta.jms.MessageListener;
+
+@ResourceEndpoint
+@Identifier("other") <i class="conum" data-value="1"></i><b>(1)</b>
+public class MyResourceEndpoint implements MessageListener {
+
+    @Inject
+    @Identifier("main")
+    ConnectionFactory connectionFactory; <i class="conum" data-value="2"></i><b>(2)</b>
+
+    @Override
+    public void onMessage(Message message) {
+        //...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This MessageListener will be activated by the <code>other</code> resource adapter configured above.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>This <code>ConnectionFactory</code> will be the one configured in the <code>main</code> resource adapter.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_transactions"><a class="anchor" href="#_transactions"></a>Transactions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quarkus IronJacamar supports the <code>@Transactional</code> annotation on <code>ResourceEndpoint</code> implementations to automatically enlist the connection in the current transaction:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.quarkiverse.ironjacamar.ResourceEndpoint;
+
+import jakarta.inject.Inject;
+import jakarta.jms.ConnectionFactory;
+import jakarta.jms.Message;
+import jakarta.jms.MessageListener;
+import javax.transaction.Transactional;
+
+@ResourceEndpoint
+public class MyResourceEndpoint implements MessageListener {
+
+    @Inject
+    ConnectionFactory connectionFactory;
+
+    @Override
+    @Transactional
+    public void onMessage(Message message) {
+        //...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It also supports the <code>@Transactional</code> annotation on methods consuming the managed connection factories produced by the <code>ResourceAdapterFactory</code> implementation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/jca")
+@ApplicationScoped
+public class JcaResource {
+
+        @Inject
+        ConnectionFactory connectionFactory;
+
+        @GET
+        @Path("/send")
+        @Transactional
+        public void send() {
+            try (Connection connection = connectionFactory.createConnection()) {
+                //...
+            }
+        }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Some adapter implementations may require additional configuration to enable transaction support. Check the adapter documentation for more details.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">NOTE</dt>
+<dd>
+<p>if running in a XA transaction, it is recommended to enable recovery by using <code>quarkus.transaction-manager.enable-recovery=true</code>. Check the guide on <a href="https://quarkus.io/guides/transaction">Using Transactions in Quarkus</a> for more details.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_metrics"><a class="anchor" href="#_metrics"></a>Metrics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are using the <code>quarkus-micrometer</code> or <code>quarkus-smallrye-metrics</code> extension, <code>quarkus-ironjacamar</code> can contribute some connection pool-related metrics to the metric registry.</p>
+</div>
+<div class="paragraph">
+<p>This can be activated by setting the <code>quarkus.ironjacamar.metrics.enabled</code> property to <code>true</code>.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can disable the pool metrics for a specific resource adapter by setting the <code>quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.enable-metrics</code> property to <code>false</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="extension-configuration-reference"><a class="anchor" href="#extension-configuration-reference"></a>Extension Configuration Reference</h2>
+<div class="sectionbody">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-ironjacamar_configuration"></a><a href="#quarkus-ironjacamar_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-ironjacamar_quarkus.ironjacamar.metrics.enabled"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.metrics.enabled">quarkus.ironjacamar.metrics.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether IronJacamar (pool) metrics are published in case a metrics extension is present.</p>
+</div>
+<div class="paragraph">
+<p>This is a global setting and is not specific to a resource adapter.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_METRICS_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.kind"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.kind">quarkus.ironjacamar.ra.kind</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.kind">quarkus.ironjacamar."resource-adapter-name".ra.kind</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The kind of resource adapter.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_KIND</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.enable-metrics"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.enable-metrics">quarkus.ironjacamar.ra.cm.pool.enable-metrics</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.enable-metrics">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.enable-metrics</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable pool metrics collection. If unspecified, collecting metrics will be enabled by default if a metrics extension is active.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_ENABLE_METRICS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.config-config"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.config-config">quarkus.ironjacamar.ra.config</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.config-config">quarkus.ironjacamar."resource-adapter-name".ra.config</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The configuration for this resource adapter</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CONFIG</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Map&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.transaction-support-level"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.transaction-support-level">quarkus.ironjacamar.ra.cm.transaction-support-level</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.transaction-support-level">quarkus.ironjacamar."resource-adapter-name".ra.cm.transaction-support-level</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The transaction support level for the Connection Manager</p>
+</div>
+<div class="paragraph">
+<p>See the <a href="https://jakarta.ee/specifications/connectors/2.1/apidocs/jakarta.resource/jakarta/resource/spi/transactionsupport.transactionsupportlevel">TransactionSupportLevel Javadoc</a> for more information</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_TRANSACTION_SUPPORT_LEVEL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><code>no-transaction</code>, <code>local-transaction</code>, <code>xa-transaction</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>xa-transaction</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.allocation-retry"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.allocation-retry">quarkus.ironjacamar.ra.cm.allocation-retry</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.allocation-retry">quarkus.ironjacamar."resource-adapter-name".ra.cm.allocation-retry</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The number of times to retry the allocation of a connection</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_ALLOCATION_RETRY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.allocation-retry-wait"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.allocation-retry-wait">quarkus.ironjacamar.ra.cm.allocation-retry-wait</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.allocation-retry-wait">quarkus.ironjacamar."resource-adapter-name".ra.cm.allocation-retry-wait</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The time to wait between retries of the allocation of a connection</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_ALLOCATION_RETRY_WAIT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-ironjacamar" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>1S</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.xa-resource-timeout"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.xa-resource-timeout">quarkus.ironjacamar.ra.cm.xa-resource-timeout</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.xa-resource-timeout">quarkus.ironjacamar."resource-adapter-name".ra.cm.xa-resource-timeout</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The transaction timeout for the XAResource</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_XA_RESOURCE_TIMEOUT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-ironjacamar" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>120S</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.flush-strategy"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.flush-strategy">quarkus.ironjacamar.ra.cm.flush-strategy</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.flush-strategy">quarkus.ironjacamar."resource-adapter-name".ra.cm.flush-strategy</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The flush strategy for the Connection Manager</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_FLUSH_STRATEGY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><code>unknown</code>, <code>failing-connection-only</code>, <code>invalid-idle-connections</code>, <code>idle-connections</code>, <code>gracefully</code>, <code>entire-pool</code>, <code>all-invalid-idle-connections</code>, <code>all-idle-connections</code>, <code>all-gracefully</code>, <code>all-connections</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>failing-connection-only</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.sharable"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.sharable">quarkus.ironjacamar.ra.cm.sharable</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.sharable">quarkus.ironjacamar."resource-adapter-name".ra.cm.sharable</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the connection manager is sharable</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_SHARABLE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.enlistment"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.enlistment">quarkus.ironjacamar.ra.cm.enlistment</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.enlistment">quarkus.ironjacamar."resource-adapter-name".ra.cm.enlistment</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the connection manager should enlist connections</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_ENLISTMENT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.connectable"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.connectable">quarkus.ironjacamar.ra.cm.connectable</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.connectable">quarkus.ironjacamar."resource-adapter-name".ra.cm.connectable</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the connection manager should be connectable</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_CONNECTABLE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.tracking"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.tracking">quarkus.ironjacamar.ra.cm.tracking</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.tracking">quarkus.ironjacamar."resource-adapter-name".ra.cm.tracking</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the connection manager should track connections</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_TRACKING</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.use-ccm"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.use-ccm">quarkus.ironjacamar.ra.cm.use-ccm</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.use-ccm">quarkus.ironjacamar."resource-adapter-name".ra.cm.use-ccm</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the connection manager should use CCM</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_USE_CCM</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.interleaving"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.interleaving">quarkus.ironjacamar.ra.cm.interleaving</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.interleaving">quarkus.ironjacamar."resource-adapter-name".ra.cm.interleaving</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the connection manager should use interleaving</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_INTERLEAVING</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.is-same-rm-override"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.is-same-rm-override">quarkus.ironjacamar.ra.cm.is-same-rm-override</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.is-same-rm-override">quarkus.ironjacamar."resource-adapter-name".ra.cm.is-same-rm-override</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the connection manager should use same RM override</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_IS_SAME_RM_OVERRIDE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.wrap-xa-resource"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.wrap-xa-resource">quarkus.ironjacamar.ra.cm.wrap-xa-resource</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.wrap-xa-resource">quarkus.ironjacamar."resource-adapter-name".ra.cm.wrap-xa-resource</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the connection manager should wrap the XAResource</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_WRAP_XA_RESOURCE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pad-xid"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pad-xid">quarkus.ironjacamar.ra.cm.pad-xid</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pad-xid">quarkus.ironjacamar."resource-adapter-name".ra.cm.pad-xid</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the connection manager should pad the XID</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_PAD_XID</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.recovery.username"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.recovery.username">quarkus.ironjacamar.ra.cm.recovery.username</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.recovery.username">quarkus.ironjacamar."resource-adapter-name".ra.cm.recovery.username</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The recovery username for the Connection Manager</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_RECOVERY_USERNAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.recovery.password"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.recovery.password">quarkus.ironjacamar.ra.cm.recovery.password</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.recovery.password">quarkus.ironjacamar."resource-adapter-name".ra.cm.recovery.password</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The recovery password for the Connection Manager</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_RECOVERY_PASSWORD</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.recovery.security-domain"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.recovery.security-domain">quarkus.ironjacamar.ra.cm.recovery.security-domain</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.recovery.security-domain">quarkus.ironjacamar."resource-adapter-name".ra.cm.recovery.security-domain</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The recovery security domain for the Connection Manager</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_RECOVERY_SECURITY_DOMAIN</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.strategy"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.strategy">quarkus.ironjacamar.ra.cm.pool.strategy</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.strategy">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.strategy</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The pool strategy</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_STRATEGY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><code>pool-by-cri</code>, <code>pool-by-subject</code>, <code>pool-by-subject-and-cri</code>, <code>one-pool</code>, <code>reauth</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>pool-by-cri</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.min-size"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.min-size">quarkus.ironjacamar.ra.cm.pool.config.min-size</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.min-size">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.min-size</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Minimum size of the pool</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_MIN_SIZE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.initial-size"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.initial-size">quarkus.ironjacamar.ra.cm.pool.config.initial-size</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.initial-size">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.initial-size</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Initial size of the pool</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_INITIAL_SIZE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.max-size"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.max-size">quarkus.ironjacamar.ra.cm.pool.config.max-size</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.max-size">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.max-size</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Maximum size of the pool</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_MAX_SIZE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>20</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.blocking-timeout"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.blocking-timeout">quarkus.ironjacamar.ra.cm.pool.config.blocking-timeout</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.blocking-timeout">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.blocking-timeout</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Blocking timeout</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_BLOCKING_TIMEOUT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-ironjacamar" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>30000MS</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.idle-timeout-minutes"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.idle-timeout-minutes">quarkus.ironjacamar.ra.cm.pool.config.idle-timeout-minutes</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.idle-timeout-minutes">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.idle-timeout-minutes</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Idle timeout period. Default 30 mins</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_IDLE_TIMEOUT_MINUTES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-ironjacamar" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>30M</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.validate-on-match"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.validate-on-match">quarkus.ironjacamar.ra.cm.pool.config.validate-on-match</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.validate-on-match">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.validate-on-match</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Validate on match validation</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_VALIDATE_ON_MATCH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.background-validation"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.background-validation">quarkus.ironjacamar.ra.cm.pool.config.background-validation</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.background-validation">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.background-validation</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Background validation</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_BACKGROUND_VALIDATION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.background-validation-millis"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.background-validation-millis">quarkus.ironjacamar.ra.cm.pool.config.background-validation-millis</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.background-validation-millis">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.background-validation-millis</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Background validation - millis</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_BACKGROUND_VALIDATION_MILLIS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html">Duration</a>
+  <a href="#duration-note-anchor-quarkus-ironjacamar" title="More information about the Duration format"><span class="icon"><i class="fa fa-question-circle"></i></span></a></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.prefill"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.prefill">quarkus.ironjacamar.ra.cm.pool.config.prefill</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.prefill">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.prefill</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Prefill pool</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_PREFILL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.strict-min"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.strict-min">quarkus.ironjacamar.ra.cm.pool.config.strict-min</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.strict-min">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.strict-min</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Strict minimum, default false</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_STRICT_MIN</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.use-fast-fail"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.use-fast-fail">quarkus.ironjacamar.ra.cm.pool.config.use-fast-fail</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.use-fast-fail">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.use-fast-fail</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Do we want to immediately break when a connection cannot be matched and not evaluate the rest of the pool?</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_USE_FAST_FAIL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.fair"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.fair">quarkus.ironjacamar.ra.cm.pool.config.fair</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.config.fair">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.config.fair</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Fairness of semaphore permits, default true</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_CONFIG_FAIR</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.sharable"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.sharable">quarkus.ironjacamar.ra.cm.pool.sharable</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.sharable">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.sharable</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether the pool is sharable</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_SHARABLE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.no-tx-separate-pool"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.no-tx-separate-pool">quarkus.ironjacamar.ra.cm.pool.no-tx-separate-pool</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.ra.cm.pool.no-tx-separate-pool">quarkus.ironjacamar."resource-adapter-name".ra.cm.pool.no-tx-separate-pool</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Should the pool be created without a separate pool for non-transactional connections?</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_RA_CM_POOL_NO_TX_SEPARATE_POOL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-ironjacamar_quarkus.ironjacamar.activation-spec.config-config"></a><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.activation-spec.config-config">quarkus.ironjacamar.activation-spec.config</a></code></p>
+</div>
+<div class="paragraph">
+<p><code><a href="#quarkus-ironjacamar_quarkus.ironjacamar.activation-spec.config-config">quarkus.ironjacamar.activation-spec."activation-spec-name".config</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The configuration for this resource adapter</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_IRONJACAMAR_ACTIVATION_SPEC_CONFIG</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Map&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+</tbody>
+</table>
+<div id="duration-note-anchor-quarkus-ironjacamar" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">About the Duration format</div>
+<div class="paragraph">
+<p>The format for durations uses the standard <code>java.time.Duration</code> format.
+You can learn more about it in the <a href="https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-">Duration#parse() javadoc</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can also provide duration values starting with a number.
+In this case, if the value consists only of a number, the converter treats the value as seconds.
+Otherwise, <code>PT</code> is implicitly prepended to the value to obtain a standard <code>java.time.Duration</code> format.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

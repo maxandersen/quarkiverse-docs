@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quarkus Artemis JMS :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-artemis/dev/index.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-artemis" data-version="2.x">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Artemis</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Quarkus - Artemis</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Artemis</span>
+          <span class="version">2.x</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="../dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version is-current">
+            <a href="index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Artemis</a></li>
+    <li><a href="index.html">Quarkus - Artemis</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.x</button>
+  <div class="version-menu">
+        <a class="version" href="../dev/index.html">dev</a>
+        <a class="version" href="../3.0.x/index.html">3.0.x</a>
+        <a class="version is-current" href="index.html">2.x</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-artemis/edit/2.x/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Quarkus Artemis JMS</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This extension enables the use of the Apache ActiveMQ Artemis JMS client in Quarkus.</p>
+</div>
+<div class="paragraph">
+<p>It provides configuration properties to configure the JMS client and native executable support.</p>
+</div>
+<div class="paragraph">
+<p>For general considerations about the JMS support in Quarkus, it is recommended to read the <a href="https://quarkus.io/guides/jms">JMS guide</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compatibility"><a class="anchor" href="#_compatibility"></a>Compatibility</h2>
+<div class="sectionbody">
+<table id="table-compatibility" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Compatibility Table</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Quarkus version</th>
+<th class="tableblock halign-left valign-top">Quarkus JMS version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>2.x</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>latest <code>2.x</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>3.0.x</code><br>
+<code>3.1.x</code><br>
+<code>3.2.x</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>latest <code>3.0.x</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>3.3.x</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>3.1.x</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="table-lts" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. LTS Support</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Quarkus LTS version</th>
+<th class="tableblock halign-left valign-top">Quarkus JMS version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>3.2.x</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>3.0.x</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To benefit from a consistent definition of the Artemis dependencies (including <code>artemis-server</code> often used in the tests),
+it is recommended to add the following BOM to your project, <strong>below the Quarkus BOM</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkus.platform&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-bom&lt;/artifactId&gt;
+            &lt;version&gt;${quarkus.version}&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkiverse.artemis&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-artemis-bom&lt;/artifactId&gt;
+            &lt;version&gt;2.1.2&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once the BOM is added, simply add the <code>io.quarkiverse.artemis:quarkus-artemis-jms</code> extension:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.artemis&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-artemis-jms&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.artemis&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-test-artemis&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We recommend to set properties <code>quarkus.version</code> and <code>artemis.version</code> to the versions you are using/need to use. We also recommend to align <code>artemis.version</code> with the artemis server version used.</p>
+</div>
+<div class="paragraph">
+<p>If you are using <code>camel-quarkus</code>, we also recommend setting <code>camel-quarkus.platform.version</code> to the version of camel used.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_named_configurations"><a class="anchor" href="#_named_configurations"></a>Named configurations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As with <code>quarkus.datasource</code>, we can configure multiple, named configuration. If a configuration is configured under the root <code>quarkus.artemis</code>, then this is the default or unnamed configuration.</p>
+</div>
+<div class="listingblock">
+<div class="title">Default configuration</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.artemis.url=...
+quarkus.artemis.username=...
+quarkus.artemis.password=...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This corresponding bean is registered as the <code>@Default</code> bean and can be injected without additional qualifiers.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+There must be some build-time configuration, otherwise the bean will not be available. Having only run-time configuration (e.g. environment variables) is not enough. Please see section <a href="#build_time_config">Configuration detection at build-time</a> for details.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Injection of default <code>ServerLocator</code> when using <code>quarkus-artemis-core</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyClass {
+    ...
+    private final ServerLocator serverLocator;
+    ...
+
+    public MyClass (
+            ...
+            ServerLocator serverLocator,
+            ...
+    ) {
+        ...
+        this.serverLocator = serverLocator;
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Injection of default <code>ConnectionFactory</code> when using <code>quarkus-artemis-jms</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyClass {
+    ...
+    private final ConnectionFactory connectionFactory;
+    ...
+
+    public MyClass (
+            ...
+            ConnectionFactory connectionFactory,
+            ...
+    ) {
+        ...
+        this.connectionFactory = connectionFactory;
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is also registered with <a href="https://github.com/smallrye/smallrye-common/blob/main/annotation/src/main/java/io/smallrye/common/annotation/Identifier.java"><code>@Identifier("&lt;default&gt;")</code></a>, so we can inject it with</p>
+</div>
+<div class="listingblock">
+<div class="title">Injection of default <code>ServerLocator</code> by its explicit name when using <code>quarkus-artemis-core</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyClass {
+    ...
+    private final ServerLocator serverLocator;
+    ...
+
+    public MyClass (
+            ...
+            @Identifier("&lt;default&gt;") ServerLocator serverLocator,
+            ...
+    ) {
+        ...
+        this.serverLocator = serverLocator;
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Injection of default <code>ConnectionFactory</code> by its explicit name when using <code>quarkus-artemis-jms</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyClass {
+    ...
+    private final ConnectionFactory connectionFactory;
+    ...
+
+    public MyClass (
+            ...
+            @Identifier("&lt;default&gt;") ConnectionFactory connectionFactory,
+            ...
+    ) {
+        ...
+        this.connectionFactory = connectionFactory;
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Named configurations, on the other hand, are not configured as <code>@Default</code> beans and must therefore be injected by name. The name of the bean is the name of the configuration, and <code>@Identifier(&#8230;&#8203;)</code> is used to qualify the name. So for example, if we define a configuration "named-1":</p>
+</div>
+<div class="listingblock">
+<div class="title">Named configuration "named-1"</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.artemis."named-1".url=...
+quarkus.artemis."named-1".username=...
+quarkus.artemis."named-1".password=...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>we can inject it with:</p>
+</div>
+<div class="listingblock">
+<div class="title">Injection of named <code>ServerLocator</code> "named-1" when using extension <code>quarkus-artemis-core</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyClass {
+    ...
+    private final ServerLocator serverLocator;
+    ...
+
+    public MyClass (
+            ...
+            @Identifier("named-1") ServerLocator serverLocator,
+            ...
+    ) {
+        ...
+        this.serverLocator = serverLocator;
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Injection of named <code>ConnectionFactory</code> "named-1" when using extension <code>quarkus-artemis-jms</code></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyClass {
+    ...
+    private final ConnectionFactory connectionFactory;
+    ...
+
+    public MyClass (
+            ...
+            @Identifier("named-1") ConnectionFactory connectionFactory,
+            ...
+    ) {
+        ...
+        this.connectionFactory = connectionFactory;
+        ...
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+We strongly recommend the usage of <a href="https://javadoc.io/doc/io.smallrye.common/smallrye-common-annotation/latest/io/smallrye/common/annotation/Identifier.html"><code>@Identifier</code> annotation</a> instead of the <a href="https://www.javadoc.io/doc/javax/javaee-api/latest/javax/inject/Named.html"><code>@Named</code> annotation</a>. Some other feature rely on the usage of <code>@Identifier</code>. Please see section <a href="#health_checks">Health checks</a> for details.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="default-bean"><a class="anchor" href="#default-bean"></a><code>@Default</code> Bean</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When an unnamed configuration is provided, this configuration will be registered as <a href="https://jakarta.ee/specifications/cdi/2.0/apidocs/javax/enterprise/inject/default"><code>@Default</code></a> bean. Otherwise, if only a single configuration is provided, this configuration will be registered as <code>@Default</code> bean. This mechanism allows us to inject this bean without any qualifier.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_properties_at_runtime_results_in_a_warning"><a class="anchor" href="#_setting_properties_at_runtime_results_in_a_warning"></a>Setting properties at runtime results in a warning</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When we override the properties <code>url</code>, <code>username</code> or <code>password</code> of a configuration at runtime - either through the implicit environment variable (<code>QUARKUS_ARTEMIS_URL</code>, <code>QUARKUS_ARTEMIS__CONNECTION_NAME__URL</code>), a custom environment variable (<code>quarkus.artemis.url=${ARTEMIS_URL:tcp://dummy:12345}</code>) or a runtime-provided <code>.properties</code>-/<code>.yaml</code> files, we will see a warning at startup similar to this one:</p>
+</div>
+<div class="listingblock">
+<div class="title">Warning at startup</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">2022-11-03 00:53:17,060 WARN  [io.qua.run.con.ConfigRecorder] (main) Build time property cannot be changed at runtime:
+ - quarkus.artemis.url is set to 'tcp://localhost:61616' but it is build time fixed to 'tcp://dummy:12345'. Did you change the property quarkus.artemis.url after building the application?</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is expected. We bind some properties twice: once as build-time property, once as run time property. We do so to analyze the (run time-)configuration at build time to get a list of named connections. The overwritten configuration will take effect. The correct behaviour is enforced by <a href="https://github.com/quarkiverse/quarkus-artemis/tree/2.x/integration-tests/core/with-default-change-url">two</a> different <a href="https://github.com/quarkiverse/quarkus-artemis/tree/2.x/integration-tests/jms/with-default-change-url">tests</a>. The above example is taken from the logs of those tests.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="build_time_config"><a class="anchor" href="#build_time_config"></a>Configuration detection at build-time</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We took special care so the configurations behave "as intuitively as possible". This means that if no connection-related configuration (<code>enabled</code>, <code>url</code>, <code>username</code>, <code>password</code>, <code>devservices&#8230;&#8203;</code>, <code>health-exclude</code>, <code>xa-enabled</code>) is present at build-time, it is assumed that the  configuration is not used and disabled. Therefore, if we want to use any configuration, but not configure it, we should set <code>quarkus.artemis.enabled</code> / <code>quarkus.artemis."named-configuration".enabled</code> to <strong>true</strong> to explicitly enable the configuration. Due to the fact how the configuration system works in quarkus, we are only able to analyze properties defined in the default profile, i.e. properties without a prefix (<code>%dev</code>, <code>%text</code>, &#8230;&#8203;). If in doubt, we recommend setting <code>quarkus.artemis.enabled</code>/<code>quarkus.artemis."named-configuration".enabled</code> to <strong>true</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is also the case if we bind properties in the default profile to environment variables, without a default value. For example, <code>quarkus.artemis.url=${ARTEMIS_URL}</code> has no value at build-time, thus this property is "invisible" at build time.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Binding a property to an environment variable, like <code>quarkus.artemis.url=${ARTEMIS_URL}</code> is sufficient, so the extension can pick up the configuration at build-time.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If we want to configure a connection solely through the implicit environment variables <code>QUARKUS_ARTEMIS_&#8230;&#8203;</code>, we should enable the configuration by setting <code>quarkus.artemis.enabled</code> / <code>quarkus.artemis."named-configuration".enabled</code> to <strong>true</strong>. For example, if we want to configure connection <code>quarkus.artemis."named-1"</code> through the implicit environment variables, we would set <code>quarkus.artemis."named-1".enabled=true</code> and then configure the connection through environment variables <code>QUARKUS_ARTEMIS__NAMED_1__&#8230;&#8203;</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Table <a href="#table-visibility">Visibility of configuration values</a> gives an overview when a property is visible at build time, and when it is not.</p>
+</div>
+<table id="table-visibility" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Visibility of configuration values</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top">Visible?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>configuration property belonging to a specific profile</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>%dev.quarkus.artemis.url=tcp://localhost:61616</code></p>
+</li>
+<li>
+<p><code>%test.quarkus.artemis.password=${ARTEMIS_PASSWORD:artemis}</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>❌</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>configuration property bound to constant value</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>quarkus.artemis.url=tcp://localhost:61616</code></p>
+</li>
+<li>
+<p><code>quarkus.artemis.username=artems</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>✔️</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>configuration property bound to environment variable</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>quarkus.artemis."named".url=${ARTEMIS_NAMED_URL}</code></p>
+</li>
+<li>
+<p><code>quarkus.artemis.password=${ARTEMIS_PASSWORD}</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>❌</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>configuration property bound to environment variable with default value</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>quarkus.artemis."named".url=${ARTEMIS_NAMED_URL:tcp://localhost:61616}</code></p>
+</li>
+<li>
+<p><code>quarkus.artemis.password=${ARTEMIS_PASSWORD:artemis}</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>✔️</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Please do not try to configure a configuration purely through environment variables, without having any indication of its present in the application&#8217;s configuration file. We specifically rely on the presence of some configuration fragment at build-time to detect configurations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_xa_capable_connection_factories"><a class="anchor" href="#_xa_capable_connection_factories"></a>XA-capable Connection Factories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To get XA-capable connection factories, we can set <code>quarkus.artemis.xa-enabled</code> / <code>quarkus.artemis."named-configuration".xa-enabled</code> to <strong>true</strong>. We can then inject the corresponding bean as <code>XAConnectionFactory</code>.</p>
+</div>
+<div class="paragraph">
+<p>To use XA transactions and integrate with a transaction manager, we recommend using the <a href="https://github.com/quarkiverse/quarkus-pooled-jms">quarkus-pooled-jms quarkiverse extension</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_url_as_optional_configuration"><a class="anchor" href="#_url_as_optional_configuration"></a>URL as optional configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>url</code> configuration property is optional. But in general, without a <code>url</code> property, we cannot create a connection. In case of tests with embedded resources or devservices, the corresponding annotation/service injects a url. But if  the application starts up and no <code>url</code> property is found, the creation of the bean will throw a <code>RuntimeException</code> with a corresponding error message. Notice that this will happen when the bean is created. If the bean is never used (and thus never created), the exception will not occur.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="health_checks"><a class="anchor" href="#health_checks"></a>Health checks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, all configurations are added to the health check endpoint when extension <code>quarkus-smallrye-health</code> is loaded.</p>
+</div>
+<div class="paragraph">
+<p>We can disable health checks for all <code>ServerLocator</code> s (extension <code>quarkus-artemis-core</code>) or <code>ConnectionFactory</code> s (extension <code>quarkus-artemis-jms</code>) by setting <code>quarkus.artemis.health.enabled</code> to <strong>false</strong>.</p>
+</div>
+<div class="paragraph">
+<p>We can disable health checks for individual configurations by setting <code>quarkus.artemis.health-exclude</code> / <code>quarkus.artemis."named-configuration".health-exclude</code> to <strong>true</strong></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Note that we can only enable health checks through the above configuration if <code>quarkus.artemis.health.enabled</code> is <strong>true</strong>. Otherwise, setting <code>quarkus.artemis.health-exclude</code> / <code>quarkus.artemis."named-connection".health-exclude</code> has no effect.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If we create <code>ServerLocator</code>- (extension <code>quarkus-artemis-core</code>) or <code>ConnectionFactory</code>- (extension <code>quarkus-artemis-jms</code>) beans within our application (i.e. outside of this extension), we can include them in the health check by using the <a href="https://javadoc.io/doc/io.smallrye.common/smallrye-common-annotation/latest/io/smallrye/common/annotation/Identifier.html"><code>@Identifier</code> annotation</a>, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="title">Defining a <code>ServerLocator</code>-bean that is picked up automatically by health checks</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyBeanProvider {
+    @ApplicationScoped
+    @Identified("my-server-locator") // this annotation makes it so the bean is picked up by the health endpoint
+    public ServerLocator mySeverLocator(...) {
+        ServerLocator myServerLocator = ...;
+        ...
+        return myServerLocator;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Defining a <code>ConnectionFactory</code>-bean that is picked up automatically by health checks</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class MyBeanProvider {
+    @ApplicationScoped
+    @Identified("my-connection-factory") // this annotation makes it so the bean is picked up by the health endpoint
+    public ConnectionFactory myConnectionFactory(...) {
+        ConnectionFactory myConnectionFactory = ...;
+        ...
+        return myConnectionFactory;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If we do not want that beans created within our application is picked up by the health endpoint, we can set <code>quarkus.artemis.health.external.enabled</code> to <strong>false</strong>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Note that <code>ServerLocator</code> s / <code>ConnectionFactory</code> s are only picked up when <code>quarkus.artemis.health.enabled</code> is <strong>true</strong>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_camel_support"><a class="anchor" href="#_camel_support"></a>Camel support</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All connection factories that are configured through <code>quarkus-artemis-jms</code> are automatically registered in the camel context, if the program uses camel. This allows us to reference the connection factories by name, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="title">Referencing <code>ConnectionFactory</code> s in a camel route by their bean name</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">from(jms("queue:in").connectionFactory("&lt;default&gt;"))
+    .to(jms("queue:out").connectionFactory("named"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In <code>camel-quarkus</code>, an externally defined <code>ConnectionFactory</code> can only be referenced by its name in a route configuration if it has a <code>@Named(&#8230;&#8203;)</code> annotation (<a href="https://camel.apache.org/camel-quarkus/2.15.x/user-guide/cdi.html#_refer_to_a_bean_by_name:">documentation</a>). This conflicts somewhat with the philosophy of the <code>quarkus-artemis</code> extensions, since it uses <code>@Identifier</code> instead. We bridge this gap by allowing to register all <code>ConnectionFactory</code> s annotated with <code>@Identifier</code> with the camel context. To enable this feature, we can set configuration property <code>quarkus.artemis.camel-quarkus-enhance-enabled</code> to <strong>true</strong>. This property is set to <strong>false</strong> by default.</p>
+</div>
+<div class="paragraph">
+<p>With this in place, we can define a <code>ConnectionFactory</code>, e.g. through a method annotated with <a href="https://jakarta.ee/specifications/cdi/4.0/apidocs/jakarta.cdi/jakarta/enterprise/inject/produces"><code>@Produces</code></a> and, for example, <code>@Identifier("externally-defined")</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Defining an externally defined <code>ConnectionFactory</code>-bean through a <code>@Produces</code> method</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Produces
+@Typed({ ConnectionFactory.class })
+@ApplicationScoped
+@Identifier("externally-defined")
+ActiveMQConnectionFactory externallyDefinedConnectionFactory(
+        @ConfigProperty(name = "artemis.externally-defined.url") String externallyDefinedUrl) {
+    return new ActiveMQConnectionFactory(externallyDefinedUrl);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can then use this <code>ConnectionFactory</code> as follows:</p>
+</div>
+<div class="listingblock">
+<div class="title">Referencing an externally defined <code>ConnectionFactory</code>-bean by its name</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">from(jms("queue:in").connectionFactory("externally-defined"))
+    .to(jms("queue:out").connectionFactory("externally-defined"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, if only a single <code>ConnectionFactory</code> is defined through <code>quarkus-artemis-jms</code>, this <code>ConnectionFactory</code> is always registered as <a href="https://jakarta.ee/specifications/cdi/2.0/apidocs/javax/enterprise/inject/default"><code>@Default</code></a> bean (see Section <a href="#default-bean"><code>@Default</code> Bean</a>). This allows us to use this <code>ConnectionFactory</code> implicitly in a camel route, without setting it explicitly:</p>
+</div>
+<div class="listingblock">
+<div class="title">Implicitly use the only <code>ConnectionFactory</code>-bean defined in the application</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">from(jms("queue:in"))
+    .to(jms("queue:out"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This also works for an externally defined <code>ConnectionFactory</code>, as long as it is defined as <code>@Default</code> (remember that <a href="https://jakarta.ee/specifications/cdi/2.0/cdi-spec-2.0.html#builtin_qualifiers:">all beans that do not have any qualifier annotation are automatically <code>@Default</code> beans</a>). For an externally defined <code>ConnectionFactory</code>, this does not require to set <code>quarkus.artemis.camel-context-enhance-enable</code> to be <strong>true</strong>.</p>
+</div>
+<div class="paragraph">
+<p>This mechanism stops working as soon as more than one <code>ConnectionFactory</code> bean is defined in the application.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_artemis_devservices"><a class="anchor" href="#_artemis_devservices"></a>Artemis DevServices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Artemis DevServices are automatically enabled unless <code>quarkus.artemis.url</code> / <code>quarkus.artemis."named-configuration".url</code> is set or <code>quarkus.artemis.devservices.enabled</code> / <code>quarkus.artemis."named-configuration".enabled</code> is <strong>false</strong> explicitly. And if you still want to use <code>ArtemisTestResource</code> in the test, you need to disable artemis devservices.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_framework"><a class="anchor" href="#_test_framework"></a>Test framework</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To facilitate testing, we provide a dedicated testing framework that can start an in-memory artemis instance  For the default configuration, we can start an in-memory instance of artemis by annotating our tests with <code>@QuarkusTestResource(ArtemisTestResource.class)</code>. The embedded artemis can be configured through a <code>broker.xml</code>, located under <code>src/test/resources</code>.</p>
+</div>
+<div class="paragraph">
+<p>To start an in-memory artemis for a named configuration, we can define our own test annotation by extending <code>ArtemisTestResource.class</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Annotation to start an in-memory artemis instance for the named configuration "named-1"</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class NamedOneArtemisTestResource extends ArtemisTestResource {
+    public NamedOneArtemisTestResource() {
+        super("named-1");
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can then annotate our test with <code>@QuarkusTestResource(NamedOneArtemisTestResource.class)</code>.</p>
+</div>
+<div class="paragraph">
+<p>This instance can be configured by placing a <code>broker-named-1.xml</code> in <code>src/test/resources</code>. In general, for a configuration with name <code>&lt;name&gt;</code>, we can configure the corresponding in-memory artemis through file <code>src/test/resources/broker-&lt;name&gt;.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>For an in-depth explanation of what can be configured in a <code>broker.xml</code>, please see the <a href="https://activemq.apache.org/components/artemis/documentation/latest/configuration-index.html:">official Artemis documentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Examples can be found in the <code>integration-tests</code> module, e.g.
+<a href="https://github.com/quarkiverse/quarkus-artemis/tree/2.x/integration-tests/core/with-default">The Apache ActiveMQ Artemis Core integration with default configuration tests module</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="extension-configuration-reference"><a class="anchor" href="#extension-configuration-reference"></a>Configuration Reference</h2>
+<div class="sectionbody">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-artemis-core_configuration"></a><a href="#quarkus-artemis-core_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.enabled"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.enabled">quarkus.artemis.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether to enable this configuration.
+Is enabled by default.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.devservices.enabled"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.devservices.enabled">quarkus.artemis.devservices.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable Dev Services explicitly. Dev Services are automatically enabled unless <code>quarkus.artemis.url</code> is set.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_DEVSERVICES_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.devservices.port"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.devservices.port">quarkus.artemis.devservices.port</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Optional fixed port the dev service will listen to.
+If not defined, the port will be chosen randomly.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_DEVSERVICES_PORT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.devservices.image-name"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.devservices.image-name">quarkus.artemis.devservices.image-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The ActiveMQ Artemis container image to use.
+Defaults to <code>quay.io/artemiscloud/activemq-artemis-broker:artemis.2.31.0</code></p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_DEVSERVICES_IMAGE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.devservices.shared"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.devservices.shared">quarkus.artemis.devservices.shared</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Indicates if the ActiveMQ Artemis broker managed by Quarkus Dev Services is shared. When shared, Quarkus looks for running containers using label-based service discovery. If a matching container is found, it is used, and so a second one is not started. Otherwise, Dev Services for ActiveMQ Artemis starts a new container. Is activated by default when not set.
+The discovery uses the <code>quarkus-dev-service-artemis</code> label. The value is configured using the <code>service-name</code> property.
+Container sharing is only used in dev mode.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_DEVSERVICES_SHARED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.devservices.service-name"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.devservices.service-name">quarkus.artemis.devservices.service-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The value of the <code>quarkus-dev-service-artemis</code> label attached to the started container. This property is used when <code>shared</code> is set to <code>true</code>. It defaults to <code>artemis</code> when not set. In this case, before starting a container, Dev Services for ActiveMQ Artemis looks for a container with the <code>quarkus-dev-service-artemis</code> label set to the configured value. If found, it will use this container instead of starting a new one. Otherwise it starts a new container with the <code>quarkus-dev-service-artemis</code> label set to the specified value.
+This property is used when you need multiple shared ActiveMQ Artemis brokers.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_DEVSERVICES_SERVICE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.devservices.user"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.devservices.user">quarkus.artemis.devservices.user</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>User to start artemis broker. Defaults to <code>admin</code> if not set.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_DEVSERVICES_USER</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.devservices.password"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.devservices.password">quarkus.artemis.devservices.password</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Password to start artemis broker. Defaults to <code>admin</code> whne not set.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_DEVSERVICES_PASSWORD</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.devservices.extra-args"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.devservices.extra-args">quarkus.artemis.devservices.extra-args</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The value of the <code>AMQ_EXTRA_ARGS</code> environment variable to pass to the container. Defaults to <code>--no-autotune --mapped --no-fsync</code> when not set.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_DEVSERVICES_EXTRA_ARGS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.health-exclude"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.health-exclude">quarkus.artemis.health-exclude</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether this particular data source should be excluded from the health check if the general health check for data sources is enabled.
+By default, the health check includes all configured data sources (if it is enabled).</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_HEALTH_EXCLUDE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.xa-enabled"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.xa-enabled">quarkus.artemis.xa-enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Support to expose <code>javax.jms.XAConnectionFactory</code>. Is not activated by default.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_XA_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.health.enabled"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.health.enabled">quarkus.artemis.health.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether a health check is published in case the smallrye-health extension is present.
+This is a global setting and is not specific to a datasource.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_HEALTH_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.camel-quarkus-enhance-enabled"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.camel-quarkus-enhance-enabled">quarkus.artemis.camel-quarkus-enhance-enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether camel context enhancement should be enabled.
+If enabled, all <code>javax.jms.ConnectionFactory</code> s annotated with <code>io.smallrye.common.annotation.Identifier</code> are registered as named beans in the camel context.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_CAMEL_QUARKUS_ENHANCE_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-artemis-core_quarkus.artemis.url"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.url">quarkus.artemis.url</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Artemis connection url</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_URL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-artemis-core_quarkus.artemis.username"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.username">quarkus.artemis.username</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Username for authentication, only used with JMS</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_USERNAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-artemis-core_quarkus.artemis.password"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.password">quarkus.artemis.password</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Password for authentication, only used with JMS</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_PASSWORD</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-artemis-core_quarkus.artemis.health.external.enabled"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.health.external.enabled">quarkus.artemis.health.external.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether configurations (<code>org.apache.activemq.artemis.api.core.client.ServerLocator`s in case of the `artemis-core</code> extension, <code>javax.jms.ConnectionFactory`s in case of the `artemis-jms</code> extension) should be included in the health check. Defaults to <code>true</code> if not set.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS_HEALTH_EXTERNAL_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-artemis-core_quarkus.artemis.named-configs-additional-named-configs"></a><a href="#quarkus-artemis-core_quarkus.artemis.named-configs-additional-named-configs">Additional named configs</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.enabled"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.enabled">quarkus.artemis."configuration-name".enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether to enable this configuration.
+Is enabled by default.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.enabled"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.enabled">quarkus.artemis."configuration-name".devservices.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable Dev Services explicitly. Dev Services are automatically enabled unless <code>quarkus.artemis.url</code> is set.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__DEVSERVICES_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.port"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.port">quarkus.artemis."configuration-name".devservices.port</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Optional fixed port the dev service will listen to.
+If not defined, the port will be chosen randomly.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__DEVSERVICES_PORT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.image-name"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.image-name">quarkus.artemis."configuration-name".devservices.image-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The ActiveMQ Artemis container image to use.
+Defaults to <code>quay.io/artemiscloud/activemq-artemis-broker:artemis.2.31.0</code></p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__DEVSERVICES_IMAGE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.shared"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.shared">quarkus.artemis."configuration-name".devservices.shared</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Indicates if the ActiveMQ Artemis broker managed by Quarkus Dev Services is shared. When shared, Quarkus looks for running containers using label-based service discovery. If a matching container is found, it is used, and so a second one is not started. Otherwise, Dev Services for ActiveMQ Artemis starts a new container. Is activated by default when not set.
+The discovery uses the <code>quarkus-dev-service-artemis</code> label. The value is configured using the <code>service-name</code> property.
+Container sharing is only used in dev mode.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__DEVSERVICES_SHARED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.service-name"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.service-name">quarkus.artemis."configuration-name".devservices.service-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The value of the <code>quarkus-dev-service-artemis</code> label attached to the started container. This property is used when <code>shared</code> is set to <code>true</code>. It defaults to <code>artemis</code> when not set. In this case, before starting a container, Dev Services for ActiveMQ Artemis looks for a container with the <code>quarkus-dev-service-artemis</code> label set to the configured value. If found, it will use this container instead of starting a new one. Otherwise it starts a new container with the <code>quarkus-dev-service-artemis</code> label set to the specified value.
+This property is used when you need multiple shared ActiveMQ Artemis brokers.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__DEVSERVICES_SERVICE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.user"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.user">quarkus.artemis."configuration-name".devservices.user</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>User to start artemis broker. Defaults to <code>admin</code> if not set.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__DEVSERVICES_USER</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.password"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.password">quarkus.artemis."configuration-name".devservices.password</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Password to start artemis broker. Defaults to <code>admin</code> whne not set.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__DEVSERVICES_PASSWORD</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.extra-args"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.devservices.extra-args">quarkus.artemis."configuration-name".devservices.extra-args</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The value of the <code>AMQ_EXTRA_ARGS</code> environment variable to pass to the container. Defaults to <code>--no-autotune --mapped --no-fsync</code> when not set.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__DEVSERVICES_EXTRA_ARGS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.health-exclude"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.health-exclude">quarkus.artemis."configuration-name".health-exclude</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Whether this particular data source should be excluded from the health check if the general health check for data sources is enabled.
+By default, the health check includes all configured data sources (if it is enabled).</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__HEALTH_EXCLUDE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.xa-enabled"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.xa-enabled">quarkus.artemis."configuration-name".xa-enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Support to expose <code>javax.jms.XAConnectionFactory</code>. Is not activated by default.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__XA_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-artemis-core_quarkus.artemis.named-configs-additional-named-configuration"></a><a href="#quarkus-artemis-core_quarkus.artemis.named-configs-additional-named-configuration">Additional named configuration</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.url"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.url">quarkus.artemis."configuration-name".url</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Artemis connection url</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__URL</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.username"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.username">quarkus.artemis."configuration-name".username</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Username for authentication, only used with JMS</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__USERNAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="quarkus-artemis-core_quarkus.artemis.-configuration-name-.password"></a><code><a href="#quarkus-artemis-core_quarkus.artemis.-configuration-name-.password">quarkus.artemis."configuration-name".password</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Password for authentication, only used with JMS</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_ARTEMIS__CONFIGURATION_NAME__PASSWORD</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

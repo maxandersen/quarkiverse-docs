@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using Quarkus Cert-Manager :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-certmanager/dev/index.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-certmanager" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Cert-Manager</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Quarkus Cert-Manager</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Cert-Manager</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Cert-Manager</a></li>
+    <li><a href="index.html">Quarkus Cert-Manager</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-cert-manager/edit/main/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Using Quarkus Cert-Manager</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Quarkus Cert-Manager extension supports generating an X.509 certificate with the help of the Certificate and Issuer CRD resources handled by the <a href="https://cert-manager.io/">Cert-Manager</a>. When these CRD resources are deployed on the cluster, the Cert-Manager will process them to populate a Secret containing for example a: CA certificate, private key, server certificate, or java keystores, etc.</p>
+</div>
+<div class="paragraph">
+<p>Under the hood, this extension uses <a href="https://dekorate.io/">Dekorate</a> to generate all the Cert-Manager manifests at build time.</p>
+</div>
+<div class="paragraph">
+<p>Before getting started, make sure you&#8217;re using the right Quarkus Helm version that is compatible with the Quarkus version you&#8217;re using in your project. See the following table to see the compatibility among versions:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Quarkus Cert-Manager Version</th>
+<th class="tableblock halign-left valign-top">Quarkus Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 3+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.12+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.0.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus 2.12+</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_quarkus_application_with_the_cert_manager_extension"><a class="anchor" href="#_create_a_quarkus_application_with_the_cert_manager_extension"></a>Create a Quarkus application with the Cert-Manager extension</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this example, we&#8217;ll create a Quarkus application with the Quarkus Cert-Manager and the Quarkus Kubernetes extensions by running the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn io.quarkus.platform:quarkus-maven-plugin:3.2.2.Final:create \
+    -DprojectGroupId=org.acme \
+    -DprojectArtifactId=certmanager-quickstart \
+    -DclassName="org.acme.quickstart.GreetingResource" \
+    -Dpath="/hello" \
+    -Dextensions="resteasy-reactive,kubernetes,certmanager"
+cd certmanager-quickstart</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you already have your Quarkus project configured, you can add the <code>certmanager</code> extension to your project by running the following command in your project base directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw quarkus:add-extension -Dextensions="certmanager"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command will add the following dependency to your <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.certmanager&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-certmanager&lt;/artifactId&gt;
+    &lt;version&gt;1.0.2&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once we add the Quarkus Cert-Manager extension to your project, you can now generate the resources by running the following Maven command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./mvnw clean package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And next, we need to provide the certificate configuration. The minimal information that the extension needs is:
+* <code>secretName</code>: the name of the Kubernetes <a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secret</a> resource that will include the Cert-Manager generated files.
+* the Issuer that represents the certificate authority (CA). See all the supported options in <a href="#_issuers">the Issuer</a> section.</p>
+</div>
+<div class="paragraph">
+<p>For all the configuration options, please go to <a href="#configuration-reference">the Configuration guide</a>.</p>
+</div>
+<div class="paragraph">
+<p>The minimal configuration can be provided using the properties file and the following keys:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.certificate.secret-name=tls-secret
+# The selfSigned issuer:
+quarkus.certificate.self-signed.enabled=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This configuration will generate up to two resources under the <code>target/kubernetes/kubernetes.yml</code> file that should look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: kubernetes-example
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kubernetes-example
+spec:
+  encodeUsagesInRequest: false
+  isCA: false
+  issuerRef:
+    name: kubernetes-example
+  secretName: tls-secret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Quarkus Cert-Manager extension will add, part of the Deployment, a volume mounted from the secret that contains the Cert-Manager generated files to allow the application to access them and to configure the HTTPS/TLS endpoint:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-example
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: kubernetes-example
+          volumeMounts:
+            - mountPath: /etc/certs
+              name: volume-certs
+              readOnly: true
+      volumes:
+        - name: volume-certs
+          secret:
+            optional: false
+            secretName: tls-secret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Moreover, the Quarkus Cert-Manager extension will also autoconfigure the application to accept SSL connections. By default, it will autoconfigure only the Ingress/Route resource if exposed, otherwise, it will enable the HTTPS/TLS configuration for the internal communications of the application. This configuration can be controlled using the property <code>quarkus.certificate.autoconfigure</code> which values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(Default) AUTOMATIC: It will secure Ingress/Route resources if exposed, otherwise the HTTP endpoints.</p>
+</li>
+<li>
+<p>NONE: It won&#8217;t autoconfigure anything.</p>
+</li>
+<li>
+<p>ALL: It will secure the HTTP endpoints and also the Ingress/Route resources if exposed.</p>
+</li>
+<li>
+<p>HTTPS_ONLY: It will secure only the HTTP endpoints.</p>
+</li>
+<li>
+<p>CLUSTER_ONLY: It will secure only the Ingress/Route resources. It will throw an exception if it was not exposed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, if you want to secure both the internal HTTPs connections and the ingress resource by setting the property <code>quarkus.certificate.autoconfigure=ALL</code>, it will update the Ingress resource as follows if the property <code>quarkus.kubernetes.ingress.expose</code> is true:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  ...
+spec:
+  rules:
+    ...
+  tls:
+    - hosts:
+        - kubernetes-example.com
+        - localhost
+      secretName: tls-secret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And it will also autoconfigure the HTTP SSL configuration part of the Deployment resource:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  ...
+  name: quarkus-certmanager-integration-tests-certmanager-ssl
+spec:
+  replicas: 1
+  selector:
+    ...
+  template:
+    ...
+    spec:
+      containers:
+        - env:
+            - name: KUBERNETES_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: QUARKUS_HTTP_SSL_CERTIFICATE_KEY_STORE_FILE_TYPE
+              value: PKCS12
+            - name: QUARKUS_HTTP_SSL_CERTIFICATE_KEY_STORE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: pkcs12-pass
+            - name: QUARKUS_HTTP_SSL_CERTIFICATE_KEY_STORE_FILE
+              value: /etc/certs/keystore.p12</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_securing_resources"><a class="anchor" href="#_securing_resources"></a>Securing Resources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When securing your resources, it&#8217;s important to validate that the requests are coming from known host names. For this purpose, we can use the <code>dnsNames</code> property which is part of the certificate configuration. For example, by adding the following <code>quarkus.certificate.dns-names</code> property (it&#8217;s a comma separated list of strings):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.certificate.dns-names=foo.bar.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The certificate will only allow requests accessing the server host <code>foo.bar.com</code>. Remark: If the DNS Host name does not exist, then you will get an error.</p>
+</div>
+<div class="paragraph">
+<p>Note that the applications in Kubernetes can be publicly exposed using <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a> resources, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubernetes-example
+spec:
+  rules:
+  - host: foo.bar.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: kubernetes-example
+            port:
+              name: http
+  tls:
+    - hosts:
+        - foo.bar.com
+      secretName: tls-secret # &lt; cert-manager will store the created certificate in this secret.</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_issuers"><a class="anchor" href="#_issuers"></a>Issuers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>Issuer</code> is a Kubernetes resource that represents a certificate issuing authority that can generate signed certificates by honoring certificate signing requests. All cert-manager certificates require a referenced issuer to attempt to honor the request.</p>
+</div>
+<div class="paragraph">
+<p>The supported issuers of this extension are SelfSigned, CA, Vault, and IssuerRef.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only one issuer must be set between <code>selfSigned</code>, <code>ca</code>, <code>vault</code>, and <code>issuerRef</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_selfsigned"><a class="anchor" href="#_selfsigned"></a>SelfSigned</h3>
+<div class="paragraph">
+<p>Using the <a href="https://cert-manager.io/docs/configuration/selfsigned/">SelfSigned issuer</a>, the certificate will sign itself using the given private key.
+To use the SelfSigned issuer, you need to add the following key property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.certificate.self-signed.enabled=true</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ca"><a class="anchor" href="#_ca"></a>CA</h3>
+<div class="paragraph">
+<p>Using the <a href="https://cert-manager.io/docs/configuration/ca/">CA issuer</a>, the certificate and private key are stored inside the cluster as a Kubernetes Secret and will be used to sign incoming certificate requests.
+To use the CA issuer, you need to add the following key properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.certificate.ca.secret-name=ca-key-pair</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When this certificate is installed in the cluster, Cert-Manager will issue the certificate and generate the CA secret resource <code>ca-key-pair</code> which the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: Secret
+metadata:
+  name: ca-key-pair
+data:
+  tls.crt: &lt;auto generated encrypted data&gt;
+  tls.key: &lt;auto generated encrypted data&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vault"><a class="anchor" href="#_vault"></a>Vault</h3>
+<div class="paragraph">
+<p>Using the <a href="https://cert-manager.io/docs/configuration/vault/">Vault issuer</a>, the certificate will be issued by the certificate authority <a href="https://www.vaultproject.io/">Vault</a>.
+To use the Vault issuer, you need the following key properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.certificate.vault.server=https://vault.example.com:8200
+quarkus.certificate.vault.path=my_pki_mount/sign/my-role-name
+# Any of the auth mechanisms to login into Vault:
+## 1.- Via token secret resource reference:
+quarkus.certificate.vault.auth-token-secret-ref...
+## 2.- Via using Application Role:
+quarkus.certificate.vault.auth-app-role...
+## 3.- Via using Kubernetes service account:
+quarkus.certificate.vault.auth-kubernetes...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_a_pre_existing_issuer"><a class="anchor" href="#_using_a_pre_existing_issuer"></a>Using a pre-existing issuer</h3>
+<div class="paragraph">
+<p>To use a pre-existing issuer type that is separately installed in the cluster, you can use the <code>issuerRef</code> type. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.certificate.issuer-ref.name=my-issuer
+quarkus.certificate.issuer-ref.kind=ClusterIssuer</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, we are using a <a href="https://cert-manager.io/docs/concepts/issuer/">ClusterIssuer</a> resource that is part of the Cert-Manager API and that should have previously been installed in the cluster.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuration-reference"><a class="anchor" href="#configuration-reference"></a>Configuration Reference</h2>
+<div class="sectionbody">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_configuration"></a><a href="#quarkus-certificate_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.enabled"></a><code><a href="#quarkus-certificate_quarkus.certificate.enabled">quarkus.certificate.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If enable/disable the Cert-Manager extension.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.name"></a><code><a href="#quarkus-certificate_quarkus.certificate.name">quarkus.certificate.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the certificate resource to be generated. If not provided, it will use the default name for the application resources.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.secret-name"></a><code><a href="#quarkus-certificate_quarkus.certificate.secret-name">quarkus.certificate.secret-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>SecretName is the name of the secret resource that will be automatically created and managed by this Certificate resource. It will be populated with a private key and certificate, signed by the denoted issuer.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SECRET_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.common-name"></a><code><a href="#quarkus-certificate_quarkus.certificate.common-name">quarkus.certificate.common-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>CommonName is a common name to be used on the Certificate. The CommonName should have a length of 64 characters or fewer to avoid generating invalid CSRs.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_COMMON_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.duration"></a><code><a href="#quarkus-certificate_quarkus.certificate.duration">quarkus.certificate.duration</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The lifetime of the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_DURATION</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.renew-before"></a><code><a href="#quarkus-certificate_quarkus.certificate.renew-before">quarkus.certificate.renew-before</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>How long before the currently issued certificate’s expiry cert-manager should renew the certificate. The default is 2⁄3 of the issued certificate’s duration.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_RENEW_BEFORE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.dns-names"></a><code><a href="#quarkus-certificate_quarkus.certificate.dns-names">quarkus.certificate.dns-names</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The list of <a href="https://en.wikipedia.org/wiki/Subject_Alternative_Name">Subject Alternative Names</a>.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_DNS_NAMES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.ip-addresses"></a><code><a href="#quarkus-certificate_quarkus.certificate.ip-addresses">quarkus.certificate.ip-addresses</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The list of IP address subjectAltNames to be set on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_IP_ADDRESSES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.uris"></a><code><a href="#quarkus-certificate_quarkus.certificate.uris">quarkus.certificate.uris</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The list of URI subjectAltNames to be set on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_URIS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.email-addresses"></a><code><a href="#quarkus-certificate_quarkus.certificate.email-addresses">quarkus.certificate.email-addresses</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The list of email subjectAltNames to be set on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_EMAIL_ADDRESSES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.is-ca"></a><code><a href="#quarkus-certificate_quarkus.certificate.is-ca">quarkus.certificate.is-ca</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If true, it will mark this Certificate as valid for certificate signing.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_IS_CA</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.usages"></a><code><a href="#quarkus-certificate_quarkus.certificate.usages">quarkus.certificate.usages</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The set of x509 usages that are requested for the certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_USAGES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.encode-usages-in-request"></a><code><a href="#quarkus-certificate_quarkus.certificate.encode-usages-in-request">quarkus.certificate.encode-usages-in-request</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_ENCODE_USAGES_IN_REQUEST</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.volume-mount-path"></a><code><a href="#quarkus-certificate_quarkus.certificate.volume-mount-path">quarkus.certificate.volume-mount-path</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VOLUME_MOUNT_PATH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>/etc/certs</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.autoconfigure"></a><code><a href="#quarkus-certificate_quarkus.certificate.autoconfigure">quarkus.certificate.autoconfigure</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_AUTOCONFIGURE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><code>none</code>, <code>automatic</code>, <code>all</code>, <code>https-only</code>, <code>cluster-only</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>automatic</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.issuer-ref-the-reference-to-the-issuer-for-this-certificate"></a><a href="#quarkus-certificate_quarkus.certificate.issuer-ref-the-reference-to-the-issuer-for-this-certificate">The reference to the issuer for this certificate</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.issuer-ref.name"></a><code><a href="#quarkus-certificate_quarkus.certificate.issuer-ref.name">quarkus.certificate.issuer-ref.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the resource being referred to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_ISSUER_REF_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.issuer-ref.kind"></a><code><a href="#quarkus-certificate_quarkus.certificate.issuer-ref.kind">quarkus.certificate.issuer-ref.kind</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The kind of the resource being referred to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_ISSUER_REF_KIND</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.issuer-ref.group"></a><code><a href="#quarkus-certificate_quarkus.certificate.issuer-ref.group">quarkus.certificate.issuer-ref.group</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The group of the resource being referred to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_ISSUER_REF_GROUP</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.ca-the-ca-issuer-configuration"></a><a href="#quarkus-certificate_quarkus.certificate.ca-the-ca-issuer-configuration">The CA issuer configuration</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.ca.secret-name"></a><code><a href="#quarkus-certificate_quarkus.certificate.ca.secret-name">quarkus.certificate.ca.secret-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the secret used to sign Certificates issued by this Issuer.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_CA_SECRET_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.ca.crl-distribution-points"></a><code><a href="#quarkus-certificate_quarkus.certificate.ca.crl-distribution-points">quarkus.certificate.ca.crl-distribution-points</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The CRL distribution points is an X.509 v3 certificate extension which identifies the location of the CRL from which the revocation of this certificate can be checked.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_CA_CRL_DISTRIBUTION_POINTS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.vault-the-vault-issuer-configuration"></a><a href="#quarkus-certificate_quarkus.certificate.vault-the-vault-issuer-configuration">The Vault issuer configuration</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.server"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.server">quarkus.certificate.vault.server</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The connection address for the Vault server, e.g: “https://vault.example.com:8200”.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_SERVER</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.path"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.path">quarkus.certificate.vault.path</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The mount path of the Vault PKI backend’s sign endpoint, e.g: “my_pki_mount/sign/my-role-name”.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_PATH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.namespace"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.namespace">quarkus.certificate.vault.namespace</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_NAMESPACE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.ca-bundle"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.ca-bundle">quarkus.certificate.vault.ca-bundle</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The PEM-encoded CA bundle (base64-encoded) used to validate Vault server certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_CA_BUNDLE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.vault.auth-token-secret-ref-the-reference-where-to-retrieve-the-vault-token"></a><a href="#quarkus-certificate_quarkus.certificate.vault.auth-token-secret-ref-the-reference-where-to-retrieve-the-vault-token">The reference where to retrieve the Vault token</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-token-secret-ref.name"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-token-secret-ref.name">quarkus.certificate.vault.auth-token-secret-ref.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the resource being referred to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_TOKEN_SECRET_REF_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-token-secret-ref.key"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-token-secret-ref.key">quarkus.certificate.vault.auth-token-secret-ref.key</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The key of the entry in the Secret resource’s data field to be used.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_TOKEN_SECRET_REF_KEY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.vault.auth-app-role-the-vault-authentication-using-app-role-auth-mechanism"></a><a href="#quarkus-certificate_quarkus.certificate.vault.auth-app-role-the-vault-authentication-using-app-role-auth-mechanism">The Vault authentication using App Role auth mechanism</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-app-role.path"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-app-role.path">quarkus.certificate.vault.auth-app-role.path</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The App Role authentication backend is mounted in Vault, e.g: “approle”</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_APP_ROLE_PATH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-app-role.role-id"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-app-role.role-id">quarkus.certificate.vault.auth-app-role.role-id</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The App Role authentication backend when setting up the authentication backend in Vault.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_APP_ROLE_ROLE_ID</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.vault.auth-app-role.secret-ref-the-reference-to-a-key-in-a-secret-that-contains-the-app-role-secret-used-to-authenticate-with-vault"></a><a href="#quarkus-certificate_quarkus.certificate.vault.auth-app-role.secret-ref-the-reference-to-a-key-in-a-secret-that-contains-the-app-role-secret-used-to-authenticate-with-vault">The reference to a key in a Secret that contains the App Role secret used to authenticate with Vault</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-app-role.secret-ref.name"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-app-role.secret-ref.name">quarkus.certificate.vault.auth-app-role.secret-ref.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the resource being referred to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_APP_ROLE_SECRET_REF_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-app-role.secret-ref.key"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-app-role.secret-ref.key">quarkus.certificate.vault.auth-app-role.secret-ref.key</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The key of the entry in the Secret resource’s data field to be used.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_APP_ROLE_SECRET_REF_KEY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.vault.auth-kubernetes-the-vault-authentication-using-kubernetes-service-account"></a><a href="#quarkus-certificate_quarkus.certificate.vault.auth-kubernetes-the-vault-authentication-using-kubernetes-service-account">The Vault authentication using Kubernetes service account</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.mount-path"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.mount-path">quarkus.certificate.vault.auth-kubernetes.mount-path</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The mount path to use when authenticating with Vault.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_KUBERNETES_MOUNT_PATH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.role"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.role">quarkus.certificate.vault.auth-kubernetes.role</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The required Secret field containing a Kubernetes ServiceAccount JWT used for authenticating with Vault.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_KUBERNETES_ROLE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.secret-ref-the-reference-to-a-key-in-a-secret-that-contains-the-app-role-secret-used-to-authenticate-with-vault"></a><a href="#quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.secret-ref-the-reference-to-a-key-in-a-secret-that-contains-the-app-role-secret-used-to-authenticate-with-vault">The reference to a key in a Secret that contains the App Role secret used to authenticate with Vault</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.secret-ref.name"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.secret-ref.name">quarkus.certificate.vault.auth-kubernetes.secret-ref.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the resource being referred to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_KUBERNETES_SECRET_REF_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.secret-ref.key"></a><code><a href="#quarkus-certificate_quarkus.certificate.vault.auth-kubernetes.secret-ref.key">quarkus.certificate.vault.auth-kubernetes.secret-ref.key</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The key of the entry in the Secret resource’s data field to be used.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_VAULT_AUTH_KUBERNETES_SECRET_REF_KEY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.self-signed-the-self-signed-issuer-configuration"></a><a href="#quarkus-certificate_quarkus.certificate.self-signed-the-self-signed-issuer-configuration">The self-signed issuer configuration</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.self-signed.enabled"></a><code><a href="#quarkus-certificate_quarkus.certificate.self-signed.enabled">quarkus.certificate.self-signed.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If the self-signed issuer should be generated.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SELF_SIGNED_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.self-signed.crl-distribution-points"></a><code><a href="#quarkus-certificate_quarkus.certificate.self-signed.crl-distribution-points">quarkus.certificate.self-signed.crl-distribution-points</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The CRL distribution points is an X.509 v3 certificate extension which identifies the location of the CRL from which the revocation of this certificate can be checked.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SELF_SIGNED_CRL_DISTRIBUTION_POINTS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.subject-full-x509-name-specification-https-golang"></a><a href="#quarkus-certificate_quarkus.certificate.subject-full-x509-name-specification-https-golang">Full X509 name specification (<a href="https://golang" class="bare">https://golang</a></a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.subject.organizations"></a><code><a href="#quarkus-certificate_quarkus.certificate.subject.organizations">quarkus.certificate.subject.organizations</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The organizations to be used on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SUBJECT_ORGANIZATIONS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.subject.countries"></a><code><a href="#quarkus-certificate_quarkus.certificate.subject.countries">quarkus.certificate.subject.countries</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The countries to be used on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SUBJECT_COUNTRIES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.subject.organizational-units"></a><code><a href="#quarkus-certificate_quarkus.certificate.subject.organizational-units">quarkus.certificate.subject.organizational-units</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The organizational Units to be used on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SUBJECT_ORGANIZATIONAL_UNITS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.subject.localities"></a><code><a href="#quarkus-certificate_quarkus.certificate.subject.localities">quarkus.certificate.subject.localities</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The cities to be used on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SUBJECT_LOCALITIES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.subject.provinces"></a><code><a href="#quarkus-certificate_quarkus.certificate.subject.provinces">quarkus.certificate.subject.provinces</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The State/Provinces to be used on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SUBJECT_PROVINCES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.subject.street-addresses"></a><code><a href="#quarkus-certificate_quarkus.certificate.subject.street-addresses">quarkus.certificate.subject.street-addresses</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The street addresses to be used on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SUBJECT_STREET_ADDRESSES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.subject.postal-codes"></a><code><a href="#quarkus-certificate_quarkus.certificate.subject.postal-codes">quarkus.certificate.subject.postal-codes</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The postal codes to be used on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SUBJECT_POSTAL_CODES</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.subject.serial-number"></a><code><a href="#quarkus-certificate_quarkus.certificate.subject.serial-number">quarkus.certificate.subject.serial-number</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The serial number to be used on the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_SUBJECT_SERIAL_NUMBER</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.keystores-the-keystores-generation-configuration"></a><a href="#quarkus-certificate_quarkus.certificate.keystores-the-keystores-generation-configuration">The Keystores generation configuration</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.keystores.jks-jks-configures-options-for-storing-a-jks-keystore-in-the-spec"></a><a href="#quarkus-certificate_quarkus.certificate.keystores.jks-jks-configures-options-for-storing-a-jks-keystore-in-the-spec">JKS configures options for storing a JKS keystore in the spec</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.keystores.jks.create"></a><code><a href="#quarkus-certificate_quarkus.certificate.keystores.jks.create">quarkus.certificate.keystores.jks.create</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Create enables keystore creation for the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_KEYSTORES_JKS_CREATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.keystores.jks.password-secret-ref.name"></a><code><a href="#quarkus-certificate_quarkus.certificate.keystores.jks.password-secret-ref.name">quarkus.certificate.keystores.jks.password-secret-ref.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the resource being referred to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_KEYSTORES_JKS_PASSWORD_SECRET_REF_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.keystores.jks.password-secret-ref.key"></a><code><a href="#quarkus-certificate_quarkus.certificate.keystores.jks.password-secret-ref.key">quarkus.certificate.keystores.jks.password-secret-ref.key</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The key of the entry in the Secret resource’s data field to be used.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_KEYSTORES_JKS_PASSWORD_SECRET_REF_KEY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.keystores.pkcs12-pkcs12-configures-options-for-storing-a-pkcs12-keystore-in-the-spec"></a><a href="#quarkus-certificate_quarkus.certificate.keystores.pkcs12-pkcs12-configures-options-for-storing-a-pkcs12-keystore-in-the-spec">PKCS12 configures options for storing a PKCS12 keystore in the spec</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.keystores.pkcs12.create"></a><code><a href="#quarkus-certificate_quarkus.certificate.keystores.pkcs12.create">quarkus.certificate.keystores.pkcs12.create</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Create enables keystore creation for the Certificate.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_KEYSTORES_PKCS12_CREATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.keystores.pkcs12.password-secret-ref.name"></a><code><a href="#quarkus-certificate_quarkus.certificate.keystores.pkcs12.password-secret-ref.name">quarkus.certificate.keystores.pkcs12.password-secret-ref.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of the resource being referred to.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_KEYSTORES_PKCS12_PASSWORD_SECRET_REF_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.keystores.pkcs12.password-secret-ref.key"></a><code><a href="#quarkus-certificate_quarkus.certificate.keystores.pkcs12.password-secret-ref.key">quarkus.certificate.keystores.pkcs12.password-secret-ref.key</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The key of the entry in the Secret resource’s data field to be used.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_KEYSTORES_PKCS12_PASSWORD_SECRET_REF_KEY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="quarkus-certificate_quarkus.certificate.private-key"></a><a href="#quarkus-certificate_quarkus.certificate.private-key" class="bare">#quarkus-certificate_quarkus.certificate.private-key</a>
+This configuration section is optional</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.private-key.rotation-policy"></a><code><a href="#quarkus-certificate_quarkus.certificate.private-key.rotation-policy">quarkus.certificate.private-key.rotation-policy</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>RotationPolicy controls how private keys should be regenerated when a re-issuance is being processed.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_PRIVATE_KEY_ROTATION_POLICY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><code>unset</code>, <code>never</code>, <code>always</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>unset</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.private-key.encoding"></a><code><a href="#quarkus-certificate_quarkus.certificate.private-key.encoding">quarkus.certificate.private-key.encoding</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_PRIVATE_KEY_ENCODING</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><code>unset</code>, <code>pkcs1</code>, <code>pkcs8</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>unset</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.private-key.algorithm"></a><code><a href="#quarkus-certificate_quarkus.certificate.private-key.algorithm">quarkus.certificate.private-key.algorithm</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_PRIVATE_KEY_ALGORITHM</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><code>unset</code>, <code>rsa</code>, <code>ed25519</code>, <code>ecdsa</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>unset</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="quarkus-certificate_quarkus.certificate.private-key.size"></a><code><a href="#quarkus-certificate_quarkus.certificate.private-key.size">quarkus.certificate.private-key.size</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Environment variable: <code>QUARKUS_CERTIFICATE_PRIVATE_KEY_SIZE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>-1</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://cert-manager.io/">Cert-Manager</a></p>
+</li>
+<li>
+<p><a href="https://dekorate.io/">Dekorate</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Designing AI services :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-langchain4j/dev/ai-services.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-langchain4j" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">LangChain4j</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">AI Services</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="ai-services.html">AI Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="agent-and-tools.html">Agent and Tools</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="retrievers.html">Embeddings and Document Retrievers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="prompt-engineering.html">Prompt Engineering 101</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">LLMs</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="llms.html">LLMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="openai.html">OpenAI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="huggingface.html">HuggingFace</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Document Stores</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="redis-store.html">Redis Store</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chroma-store.html">Chroma Store</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="pinecone-store.html">Pinecone Store</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="pgvector-store.html">PgVector (PostgreSQL) Store</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="in-process-embedding.html">In-Process Embeddings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="csv.html">Loading CSV files</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Additional tools</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dev-ui.html">Dev UI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced topics</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="fault-tolerance.html">Fault Tolerance</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">LangChain4j</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">LangChain4j</a></li>
+    <li>AI Services</li>
+    <li><a href="ai-services.html">AI Services</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-langchain4j/edit/main/docs/modules/ROOT/pages/ai-services.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Designing AI services</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>An <em>AI Service</em> employs a declarative approach to define interactions with the LLM, serving as the pivotal interaction point between your application and the LLM. It operates as an intermediary, known as an <a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/ambassador"><em>ambassador</em></a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_purpose"><a class="anchor" href="#_purpose"></a>Purpose</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <em>AI Service</em> serves as the core connection point between your application and the LLM. It abstracts the LLM specifics, encapsulating and declaring all interactions within a singular interface.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_leveraging_registeraiservice"><a class="anchor" href="#_leveraging_registeraiservice"></a>Leveraging @RegisterAiService</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>@RegisterAiService</code> annotation is pivotal for registering an <em>AI Service</em>, placed on an interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RegisterAiService
+public interface MyAiService {
+    // methods.
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once registered, you can inject the <em>AI Service</em> into your application:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Inject MyAiService service;</code></pre>
+</div>
+</div>
+<div id="scope" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The beans created by <code>@RegisterAiService</code> are <code>@RequestScoped</code> by default. The reason for this is that it enables removing chat <a href="#memory">Configuring the Context (Memory)</a> objects.
+This is a good default when a service is used during when handling an HTTP request, but it&#8217;s inappropriate in CLIs or in WebSockets (WebSocket support is expected to improve in the near future).
+For example when using a service in a CLI, it makes sense to have the service be <code>@ApplicationScoped</code> and the extension allows this simply if the service is annotated with <code>@ApplicationScoped</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ai_method_declaration"><a class="anchor" href="#_ai_method_declaration"></a>AI method declaration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within the interface annotated with <code>@RegisterAiService</code>, you model interactions with the LLM using <em>methods</em>. These methods accept parameters and are annotated with <code>@SystemMessage</code> and <code>@UserMessage</code> to define instructions directed to the LLM:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@SystemMessage("You are a professional poet.")
+@UserMessage("""
+    Write a poem about {topic}. The poem should be {lines} lines long. Then send this poem by email.
+""")
+String writeAPoem(String topic, int lines);</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_system_message"><a class="anchor" href="#_system_message"></a>System Message</h3>
+<div class="paragraph">
+<p>The <code>@SystemMessage</code> annotation defines the scope and initial instructions, serving as the first message sent to the LLM. It delineates the AI service&#8217;s role in the interaction:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@SystemMessage("""
+    You are working for a bank, processing reviews about financial products. Triage reviews into positive and negative ones, responding with a JSON document.
+    """
+)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_user_message_prompt"><a class="anchor" href="#_user_message_prompt"></a>User Message (Prompt)</h3>
+<div class="paragraph">
+<p>The <code>@UserMessage</code> annotation defines primary instructions dispatched to the LLM. It typically encompasses requests and the expected response format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@UserMessage("""
+    Your task is to process the review delimited by ---.
+    Apply a sentiment analysis to the review to determine if it is positive or negative, considering various languages.
+
+    For example:
+    - "I love your bank, you are the best!" is a 'POSITIVE' review
+    - "J'adore votre banque" is a 'POSITIVE' review
+    - "I hate your bank, you are the worst!" is a 'NEGATIVE' review
+
+    Respond with a JSON document containing:
+    - the 'evaluation' key set to 'POSITIVE' if the review is positive, 'NEGATIVE' otherwise
+    - the 'message' key set to a message thanking or apologizing to the customer. These messages must be polite and match the review's language.
+
+    ---
+    {review}
+    ---
+""")
+TriagedReview triage(String review);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_parameter_passing_and_referencing"><a class="anchor" href="#_parameter_passing_and_referencing"></a>Parameter Passing and Referencing</h3>
+<div class="paragraph">
+<p>AI methods can take parameters referenced in system and user messages using the <code>{parameter}</code> syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@SystemMessage("You are a professional poet")
+@UserMessage("""
+    Write a poem about {topic}. The poem should be {lines} lines long. Then send this poem by email.
+""")
+String writeAPoem(String topic, int lines);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ai_method_return_type"><a class="anchor" href="#_ai_method_return_type"></a>AI Method Return Type</h3>
+<div class="paragraph">
+<p>If the <em>prompt</em> defines the JSON response format precisely, you can map the response directly to an object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">// ... See above for the prompt
+TriagedReview triage(String review);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this instance, Quarkus automatically creates an instance of <code>TriagedReview</code> from the LLM&#8217;s JSON response.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_receiving_user_message_as_a_parameter"><a class="anchor" href="#_receiving_user_message_as_a_parameter"></a>Receiving User Message as a Parameter</h3>
+<div class="paragraph">
+<p>For situations requiring the user message to be passed as a parameter, you can use the <code>@UserMessage</code> annotation on a parameter. Exercise caution with this feature, especially when the AI has access to <em>tools</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">String chat(@UserMessage String userMessage);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The annotated parameter should be of type <code>String</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_receiving_memoryid_as_a_parameter"><a class="anchor" href="#_receiving_memoryid_as_a_parameter"></a>Receiving MemoryId as a Parameter</h3>
+<div class="paragraph">
+<p>The <em>memory</em> encompasses the cumulative context of the interaction with the LLM. To manage statelessness in LLMs, the complete context must be exchanged between the LLM and the AI service.</p>
+</div>
+<div class="paragraph">
+<p>Hence, the AI Service can store the latest messages in a <em>memory</em>, often termed <em>context</em>. The <code>@MemoryId</code> annotation enables referencing the memory for a specific user in the AI method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">String chat(@MemoryId int memoryId, @UserMessage String userMessage);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We&#8217;ll explore an alternative approach to avoid manual memory handling in the <a href="#memory">Configuring the Context (Memory)</a> section.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_the_chat_language_model"><a class="anchor" href="#_configuring_the_chat_language_model"></a>Configuring the Chat Language Model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While LLMs are the base AI models, the chat language model builds upon them, enabling chat-like interactions. If you have a single chat language model, no specific configuration is required.</p>
+</div>
+<div class="paragraph">
+<p>However, with multiple models like OpenAI and Hugging Faces, you need to specify which one to use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RegisterAiService(
+    chatLanguageModelSupplier = MyChatModelSupplier.class
+)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>MyChatModelSupplier</code> class should implement the <code>Supplier&lt;ChatLanguageModel&gt;</code> interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.quarkiverse.langchain4j.sample;
+
+import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.openai.OpenAiChatModel;
+
+import java.util.function.Supplier;
+
+public class MyChatModelSupplier implements Supplier&lt;ChatLanguageModel&gt; {
+    @Override
+    public ChatLanguageModel get() {
+        return OpenAiChatModel.builder()
+                .apiKey("...")
+                .build();
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="memory"><a class="anchor" href="#memory"></a>Configuring the Context (Memory)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As LLMs are stateless, the memory — comprising the interaction context — must be exchanged each time. To prevent storing excessive messages, it&#8217;s crucial to evict older messages.</p>
+</div>
+<div class="paragraph">
+<p>The <code>chatMemoryProviderSupplier</code> attribute of the <code>@RegisterAiService</code> annotation enables configuring the <code>dev.langchain4j.memory.chat.ChatMemoryProvider</code>. The default value of this annotation is <code>RegisterAiService.BeanIfExistsChatMemoryProviderSupplier.class</code>
+which means that the <code>AiService</code> will use whatever <code>ChatMemoryProvider</code> bean is configured by the application, while falling back to no memory if no such bean exists.</p>
+</div>
+<div class="paragraph">
+<p>The extension provides a default implementation of <code>ChatMemoryProvider</code> which does two things:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It uses whatever bean <code>dev.langchain4j.store.memory.chat.ChatMemoryStore</code> bean is configured, as the backing store. The default implementation is <code>dev.langchain4j.store.memory.chat.InMemoryChatMemoryStore</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the application provides its own <code>ChatMemoryStore</code> bean, that will be used instead of the default <code>InMemoryChatMemoryStore</code>,</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>It leverages the available configuration options under <code>quarkus.langchain4j.chat-memory</code> to construct the  <code>ChatMemoryProvider</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The default configuration values result in the usage of <code>dev.langchain4j.memory.chat.MessageWindowChatMemory</code> with a window size of ten</p>
+</li>
+<li>
+<p>By setting <code>quarkus.langchain4j.chat-memory.type=token-window</code>, a <code>dev.langchain4j.memory.chat.TokenWindowChatMemory</code> will be used. Note that this requires the presence of a <code>dev.langchain4j.model.Tokenizer</code> bean.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The topic of <code>ChatMemory</code> cleanup is of paramount importance in order to avoid having the application terminate with <code>out of memory</code> errors. For this reason, the extension automatically removes all the <code>ChatMemory</code> objects from
+the underlying <code>ChatMemoryStore</code> when the AI Service goes out of scope (recall from our discussion about <a href="#scope">[scope]</a> that such bean are <code>@RequestScoped</code> be default).</p>
+</div>
+<div class="paragraph">
+<p>However, in cases where more fine-grained control is needed (which is the case when the bean is declared as <code>@Singleton</code> or <code>@ApplicationScoped</code>) then <code>io.quarkiverse.langchain4j.ChatMemoryRemover</code> should be used to manually remove elements.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_advanced_usage"><a class="anchor" href="#_advanced_usage"></a>Advanced usage</h3>
+<div class="paragraph">
+<p>Although the extension&#8217;s default <code>ChatMemoryProvider</code> is very configurable making unnecessary in most cases to resort to a custom implementation, such a capability is possible. Here is a possible example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.quarkiverse.langchain4j.samples;
+
+import jakarta.inject.Singleton;
+
+import dev.langchain4j.memory.ChatMemory;
+import dev.langchain4j.memory.chat.ChatMemoryProvider;
+import dev.langchain4j.store.memory.chat.ChatMemoryStore;
+
+@Singleton
+public class CustomChatMemoryProvider implements ChatMemoryProvider {
+
+    private final ChatMemoryStore store;
+
+    public CustomChatMemoryProvider() {
+        this.store = createCustomStore();
+    }
+
+    private static ChatMemoryStore createCustomStore() {
+        // TODO: provide some kind of custom store
+        return null;
+    }
+
+    @Override
+    public ChatMemory get(Object memoryId) {
+        return createCustomMemory(memoryId);
+    }
+
+    private static ChatMemory createCustomMemory(Object memoryId) {
+        // TODO: implement using memoryId and store
+        return null;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If for some reason different AI services need to have a different <code>ChatMemoryProvider</code> (i.e. not use the globally available bean), this is possible by configuring the <code>chatMemoryProviderSupplier</code> attribute of the <code>@RegisterAiService</code> annotation and implementing as custom provider.
+Here is a possible example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.quarkiverse.langchain4j.samples;
+
+import java.util.function.Supplier;
+
+import dev.langchain4j.memory.ChatMemory;
+import dev.langchain4j.memory.chat.ChatMemoryProvider;
+import dev.langchain4j.memory.chat.MessageWindowChatMemory;
+import dev.langchain4j.store.memory.chat.InMemoryChatMemoryStore;
+
+public class CustomProvider implements Supplier&lt;ChatMemoryProvider&gt; {
+
+    private final InMemoryChatMemoryStore store = new InMemoryChatMemoryStore();
+
+    @Override
+    public ChatMemoryProvider get() {
+        return new ChatMemoryProvider() {
+
+            @Override
+            public ChatMemory get(Object memoryId) {
+                return MessageWindowChatMemory.builder()
+                        .maxMessages(20)
+                        .id(memoryId)
+                        .chatMemoryStore(store)
+                        .build();
+            }
+        };
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and configuring the AiService as so:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RegisterAiService(
+    chatMemoryProviderSupplier = MySmallMemoryProvider.class)</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For non-memory-reliant LLM interactions, you may skip memory configuration.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When using tools, you need a memory of at least 3 messages to cover the tools interaction.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_memoryid"><a class="anchor" href="#_memoryid"></a>@MemoryId</h3>
+<div class="paragraph">
+<p>In cases involving multiple users, ensure each user has a unique memory ID and pass this ID to the AI method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">String chat(@MemoryId int memoryId, @UserMessage String userMessage);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also, remember to clear out users to prevent memory issues.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_tools"><a class="anchor" href="#_configuring_tools"></a>Configuring Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tools are methods that LLMs can invoke to access additional data. These methods, declared using the <code>@Tool</code> annotation, should be part of a bean:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ApplicationScoped
+public class CustomerRepository implements PanacheRepository&lt;Customer&gt; {
+
+    @Tool("get the customer name for the given customerId")
+    public String getCustomerName(long id) {
+        return find("id", id).firstResult().name;
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@Tool</code> annotation can provide a description of the action, aiding the LLM in tool selection. The <code>@RegisterAiService</code> annotation allows configuring the tool provider:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RegisterAiService(tools = {TransactionRepository.class, CustomerRepository.class })</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Ensure you configure the memory provider when using tools.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Be cautious to avoid exposing destructive operations via tools.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>More information about tools is available in the <a href="agent-and-tools.html" class="xref page">Agent and Tools</a> page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_a_document_retriever"><a class="anchor" href="#_configuring_a_document_retriever"></a>Configuring a Document Retriever</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A document retriever fetches data from an external source and provides it to the LLM. It helps by sending only the relevant data, considering the LLM&#8217;s context limitations.</p>
+</div>
+<div class="paragraph">
+<p>This guidance aims to cover all crucial aspects of designing AI services with Quarkus, ensuring robust and efficient interactions with LLMs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_moderation"><a class="anchor" href="#_moderation"></a>Moderation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, @RegisterAiService annotated interfaces don&#8217;t moderate content. However, users can opt in to having the LLM moderate
+content by annotating the method with <code>@Moderate</code>.</p>
+</div>
+<div class="paragraph">
+<p>For moderation to work, the following criteria need to be met:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A CDI bean for <code>dev.langchain4j.model.moderation.ModerationModel</code> must be configured (the <code>quarkus-langchain4j-openai</code> and <code>quarkus-langchain4j-azure-openai</code> provide one out of the box)</p>
+</li>
+<li>
+<p>The interface must be configured with <code>@RegisterAiService(moderationModelSupplier = RegisterAiService.BeanModerationModelSupplier.class)</code></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_advanced_usage_2"><a class="anchor" href="#_advanced_usage_2"></a>Advanced usage</h3>
+<div class="paragraph">
+<p>An alternative to providing a CDI bean is to configure the interface with <code>@RegisterAiService(moderationModelSupplier = MyCustomSupplier.class)</code>
+and implement <code>MyCustomModerationSupplier</code> like so:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import dev.langchain4j.model.moderation.ModerationModel;
+
+public class MyCustomModerationSupplier implements Supplier&lt;ModerationModel&gt; {
+
+    @Override
+    public ModerationModel get(){
+        // TODO: implement
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_observability"><a class="anchor" href="#_observability"></a>Observability</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Observability is built into services created via <code>@RegisterAiService</code> and is provided in the following form:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Metrics are enabled when <code>quarkus-micrometer</code> is part of the application</p>
+</li>
+<li>
+<p>Traces are enabled when <code>quarkus-opentelemetry</code> is part of the application</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_metrics"><a class="anchor" href="#_metrics"></a>Metrics</h3>
+<div class="paragraph">
+<p>Each AI method is automatically timed and the timer data is available using the <code>langchain4j.aiservices.$interface_name.$method_name</code> template for the name.</p>
+</div>
+<div class="paragraph">
+<p>For example, if the AI service looks like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RegisterAiService
+public interface PoemAiService {
+
+    @SystemMessage("You are a professional poet")
+    @UserMessage("Write a poem about {topic}. The poem should be {lines} lines long")
+    String writeAPoem(String topic, int lines);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and one chooses to use <code>quarkus-micrometer-registry-prometheus</code>, then the metrics could be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs"># TYPE langchain4j_aiservices counter
+# HELP langchain4j_aiservices
+langchain4j_aiservices_total{aiservice="MyAiService",exception="none",method="writeAPoem",result="success"} 5.0
+
+# TYPE langchain4j_aiservices_seconds_max gauge
+# HELP langchain4j_aiservices_seconds_max
+langchain4j_aiservices_seconds_max{aiservice="MyAiService",method="writeAPoem"} 7.725769221
+# TYPE langchain4j_aiservices_seconds summary
+# HELP langchain4j_aiservices_seconds
+langchain4j_aiservices_seconds_count{aiservice="MyAiService",method="writeAPoem"} 5.0
+langchain4j_aiservices_seconds_sum{aiservice="MyAiService",method="writeAPoem"} 30.229575906</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tracing"><a class="anchor" href="#_tracing"></a>Tracing</h3>
+<div class="paragraph">
+<p>Each AI method creates its own span using the <code>langchain4j.aiservices.$interface_name.$method_name</code> template for the name.
+Furthermore, tool invocations also create a span using <code>langchain4j.tools.$tool_name</code> template for the name.</p>
+</div>
+<div class="paragraph">
+<p>For example, if the AI service looks like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RegisterAiService(tools = EmailService.class)
+public interface PoemAiService {
+
+    @SystemMessage("You are a professional poet")
+    @UserMessage("Write a poem about {topic}. The poem should be {lines} lines long. Then send this poem by email.")
+    String writeAPoem(String topic, int lines);
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>a tool that looks like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@ApplicationScoped
+public class EmailService {
+
+    @Inject
+    Mailer mailer;
+
+    @Tool("send the given content by email")
+    public void sendAnEmail(String content) {
+        Log.info("Sending an email: " + content);
+        mailer.send(Mail.withText("sendMeALetter@quarkus.io", "A poem for you", content));
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and invocation of the AI service that looks like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Path("/email-me-a-poem")
+public class EmailMeAPoemResource {
+
+    private final MyAiService service;
+
+    public EmailMeAPoemResource(MyAiService service) {
+        this.service = service;
+    }
+
+    @GET
+    public String emailMeAPoem() {
+        return service.writeAPoem("Quarkus", 4);
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then an example trace is:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/trace.png" alt="trace" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>In the trace above we can see the parent span which corresponds to the handling the GET HTTP request, but the real
+interesting thing is the <code>langchain4j.aiservices.MyAiService.writeAPoem</code> span which corresponds to the invocation of the AI service.
+The child spans of this span correspond (from to right) to calling the OpenAI API, invoking the <code>sendEmail</code> tool and finally invoking calling the OpenAI API again.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_auditing"><a class="anchor" href="#_auditing"></a>Auditing</h3>
+<div class="paragraph">
+<p>The extension allows users to audit the process of implementing an AiService by introducing <code>io.quarkiverse.langchain4j.audit.AuditService</code> and <code>io.quarkiverse.langchain4j.audit.Audit</code>.
+By default, if a bean of type <code>AuditService</code> is present in the application, it will be used in order to create an <code>Audit</code>, which received various callbacks pertaining to the implementation
+of the AiService method. More information can be found on the javadoc of these two classes.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

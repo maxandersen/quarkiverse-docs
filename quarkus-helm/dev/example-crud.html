@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Example: How to generate the Helm Chart of a REST CRUD Quarkus application :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-helm/dev/example-crud.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-helm" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Helm</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html#helm-extension-for-quarkus">Helm Extension for Quarkus</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html#usage-helm-kubernetes">Getting Started with Kubernetes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html#usage-helm-openshift">Getting Started with OpenShift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html#helm-values">Generating the Helm Values file</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="index.html#mapping-custom-values">Adding custom properties to the Helm Values file using YAMLPath expressions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="index.html#mapping-system-properties">Mapping System Properties</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="index.html#mapping-multiple-properties-at-once">Adding properties from multiple locations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="index.html#set-alias-name">Configure root name for Values.yaml</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html#helm-dependencies">Adding Helm dependencies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="index.html#helm-dependencies-install-in-order">Install the Helm Dependencies in order</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html#helm-expressions">Using Helm templates/functions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html#push-to-helm-repositories">Push to Helm Repositories</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html#helm-profiles">Helm Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html#conditionally-enable-disable-resources">Conditionally enable/disable resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="example-crud.html">Example: How to generate the Helm Chart of a REST CRUD Quarkus application</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="example-argocd.html">Example: How to configure a Continuous Delivery (CD) workflow using Quarkus Helm and ArgoCD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="example-config.html">Example: How to use the Quarkus Kubernetes Config extension to map properties using Quarkus Helm</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="includes/quarkus-helm.html">Configuration Reference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Helm</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Helm</a></li>
+    <li><a href="example-crud.html">Example: How to generate the Helm Chart of a REST CRUD Quarkus application</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-helm/edit/main/docs/modules/ROOT/pages/example-crud.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Example: How to generate the Helm Chart of a REST CRUD Quarkus application</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this example, we&#8217;re going to create a very simple REST CRUD application in Quarkus. Then, we&#8217;ll configure it to build the application image, and push it to a container registry, so Kubernetes can pull this image from. Next, we&#8217;ll configure the Quarkus Kubernetes and Helm extensions to generate the Helm chart and push it into a Helm repository. Finally, we&#8217;ll see how to install the generated Helm chart into Kubernetes from the Helm repository.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Maven 3.8+</p>
+</li>
+<li>
+<p>Java 17+</p>
+</li>
+<li>
+<p>Have logged into a Kubernetes cluster</p>
+</li>
+<li>
+<p>Have installed the Helm command line</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_application"><a class="anchor" href="#_create_application"></a>Create application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Our application will simply manage fruits. For doing this, we&#8217;ll use the following extensions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://quarkus.io/guides/resteasy-reactive#json-serialisation">RESTEASY Reactive Jackson</a>: REST and JSON support</p>
+</li>
+<li>
+<p><a href="https://quarkus.io/guides/rest-data-panache">Hibernate ORM REST Data with Panache</a>: Database support, plus auto generation of CRUD resources from entities</p>
+</li>
+<li>
+<p><a href="https://quarkus.io/guides/datasource#jdbc-datasource-2">JDBC Postgresql</a>: JDBC driver for Postgresql</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s create our application from scratch:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn io.quarkus.platform:quarkus-maven-plugin:3.5.2:create \
+    -DprojectGroupId=org.acme \
+    -DprojectArtifactId=example \
+    -Dextensions="resteasy-reactive,hibernate-orm-rest-data-panache,jdbc-postgresql"
+cd example</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The generated application will contain the following Hello resource:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+
+@Path("/hello")
+public class GreetingResource {
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        return "Hello from RESTEasy Reactive";
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So, if we start our application, for example running the Maven command <code>mvn quarkus:dev</code> (Quarkus DEV mode), we could call it using <code><a href="http://localhost:8080/hello" class="bare">http://localhost:8080/hello</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>To continue with, let&#8217;s add our first Fruit entity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Entity
+public class Fruit extends PanacheEntity {
+    public String name;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that by extending to the PanacheEntity class, we&#8217;re adding a <code>id</code> column to our Fruit entity as primary key of type Long. So, our Fruit entity will have two columns: <code>id</code> and <code>name</code> columns.</p>
+</div>
+<div class="paragraph">
+<p>Because we want to generate the CRUD resources of the Fruit entity, let&#8217;s configure the <a href="https://quarkus.io/guides/rest-data-panache">Hibernate ORM REST Data with Panache</a> extension by simply adding the following interface:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public interface FruitResource extends PanacheEntityResource&lt;Fruit, Long&gt; {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And that&#8217;s all we would need to expose the CRUD (list, get, update, delete) endpoints. If we start our application again in DEV mode (<code>mvn quarkus:dev</code>), we could retrieve the list of fruits by calling <code><a href="http://localhost:8080/fruit" class="bare">http://localhost:8080/fruit</a></code>. However, as we don&#8217;t have data yet, the list is empty. So, let&#8217;s add some initial data by adding the file <code>import.sql</code> into <code>src/main/resources</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">insert into Fruit(id, name) values (1, 'apple');
+insert into Fruit(id, name) values (2, 'banana');</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And if we try <code><a href="http://localhost:8080/fruit" class="bare">http://localhost:8080/fruit</a></code> again, we should see these fruits now!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[{"id":  1, "name": "apple"}, {"id":  2, "name": "banana"}]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But how could it work if we didn&#8217;t specify any database yet? That&#8217;s the magic of running the application in DEV mode. This mode will transparently start a database in your local machine and provide the configuration, so your application works with this database.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How does DEV mode know which database engine to start?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>DEV mode will check the JDBC driver you have configured in your project. In this example, we used <code>jdbc-postgresql</code>, so it will start a Postgresql database.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What properties is DEV mode adding to our application?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are a few, but the most important properties are:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.datasource.jdbc.url=&lt;the JDBC url&gt;
+quarkus.datasource.username=&lt;the database username&gt;
+quarkus.datasource.password=&lt;the database password&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Therefore, to execute our application, we would need to provide these properties to use a running Postgresql database. The problem is that we don&#8217;t know where is the Postgresql database that we&#8217;ll use in Kubernetes! Then, one approach to address this situation is to provide these properties using environment properties:</p>
+</div>
+<div id="datasource-configuration" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.datasource.jdbc.url=${POSTGRESQL_URL}
+quarkus.datasource.username=${POSTGRESQL_USERNAME}
+quarkus.datasource.password=${POSTGRESQL_PASSWORD}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We&#8217;ll see in the following sections, how to populate these environment properties when installing the application in Kubernetes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_the_container_image"><a class="anchor" href="#_configure_the_container_image"></a>Configure the container image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We need to package our application into a container image, so Kubernetes can pull this image and start the application.
+Fortunately, Quarkus provides several <a href="https://quarkus.io/guides/container-image">container image extensions</a> to create this container image either using <a href="https://quarkus.io/guides/container-image#docker">Docker</a>, <a href="https://quarkus.io/guides/container-image#jib">JIB</a> or <a href="https://quarkus.io/guides/container-image#buildpack">Buildpack</a>.</p>
+</div>
+<div class="paragraph">
+<p>In this example, we&#8217;ll use the container image Docker extension, let&#8217;s add it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn quarkus:add-extension -Dextensions='container-image-docker'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that if you&#8217;re using or going to use the Quarkus OpenShift extension, this automatically brings <a href="https://quarkus.io/guides/container-image#s2i">the container image s2i</a> extension, and hence Quarkus will fail to build because you&#8217;re now using two container image extensions: docker and s2i. To solve this, you need to explicitly specify that you want to use the container image docker extension by adding:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.container-image.builder=docker</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, we need to enable the container image build and also the push property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.container-image.build=true
+quarkus.container-image.push=true
+quarkus.container-image.image=&lt;CONTAINER REGISTRY&gt;/&lt;USERNAME&gt;/&lt;APP NAME&gt;:&lt;APP TAG&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that you need to provide the right <code>quarkus.container-image.image</code> using a container registry you have logged in, for example: <code>quarkus.container-image.image=quay.io/myuser/demo:0.0.1</code> (here, the container registry is <code>quay.io</code>, but you could use Docker Hub as well).</p>
+</div>
+<div class="paragraph">
+<p>When building your application using maven <code>mvn clean package</code>, now you will see that the container image is built and pushed into the container registry we have configured.</p>
+</div>
+<div class="paragraph">
+<p>Next, let&#8217;s generate the Kubernetes resources and the Helm chart.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configure-quarkus-helm"><a class="anchor" href="#configure-quarkus-helm"></a>Configure Quarkus Helm</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quarkus Helm needs either Quarkus Kubernetes or OpenShift to be present because it uses the manifests generated by any of these extensions as source. Let&#8217;s use the Quarkus Kubernetes extension here, along to the Quarkus Helm extension:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn quarkus:add-extension -Dextensions='kubernetes,helm'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Quarkus Helm extension will automatically map the system properties that are used in the application properties as pod container environment properties. So, if you go to the generated Helm chart at the <code>target/helm/kubernetes/demo</code> folder, you will see that the file <code>values.yaml</code> is also mapping these variables:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  serviceType: ClusterIP
+  image: quay.io/jcarvaja/quarkus-example:latest
+  envs:
+    POSTGRESQL_URL: ""
+    POSTGRESQL_USERNAME: ""
+    POSTGRESQL_PASSWORD: ""</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And that these values will be used in the deployment template at <code>templates/deployment.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    app.kubernetes.io/name: helm-quickstart
+  name: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/version: 1.0.0-SNAPSHOT
+      app.kubernetes.io/name: demo
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/version: 1.0.0-SNAPSHOT
+        app.kubernetes.io/name: demo
+    spec:
+      containers:
+        - env:
+            - name: KUBERNETES_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POSTGRESQL_URL
+              value: {{ .Values.app.envs.POSTGRESQL_URL }}
+            - name: POSTGRESQL_PASSWORD
+              value: {{ .Values.app.envs.POSTGRESQL_PASSWORD }}
+            - name: POSTGRESQL_USERNAME
+              value: {{ .Values.app.envs.POSTGRESQL_USERNAME }}
+          image: {{ .Values.app.image }}
+          imagePullPolicy: Always
+          name: demo
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Thanks to these replacements that the Quarkus Helm does, we can overwrite the default values when installing the Helm chart into Kubernetes!</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s now define a Helm dependency to start a Postgresql database when we install the Helm chart:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.dependencies.postgresql.version=11.9.1
+quarkus.helm.dependencies.postgresql.repository=https://charts.bitnami.com/bitnami
+quarkus.helm.dependencies.postgresql.wait-for-service=demo-db:5432</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that we&#8217;ll add the property <code>quarkus.helm.dependencies.postgresql.wait-for-service=demo-db:5432</code>, so our application waits for this service before starting (you can go <a href="index.html#helm-dependencies-install-in-order" class="xref page">here</a> to know more about this feature).</p>
+</div>
+<div class="paragraph">
+<p>This Helm dependency will start <a href="https://bitnami.com/stack/postgresql/helm">the Postgresql database</a> provided by Bitnami. According to the Bitnami documentation, to configure the database name, user and password we need to provide the following properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>postgresql.auth.database</p>
+</li>
+<li>
+<p>postgresql.auth.username</p>
+</li>
+<li>
+<p>postgresql.auth.password</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Therefore, we need to configure Quarkus Helm to map these properties into the generated <code>values.yaml</code> file by adding:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.values."postgresql.auth.database".value=demo_database
+quarkus.helm.values."postgresql.auth.username".value=user
+quarkus.helm.values."postgresql.auth.password".value=supersecret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that Bitnami images require root access to work which is incompatible with how OpenShift works, so if you want to install the Helm chart into OpenShift, you would also need to disable the root access by providing the following properties to the Postgresql dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.values."postgresql.volumePermissions.enabled".value-as-bool=false
+quarkus.helm.values."postgresql.volumePermissions.securityContext.runAsUser".value=auto
+quarkus.helm.values."postgresql.securityContext.enabled".value-as-bool=false
+quarkus.helm.values."postgresql.shmVolume.chmod.enabled".value-as-bool=false
+quarkus.helm.values."postgresql.primary.containerSecurityContext.enabled".value-as-bool=false
+quarkus.helm.values."postgresql.primary.containerSecurityContext.runAsUser".value=auto
+quarkus.helm.values."postgresql.primary.podSecurityContext.enabled".value-as-bool=false
+quarkus.helm.values."postgresql.primary.podSecurityContext.fsGroup".value=auto</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And finally, we also need to overwrite the correct values of the environment properties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.values."app.envs.POSTGRESQL_URL".value=jdbc:postgresql://demo-db:5432/demo_database
+quarkus.helm.values."app.envs.POSTGRESQL_USERNAME".value=user
+quarkus.helm.values."app.envs.POSTGRESQL_PASSWORD".value=supersecret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, if we build again our project and check the generated Helm chart folder, we&#8217;ll see that the Chart.yaml file will have the expected Postgresql dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">name: demo
+version: 1.0.0-SNAPSHOT
+apiVersion: v2
+dependencies:
+  - name: postgresql
+    version: 11.9.1
+    repository: https://charts.bitnami.com/bitnami
+    alias: postgresql</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And it will be properly configured because the <code>values.yml</code> file will have the expected configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">app:
+  serviceType: ClusterIP
+  image: quay.io/jcarvaja/quarkus-example:latest
+  envs:
+    POSTGRESQL_URL: jdbc:postgresql://demo-db:5432/demo_database
+    POSTGRESQL_USERNAME: user
+    POSTGRESQL_PASSWORD: supersecret
+postgresql:
+  auth:
+    password: supersecret
+    database: demo_database
+    username: user</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We can several ways to install the generated Helm chart:</p>
+</div>
+<div class="sect2">
+<h3 id="_a_directly_using_the_helm_chart_folder"><a class="anchor" href="#_a_directly_using_the_helm_chart_folder"></a>A. Directly using the Helm chart folder</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">helm install --dependency-update demo ./target/helm/kubernetes/demo</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the flag <code>--dependency-update</code> is necessary to download the Postgresql dependency before installing the Helm chart.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_b_from_a_helm_repository"><a class="anchor" href="#_b_from_a_helm_repository"></a>B. From a Helm repository</h3>
+<div class="paragraph">
+<p>For this method, you need to push the generated Helm chart into a Helm repository. To know more about this feature, please go to <a href="index.html#push-to-helm-repositories" class="xref page">this section</a>.</p>
+</div>
+<div class="paragraph">
+<p>For example, to use the <a href="https://chartmuseum.com/">ChartMuseum</a> Helm repository and perform the push of the generated Helm chart when building your application:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.repository.type=CHARTMUSEUM
+quarkus.helm.repository.url=&lt;URL OF CHARTMUSEUM&gt;/api/charts
+quarkus.helm.repository.push=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that if you&#8217;re using the OpenShift extension, multiple deployment targets will be automatically generated: one for Kubernetes and another one for OpenShift (with the OpenShift specific resources). In this case, two Helm charts will be also generated: one for Kubernetes and another one for OpenShift, so when pushing the Helm chart into a Helm repository, you need to select only one by using the property <code>quarkus.helm.repository.deployment-target</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">quarkus.helm.repository.deployment-target=openshift</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After building your application and pushing the Helm chart into the Helm repository, you can now install the Helm chart from the Helm repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># registering the chartmuseum repository into your local machine
+helm repo add chartmuseum &lt;URL OF CHARTMUSEUM&gt;
+
+# and install it
+helm install demo chartmuseum/demo</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_c_using_a_continuous_delivery_cd_platform"><a class="anchor" href="#_c_using_a_continuous_delivery_cd_platform"></a>C. Using a Continuous Delivery (CD) platform</h3>
+<div class="paragraph">
+<p>A continuous delivery platform will automatically watch for changes in either a GIT or Helm repository and deploy the application or synchronize a running application in Kubernetes.</p>
+</div>
+<div class="paragraph">
+<p>You can know more about this method in <a href="example-argocd.html" class="xref page">this example</a> which uses ArgoCD as Continuous Delivery platform which is really well integrated with Helm.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

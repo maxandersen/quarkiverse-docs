@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-helm/dev/example-argocd.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-helm/dev/example-config.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-helm/dev/example-crud.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-helm/dev/includes/attributes.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-helm/dev/includes/quarkus-helm.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-helm/dev/index.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+</urlset>

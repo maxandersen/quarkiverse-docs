@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-tika/dev/includes/attributes.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-tika/dev/includes/quarkus-tika.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-tika/dev/index.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-tika/1.x/includes/attributes.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-tika/1.x/includes/quarkus-tika.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+<url>
+<loc>https://docs.quarkiverse.io/quarkus-tika/1.x/index.html</loc>
+<lastmod>2024-01-19T06:16:41.742Z</lastmod>
+</url>
+</urlset>

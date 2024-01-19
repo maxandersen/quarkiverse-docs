@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quarkus Groovy :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-groovy/dev/index.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-groovy" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Groovy</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Quarkus Groovy</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Groovy</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-scala3/dev/index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-scala3/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Groovy</a></li>
+    <li><a href="index.html">Quarkus Groovy</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-groovy/edit/main/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Quarkus Groovy</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quarkus Groovy is a Quarkus extension allowing to write Quarkus applications in Groovy. This extension allows developers to take advantage of the characteristics of both technologies, combining the agility and expressiveness of the Groovy language with the efficiency and ease of development of Quarkus.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>io.quarkiverse.groovy:quarkus-groovy</code> extension first to your build file.</p>
+</div>
+<div class="sect2">
+<h3 id="_with_maven"><a class="anchor" href="#_with_maven"></a>With Maven</h3>
+<div class="paragraph">
+<p>Add the following dependency to your <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.groovy&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-groovy&lt;/artifactId&gt;
+    &lt;version&gt;${quarkusGroovyVersion}&lt;/version&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in the properties of the project</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_with_gradle"><a class="anchor" href="#_with_gradle"></a>With Gradle</h3>
+<div class="paragraph">
+<p>Add the following dependency to your <code>build.gradle</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">implementation "io.quarkiverse.groovy:quarkus-groovy:${quarkusGroovyVersion}" <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in <code>gradle.properties</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compilation"><a class="anchor" href="#_compilation"></a>Compilation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To compile the main and test sources written in Groovy, the required plugins which are the Groovy and Quarkus plugins need to be configured.</p>
+</div>
+<div class="sect2">
+<h3 id="_with_maven_2"><a class="anchor" href="#_with_maven_2"></a>With Maven</h3>
+<div class="paragraph">
+<p>The Maven plugin <a href="https://groovy.github.io/GMavenPlus/"><code>gmavenplus-plugin</code></a> is used to compile all the Groovy sources of the project.</p>
+</div>
+<div class="paragraph">
+<p>The required plugins are configured as next:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;build&gt;
+    &lt;sourceDirectory&gt;src/main/groovy&lt;/sourceDirectory&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+    &lt;testSourceDirectory&gt;src/test/groovy&lt;/testSourceDirectory&gt; <i class="conum" data-value="2"></i><b>(2)</b>
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;${quarkus.version}&lt;/version&gt; <i class="conum" data-value="3"></i><b>(3)</b>
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;build&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.codehaus.gmavenplus&lt;/groupId&gt;
+            &lt;artifactId&gt;gmavenplus-plugin&lt;/artifactId&gt;
+            &lt;version&gt;${groovy-maven-plugin.version}&lt;/version&gt; <i class="conum" data-value="4"></i><b>(4)</b>
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;compile&lt;/goal&gt; <i class="conum" data-value="5"></i><b>(5)</b>
+                        &lt;goal&gt;compileTests&lt;/goal&gt; <i class="conum" data-value="6"></i><b>(6)</b>
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Indicates the location of the main sources written in Groovy</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Indicates the location of the test sources written in Groovy</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The version of the Quarkus plugin set in the properties of the project</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The version of the GMavenPlus plugin set in the properties of the project</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Indicates the GMavenPlus plugin that main sources have to be compiled</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Indicates the GMavenPlus plugin that test sources have to be compiled</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For some specific extensions such as <code>hibernate-orm-panache</code> and <code>hibernate-reactive-panache</code>, the source code needs to be compiled using with the flag <code>-parameters</code> indicating that the parameter names must be added to the class files.
+To be able to do that some additional parameters are needed as you can see below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugins&gt;
+    &lt;plugin&gt;
+        &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+        &lt;artifactId&gt;quarkus-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;${quarkus.version}&lt;/version&gt;
+        &lt;configuration&gt;
+            &lt;compilerOptions&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+                &lt;compiler&gt;
+                    &lt;name&gt;groovy&lt;/name&gt;
+                    &lt;args&gt;
+                        &lt;arg&gt;groovy.parameters=true&lt;/arg&gt;
+                    &lt;/args&gt;
+                &lt;/compiler&gt;
+            &lt;/compilerOptions&gt;
+        &lt;/configuration&gt;
+        &lt;!-- Rest of the Quarkus plugin's configuration --&gt;
+    &lt;/plugin&gt;
+    &lt;plugin&gt;
+        &lt;groupId&gt;org.codehaus.gmavenplus&lt;/groupId&gt;
+        &lt;artifactId&gt;gmavenplus-plugin&lt;/artifactId&gt;
+        &lt;version&gt;${groovy-maven-plugin.version}&lt;/version&gt;
+        &lt;configuration&gt;
+            &lt;parameters&gt;true&lt;/parameters&gt; <i class="conum" data-value="2"></i><b>(2)</b>
+        &lt;/configuration&gt;
+        &lt;!-- Rest of the GMavenPlus plugin's configuration --&gt;
+    &lt;/plugin&gt;
+&lt;/plugins&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Specific Quarkus plugin configuration to indicate the Quarkus Groovy extension to compile the code in dev mode with the flag <code>-parameters</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Indicates the GMavenPlus plugin to compile the code with the flag <code>-parameters</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_with_gradle_2"><a class="anchor" href="#_with_gradle_2"></a>With Gradle</h3>
+<div class="paragraph">
+<p>The Gradle plugin <a href="https://docs.gradle.org/current/userguide/groovy_plugin.html"><code>Groovy Plugin</code></a> is used to compile all the Groovy sources of the project.</p>
+</div>
+<div class="paragraph">
+<p>The required plugins are configured as next in the <code>build.gradle</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
+    id 'io.quarkus'
+    id 'groovy'
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The version of the Quarkus plugin can be set in a <code>pluginManagement</code> block as next:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">pluginManagement {
+    plugins {
+        id 'io.quarkus' version "${quarkusPluginVersion}" <i class="conum" data-value="1"></i><b>(1)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus plugin set in <code>gradle.properties</code></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For some specific extensions such as <code>hibernate-orm-panache</code> and <code>hibernate-reactive-panache</code>, the source code needs to be compiled using with the flag <code>-parameters</code> indicating that the parameter names must be added to the class files.
+To be able to do that some additional parameters are needed as you can see below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">quarkusDev {
+    compilerOptions { <i class="conum" data-value="2"></i><b>(2)</b>
+        compiler("groovy").args(["groovy.parameters=true"])
+    }
+}
+
+tasks.withType(GroovyCompile).configureEach {
+    groovyOptions.parameters = true <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Specific Quarkus plugin configuration to indicate the Quarkus Groovy extension to compile the code in dev mode with the flag <code>-parameters</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Indicates the Groovy Plugin to compile the code with the flag <code>-parameters</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_compilation_options"><a class="anchor" href="#_supported_compilation_options"></a>Supported compilation options</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.warnings</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The warning level</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.parameters</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates whether parameter metadata generation must be enabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.preview.features</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether the bytecode version has preview features enabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.classpath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Classpath for use during compilation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.output.verbose</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether verbose operation has been requested</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.output.debug</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether debugging operation has been requested</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.errors.tolerance</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The requested error tolerance</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.default.scriptExtension</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extension used to find a groovy file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.script.base</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the base class for scripts. It must be a subclass of Script.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.recompile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether the recompilation is enabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.recompile.minimumInterval</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The minimum of time after a script can be recompiled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>groovy.disabled.global.ast.transformations</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The list of disabled global AST transformation class names</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hibernate_orm_panache"><a class="anchor" href="#_hibernate_orm_panache"></a>Hibernate ORM Panache</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_purpose"><a class="anchor" href="#_purpose"></a>Purpose</h3>
+<div class="paragraph">
+<p>Hibernate ORM is the de facto Jakarta Persistence (formerly known as JPA) implementation and offers you the full breadth of an Object Relational Mapper. It makes complex mappings possible, but it does not make simple and common mappings trivial. Hibernate ORM with Panache focuses on making your entities trivial and fun to write in Quarkus.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_2"><a class="anchor" href="#_installation_2"></a>Installation</h3>
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>io.quarkiverse.groovy:quarkus-groovy-hibernate-orm-panache</code> extension first to your build file.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The extensions <code>io.quarkiverse.groovy:quarkus-groovy</code> and <code>io.quarkus:quarkus-hibernate-orm</code> are part of the dependencies of this extension.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_with_maven_3"><a class="anchor" href="#_with_maven_3"></a>With Maven</h4>
+<div class="paragraph">
+<p>Add the following dependency to your <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.groovy&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-groovy-hibernate-orm-panache&lt;/artifactId&gt;
+    &lt;version&gt;${quarkusGroovyVersion}&lt;/version&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in the properties of the project</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_gradle_3"><a class="anchor" href="#_with_gradle_3"></a>With Gradle</h4>
+<div class="paragraph">
+<p>Add the following dependency to your <code>build.gradle</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">implementation "io.quarkiverse.groovy:quarkus-groovy-hibernate-orm-panache:${quarkusGroovyVersion}" <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in <code>gradle.properties</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
+<div class="paragraph">
+<p>The extension is mostly the same as the <a href="https://quarkus.io/guides/hibernate-orm-panache">original extension from the Quarkus project</a> the main differences are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The package where the base classes of the entities and repositories are located.
+Indeed, instead of being <code>io.quarkus.hibernate.orm.panache</code>, it is <code>io.quarkiverse.groovy.hibernate.orm.panache</code>.</p>
+</li>
+<li>
+<p>All static methods in <code>PanacheEntityBase</code> (such as <code>find</code>, <code>findAll</code>, <code>list</code>, <code>listAll</code>, <code>count</code>&#8230;&#8203;) that depend on bytecode injection have been removed due to a side effect of the static compilation that by-pass the generated methods. As workaround, the methods in the corresponding repository must be used.</p>
+</li>
+<li>
+<p>The methods <code>delete</code> to delete entities by query has been renamed to <code>deleteByQuery</code> to prevent method call clashing with <code>delete(Entity)</code> in dynamic compilation mode.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hibernate_reactive_panache"><a class="anchor" href="#_hibernate_reactive_panache"></a>Hibernate Reactive Panache</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_purpose_2"><a class="anchor" href="#_purpose_2"></a>Purpose</h3>
+<div class="paragraph">
+<p>Hibernate Reactive is the only reactive Jakarta Persistence (formerly known as JPA) implementation and offers you the full breadth of an Object Relational Mapper allowing you to access your database over reactive drivers. It makes complex mappings possible, but it does not make simple and common mappings trivial. Hibernate Reactive with Panache focuses on making your entities trivial and fun to write in Quarkus.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_3"><a class="anchor" href="#_installation_3"></a>Installation</h3>
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>io.quarkiverse.groovy:quarkus-groovy-hibernate-reactive-panache</code> extension first to your build file.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The extensions <code>io.quarkiverse.groovy:quarkus-groovy</code> and <code>io.quarkus:quarkus-hibernate-reactive</code> are part of the dependencies of this extension.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_with_maven_4"><a class="anchor" href="#_with_maven_4"></a>With Maven</h4>
+<div class="paragraph">
+<p>Add the following dependency to your <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.groovy&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-groovy-hibernate-reactive-panache&lt;/artifactId&gt;
+    &lt;version&gt;${quarkusGroovyVersion}&lt;/version&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in the properties of the project</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_gradle_4"><a class="anchor" href="#_with_gradle_4"></a>With Gradle</h4>
+<div class="paragraph">
+<p>Add the following dependency to your <code>build.gradle</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">implementation "io.quarkiverse.groovy:quarkus-groovy-hibernate-reactive-panache:${quarkusGroovyVersion}" <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in <code>gradle.properties</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usage_2"><a class="anchor" href="#_usage_2"></a>Usage</h3>
+<div class="paragraph">
+<p>The extension is mostly the same as the <a href="https://quarkus.io/guides/hibernate-reactive-panache">original extension from the Quarkus project</a> the main differences are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The package where the base classes of the entities and repositories are located.
+Indeed, instead of being <code>io.quarkus.hibernate.reactive.panache</code>, it is <code>io.quarkiverse.groovy.hibernate.reactive.panache</code>.</p>
+</li>
+<li>
+<p>All static methods in <code>PanacheEntityBase</code> (such as <code>find</code>, <code>findAll</code>, <code>list</code>, <code>listAll</code>, <code>count</code>&#8230;&#8203;) that depend on bytecode injection have been removed due to a side effect of the static compilation that by-pass the generated methods. As workaround, the methods in the corresponding repository must be used.</p>
+</li>
+<li>
+<p>The methods <code>delete</code> to delete entities by query has been renamed to <code>deleteByQuery</code> to prevent method call clashing with <code>delete(Entity)</code> in dynamic compilation mode.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jaxb"><a class="anchor" href="#_jaxb"></a>JAXB</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_purpose_3"><a class="anchor" href="#_purpose_3"></a>Purpose</h3>
+<div class="paragraph">
+<p>By default, <a href="https://stackoverflow.com/questions/1161147/how-do-i-get-groovy-and-jaxb-to-play-nice-together">some issues</a> can be met when using JAXB to map Groovy classes, due to the addition of the method <code>getMetaClass</code> to the generated bytecode.
+This extension allows you to automatically make <code>getMetaClass</code> as transient to avoid natively the known issues.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_4"><a class="anchor" href="#_installation_4"></a>Installation</h3>
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>io.quarkiverse.groovy:quarkus-groovy-jaxb</code> extension first to your build file.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The extension <code>io.quarkiverse.groovy:quarkus-groovy</code> and the artifact <code>io.quarkus:quarkus-jaxb</code> are part of the dependencies of this extension.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_with_maven_5"><a class="anchor" href="#_with_maven_5"></a>With Maven</h4>
+<div class="paragraph">
+<p>Add the following dependency to your <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.groovy&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-groovy-jaxb&lt;/artifactId&gt;
+    &lt;version&gt;${quarkusGroovyVersion}&lt;/version&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in the properties of the project</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_gradle_5"><a class="anchor" href="#_with_gradle_5"></a>With Gradle</h4>
+<div class="paragraph">
+<p>Add the following dependency to your <code>build.gradle</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">implementation "io.quarkiverse.groovy:quarkus-groovy-jaxb:${quarkusGroovyVersion}" <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in <code>gradle.properties</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_junit_5"><a class="anchor" href="#_junit_5"></a>JUnit 5</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_purpose_4"><a class="anchor" href="#_purpose_4"></a>Purpose</h3>
+<div class="paragraph">
+<p>This extension is only meant for integration tests where the server side code is written using JUnit 5 in native mode.
+This extension allows you to automatically configure JUnit 5 to be used in native mode.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_5"><a class="anchor" href="#_installation_5"></a>Installation</h3>
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>io.quarkiverse.groovy:quarkus-groovy-junit5</code> extension first to your build file.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The extension <code>io.quarkiverse.groovy:quarkus-groovy</code> and the artifact <code>io.quarkus:quarkus-junit5</code> are part of the dependencies of this extension.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_with_maven_6"><a class="anchor" href="#_with_maven_6"></a>With Maven</h4>
+<div class="paragraph">
+<p>Add the following dependency to your <code>pom.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.groovy&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-groovy-junit5&lt;/artifactId&gt;
+    &lt;version&gt;${quarkusGroovyVersion}&lt;/version&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in the properties of the project</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_with_gradle_6"><a class="anchor" href="#_with_gradle_6"></a>With Gradle</h4>
+<div class="paragraph">
+<p>Add the following dependency to your <code>build.gradle</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">implementation "io.quarkiverse.groovy:quarkus-groovy-junit5:${quarkusGroovyVersion}" <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the Quarkus Groovy extension set in <code>gradle.properties</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compile_static"><a class="anchor" href="#_compile_static"></a>Compile Static</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Quarkus project was designed with performance in mind, using Groovy&#8217;s CompileStatic annotation can improve the performance of the project. This annotation enforces static compilation of the code, allowing verification of types and method resolution during compilation rather than at runtime as is common in Groovy.</p>
+</div>
+<div class="paragraph">
+<p>The static compilation is also very handy in native mode to avoid complex reflection configuration that is required when using the dynamic compilation.</p>
+</div>
+<div class="paragraph">
+<p>Code example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package org.acme.groovy
+
+import jakarta.ws.rs.GET
+import jakarta.ws.rs.Path
+import jakarta.ws.rs.Produces
+import jakarta.ws.rs.core.MediaType
+import groovy.transform.CompileStatic
+
+@CompileStatic
+@Path("/hello")
+class GreetingResource {
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    String get() {
+        return 'Hello Word'
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

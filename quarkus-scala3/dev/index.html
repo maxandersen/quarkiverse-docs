@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quarkus - Scala3 :: Quarkiverse Documentation</title>
+    <link rel="canonical" href="https://docs.quarkiverse.io/quarkus-scala3/dev/index.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<!-- This wasn't displaying icons, and it was breaking the fonts on the admonitions   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">-->
+    <script>var uiRootPath = '../../_'</script>
+<link rel="icon" href="../../_/img/favicon-32x32.png" type="image/png">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://docs.quarkiverse.io"><img src="../../_/img/quarkiverse_logo_horizontal_reverse.svg" alt="Quarkiverse Documentation" height="30"></a>
+        <a class="navbar-item" href="https://docs.quarkiverse.io">Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Learn</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="http://quarkus.io/get-started">Get Started</a>
+              <a class="navbar-item" href="http://quarkus.io/guides">Guides</a>
+              <a class="navbar-item" href="http://quarkus.io/training">Training</a>
+              <a class="navbar-item" href="http://quarkus.io/qtips">
+                "Q" Tip Videos
+              </a>
+              <a class="navbar-item" href="http://quarkus.io/books">Books</a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Extensions</div>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://quarkus.io/extensions">Browse Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/faq/#what-is-a-quarkus-extension">Use Extensions</a>
+                <a class="navbar-item" href="https://quarkus.io/guides/writing-extensions">
+                  Create Extensions
+                </a>
+              <a class="navbar-item" href="https://hub.quarkiverse.io">
+                Share Extensions
+              </a>
+            </div>
+          </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Community</div>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://quarkusio.zulipchat.com">Chat</a>
+            <a class="navbar-item" href="http://quarkus.io/support/">Support</a>
+            <a class="navbar-item" href="http://quarkus.io/blog">Blog</a>
+            <a class="navbar-item" href="http://quarkus.io/discussion">Discussion</a>
+            <a class="navbar-item" href="http://quarkus.io/insights">Podcast</a>
+            <a class="navbar-item" href="http://quarkus.io/events">Events</a>
+            <a class="navbar-item" href="http://quarkus.io/newsletter">
+              Newsletter
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="quarkus-scala3" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+<!--  placeholder toolbar to align with main toolbar-->
+  <div class="toolbar" style="position: static"></div>
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Scala 3</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Quarkus - Scala3</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+        <div class="context">
+          <span class="title">Scala 3</span>
+          <span class="version">dev</span>
+        </div>
+  <ul class="components">
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-alexa/dev/index.html">Amazon Alexa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-alexa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-amazon-services/dev/index.html">Amazon Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-amazon-services/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/2.4.x/index.html">2.4.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-amazon-services/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-antivirus/dev/index.html">Antivirus</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-antivirus/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-apistax/dev/index.html">APIstax</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-apistax/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-artemis/dev/index.html">Artemis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-artemis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/3.0.x/index.html">3.0.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-artemis/2.x/index.html">2.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-asyncapi/dev/index.html">AsyncApi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-asyncapi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-azure-services/dev/index.html">Azure Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-azure-services/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-bucket4j/dev/index.html">Bucket4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-bucket4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-certmanager/dev/index.html">Cert-Manager</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-certmanager/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-config-extensions/dev/index.html">Config Extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-config-extensions/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-couchbase/dev/index.html">Couchbase</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-couchbase/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cucumber/dev/index.html">Cucumber</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cucumber/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-cxf/dev/index.html">CXF</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-cxf/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/2.2/index.html">2.2</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-cxf/1.5/index.html">1.5</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dapr/dev/index.html">Dapr</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dapr/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-dashbuilder/dev/index.html">Dashbuilder</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-dashbuilder/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-discord4j/dev/index.html">Discord4J</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-discord4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-embedded-postgresql/dev/index.html">Embedded Postgresql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-embedded-postgresql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-file-vault/dev/index.html">File Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-file-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-freemarker/dev/index.html">Freemarker</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-freemarker/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-action/dev/index.html">GitHub Action</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-action/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-github-app/dev/index.html">GitHub App</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-github-app/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-google-cloud-services/main/index.html">Google Cloud Services</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-google-cloud-services/main/index.html">main</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-groovy/dev/index.html">Groovy</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-groovy/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-helm/dev/index.html">Helm</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-helm/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-search-extras/dev/index.html">Hibernate Search Extras</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-search-extras/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/3.x/index.html">3.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/2.x/index.html">2.x</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-hibernate-search-extras/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hibernate-types/dev/index.html">Hibernate types</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hibernate-types/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-hivemq-client/dev/index.html">HiveMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-hivemq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-ironjacamar/dev/index.html">IronJacamar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-ironjacamar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-itext/dev/index.html">Itext</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-itext/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jackson-jq/dev/index.html">Jackson Jq</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jackson-jq/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jaeger/dev/index.html">Jaeger</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jaeger/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-java-embedded-framework/dev/index.html">Java Embedded Framework</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-java-embedded-framework/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-clickhouse/dev/index.html">JDBC Clickhouse</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-clickhouse/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbc-sqlite/dev/index.html">JDBC Sqlite</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbc-sqlite/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jdbi/dev/index.html">Jdbi</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jdbi/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgit/dev/index.html">JGit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jgrapht/dev/index.html">JGraphT</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jgrapht/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jnosql/dev/index.html">Jnosql</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jnosql/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jpastreamer/dev/index.html">JPAStreamer</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jpastreamer/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-jpastreamer/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-jsch/dev/index.html">JSch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-jsch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kerberos/dev/index.html">Kerberos</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kerberos/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kiota/dev/index.html">Kiota</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kiota/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-langchain4j/dev/index.html">LangChain4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-langchain4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-json/dev/index.html">Logging JSON</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-json/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-logback/dev/index.html">Logging Logback</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-logback/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-sentry/dev/index.html">Logging Sentry</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-sentry/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-logging-splunk/dev/index.html">Logging Splunk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-logging-splunk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mailpit/dev/index.html">Mailpit</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mailpit/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pooled-jms/dev/index.html">Messaginghub Pooled JMS</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pooled-jms/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pooled-jms/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-micrometer-registry/dev/index.html">Micrometer Registry extensions</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-micrometer-registry/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-micrometer-registry/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-minio/dev/index.html">Min.io</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-minio/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-minio/v2.9.x/index.html">v2.9.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockk/dev/index.html">Mockk</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mockserver/dev/index.html">Mockserver</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mockserver/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mockserver/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-mybatis/dev/index.html">MyBatis</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-mybatis/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-mybatis/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-neo4j/dev/index.html">Neo4j</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-neo4j/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-omnifaces/dev/index.html">Omnifaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-omnifaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openapi-generator/dev/index.html">Openapi Generator</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openapi-generator/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-openfga-client/dev/index.html">OpenFGA Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-openfga-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-opensearch/dev/index.html">Opensearch</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-opensearch/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-operator-sdk/dev/index.html">Operator SDK</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-operator-sdk/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pact/dev/index.html">Pact</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pact/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-pact/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-pdfbox/dev/index.html">PDFBox</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-pdfbox/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-playwright/dev/index.html">Playwright</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-playwright/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-poi/dev/index.html">POI</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-poi/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-poi/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-prettytime/dev/index.html">Prettytime</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-prettytime/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-primefaces/dev/index.html">PrimeFaces</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-primefaces/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-kafka-streams-processor/dev/index.html">Quarkus Kafka Streams Processor</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-kafka-streams-processor/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-quinoa/dev/index.html">Quinoa</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-quinoa/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-qute-web/dev/index.html">Qute Web</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-qute-web/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-rabbitmq-client/dev/index.html">RabbitMQ Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-rabbitmq-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messaging-http/dev/index.html">Reactive Messaging HTTP</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messaging-http/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">Reactive Messsaging Nats Jetstream</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-reactive-messsaging-nats-jetstream/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-renarde/dev/index.html">Renarde</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-renarde/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-renarde/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component is-current">
+        <a class="title" href="index.html">Scala 3</a>
+        <ul class="versions">
+          <li class="version is-current is-latest">
+            <a href="index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-shardingsphere-jdbc/dev/index.html">Shardingsphere JDBC</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-shardingsphere-jdbc/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-smallrye-opentracing/dev/index.html">SmallRye OpenTracing</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-smallrye-opentracing/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-systemd-notify/dev/index.html">Systemd Notify</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-systemd-notify/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-tika/dev/index.html">Tika</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-tika/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-tika/1.x/index.html">1.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-unleash/dev/index.html">Unleash</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-unleash/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-unleash/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-vault/dev/index.html">Vault</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-vault/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-web-bundler/dev/index.html">Web Bundler</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-web-bundler/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-wiremock/dev/index.html">WireMock</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-wiremock/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-wiremock/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zanzibar/dev/index.html">Zanzibar</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zanzibar/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zeebe/dev/index.html">Zeebe</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zeebe/dev/index.html">dev</a>
+          </li>
+          <li class="version">
+            <a href="../../quarkus-zeebe/0.x/index.html">0.x</a>
+          </li>
+        </ul>
+      </li>
+        <li class="component">
+        <a class="title" href="../../quarkus-zookeeper-client/dev/index.html">Zookeeper Client</a>
+        <ul class="versions">
+          <li class="version is-latest">
+            <a href="../../quarkus-zookeeper-client/dev/index.html">dev</a>
+          </li>
+        </ul>
+      </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index/explore/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Scala 3</a></li>
+    <li><a href="index.html">Quarkus - Scala3</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/quarkiverse/quarkus-scala3/edit/main/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Quarkus - Scala3</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#quarkus---scala3">Quarkus - Scala3</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#introduction">Introduction</a></p>
+</li>
+<li>
+<p><a href="#installation">Installation</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#gradle">Gradle</a></p>
+</li>
+<li>
+<p><a href="#maven">Maven</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="#passing-scala-compiler-args-in-quarkus-dev-mode">Passing Scala compiler args in Quarkus Dev Mode</a></p>
+</li>
+<li>
+<p><a href="#useful-tips-and-tricks-for-building-quarkus-apps-with-scala-common-patterns">Useful tips and tricks for building Quarkus apps with Scala, common patterns</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#no-tests-were-found-how-can-that-be">"No tests were found"?! How can that be?</a></p>
+</li>
+<li>
+<p><a href="#configuring-scala-jackson-and-the-addon-on-enum-module-for-json-support">Configuring Scala Jackson and the addon-on "Enum" module for JSON support</a></p>
+</li>
+<li>
+<p><a href="#scala-dsl-for-rest-assured-similar-to-kotlin-dsl">Scala DSL for rest-assured (similar to Kotlin DSL)</a></p>
+</li>
+<li>
+<p><a href="#functional-http-routes-vertx-handlers">Functional HTTP routes (Vert.x handlers)</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This extension provides support for Scala 3 in Quarkus.</p>
+</div>
+<div class="paragraph">
+<p>It uses the <code>scala3-interfaces</code> library to avoid user lock-in to any specific version of the Scala 3 compiler (Dotty).
+Instead, the reflection-based API is used and compilation is done by invoking the compiler version the user has installed from the runtime classpath.</p>
+</div>
+<div class="paragraph">
+<p>For more information and background context on this, there are notes in the <code>Scala3CompilationProvider.java</code> file.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, passing compiler flags when in Dev Mode is supported through the use of an environment variable (<code>QUARKUS_SCALA3_COMPILER_ARGS</code>) which allows you to mirror your existing Maven/Gradle compilation configuration.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_gradle"><a class="anchor" href="#_gradle"></a>Gradle</h3>
+<div class="quoteblock">
+<blockquote>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+At the time of publishing, support for Scala 3 in Gradle is dependent on a not-yet-merged PR.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/gradle/gradle/pull/18001" class="bare">https://github.com/gradle/gradle/pull/18001</a></p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "ch.epfl.scala:gradle-bloop_2.12:1.4.8-106-8722ebfd"
+    }
+}
+
+plugins {
+    id "java"
+    id "scala"
+    id "io.quarkus"
+}
+
+// Bloop plugin uses old DSL -- MUST be applied like this
+apply plugin: "bloop"
+// This configuration dependent on the following PR being merged into bloop, can be removed after merge
+// https://github.com/scalacenter/bloop/pull/1548
+bloop {
+    stdLibName = "scala3-library_3"
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+VERSIONS = [
+  SCALA3: "3.0.0",
+  QUARKUS_SCALA3: "0.0.1"
+]
+
+dependencies {
+    implementation "org.scala-lang:scala3-compiler_3:$VERSIONS.SCALA3"
+    implementation "io.quarkiverse.scala:quarkus-scala3:$VERSIONS.QUARKUS_SCALA3"
+
+    // Quarkus comes with Scala 2 distributed in it's Bill-of-Materials unfortunately
+    // It's Scala 2.12.13, which is not ABI compatible -- With Scala 3, we need to exclude this entirely
+    implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))  {
+         exclude group: 'org.scala-lang', module: 'scala-library'
+    }
+    implementation "io.quarkus:quarkus-arc"
+    implementation "io.quarkus:quarkus-resteasy-reactive"
+
+    testImplementation "io.quarkus:quarkus-junit5"
+    testImplementation "io.rest-assured:rest-assured"
+}
+
+group = "org.hasura"
+version = "1.0.0-SNAPSHOT"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
+}
+
+tasks.withType(ScalaCompile) {
+    scalaCompileOptions.additionalParameters = [
+        "-feature",
+        "-explain",
+        "-Ysafe-init",
+        "-Xsemanticdb"
+    ]
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs &lt;&lt; '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_maven"><a class="anchor" href="#_maven"></a>Maven</h3>
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>io.quarkiverse.scala:quarkus-scala3</code> extension first.
+In your <code>pom.xml</code> file, add:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkiverse.scala&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-scala3&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1&lt;version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, you will need to install the Scala 3 compiler, the Scala Maven plugin, and to fix an odd bug with the way that the Scala 3 compiler Maven dependencies are resolved.</p>
+</div>
+<div class="paragraph">
+<p>Due to Scala 2 version in upstream <code>Quarkus BOM</code>, the wrong version of <code>scala-library</code> (a transitive dependency: <code>scala3-compiler_3</code> -&gt; <code>scala3-library_3</code> -&gt; <code>scala-library</code>) is resolved.</p>
+</div>
+<div class="paragraph">
+<p>This causes binary incompatibilities&#8201;&#8212;&#8201;and Scala to break. In order to fix this, you just need to manually align the version of <code>scala-library</code> to the one listed as used by the version of <code>scala3-library_3</code> that&#8217;s the same as the <code>scala3-compiler_3</code> version.</p>
+</div>
+<div class="paragraph">
+<p>So for <code>scala3-compiler_3</code> = <code>3.0.0</code>, then <code>scala3-library_3</code> = <code>3.0.0</code>, and we check the <code>scala-library</code> version it uses:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://mvnrepository.com/artifact/org.scala-lang/scala3-library_3/3.0.0" class="bare">https://mvnrepository.com/artifact/org.scala-lang/scala3-library_3/3.0.0</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here, we can see that it was compiled with <code>2.13.5</code> in it&#8217;s dependencies. So that&#8217;s what we set in ours:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;properties&gt;
+    &lt;scala-maven-plugin.version&gt;4.5.3&lt;/scala-maven-plugin.version&gt;
+    &lt;scala.version&gt;3.0.0&lt;/scala.version&gt;
+    &lt;scala-library.version&gt;2.13.5&lt;/scala-library.version&gt;
+&lt;/properties&gt;
+
+&lt;dependencies&gt;
+    &lt;!-- Scala Dependencies --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;
+        &lt;artifactId&gt;scala3-compiler_3&lt;/artifactId&gt;
+        &lt;version&gt;${scala.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;!-- Version manually aligned to scala3-library_3:3.0.0 dependency --&gt;
+        &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;
+        &lt;artifactId&gt;scala-library&lt;/artifactId&gt;
+        &lt;version&gt;${scala-library.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+
+&lt;build&gt;
+    &lt;sourceDirectory&gt;src/main/scala&lt;/sourceDirectory&gt;
+    &lt;testSourceDirectory&gt;src/test/scala&lt;/testSourceDirectory&gt;
+
+    &lt;!-- REST OF CONFIG --&gt;
+
+    &lt;plugin&gt;
+        &lt;groupId&gt;net.alchim31.maven&lt;/groupId&gt;
+        &lt;artifactId&gt;scala-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;${scala-maven-plugin.version}&lt;/version&gt;
+        &lt;executions&gt;
+            &lt;execution&gt;
+                &lt;id&gt;scala-compile-first&lt;/id&gt;
+                &lt;phase&gt;process-resources&lt;/phase&gt;
+                &lt;goals&gt;
+                    &lt;goal&gt;add-source&lt;/goal&gt;
+                    &lt;goal&gt;compile&lt;/goal&gt;
+                &lt;/goals&gt;
+            &lt;/execution&gt;
+            &lt;execution&gt;
+                &lt;id&gt;scala-test-compile&lt;/id&gt;
+                &lt;phase&gt;process-test-resources&lt;/phase&gt;
+                &lt;goals&gt;
+                    &lt;goal&gt;add-source&lt;/goal&gt;
+                    &lt;goal&gt;testCompile&lt;/goal&gt;
+                &lt;/goals&gt;
+            &lt;/execution&gt;
+        &lt;/executions&gt;
+        &lt;configuration&gt;
+            &lt;scalaVersion&gt;${scala.version}&lt;/scalaVersion&gt;
+            &lt;!-- Some solid defaults, change if you like --&gt;
+            &lt;args&gt;
+                &lt;arg&gt;-deprecated&lt;/arg&gt;
+                &lt;arg&gt;-explain&lt;/arg&gt;
+                &lt;arg&gt;-feature&lt;/arg&gt;
+                &lt;arg&gt;-Ysafe-init&lt;/arg&gt;
+            &lt;/args&gt;
+        &lt;/configuration&gt;
+    &lt;/plugin&gt;
+&lt;/build&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_passing_scala_compiler_args_in_quarkus_dev_mode"><a class="anchor" href="#_passing_scala_compiler_args_in_quarkus_dev_mode"></a>Passing Scala compiler args in Quarkus Dev Mode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Finally, the last thing you want to do is make sure that you mirror any compiler args you have set up when you run in Dev Mode.</p>
+</div>
+<div class="paragraph">
+<p>To do this, just run the dev command with a prefix of the environment variable set. The format is comma-delimited:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">QUARKUS_SCALA3_COMPILER_ARGS="-deprecated,-explain,-feature,-Ysafe-init" mvn quarkus:dev</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You might save this as a bash/powershell/batch script for convenience.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_useful_tips_and_tricks_for_building_quarkus_apps_with_scala_common_patterns"><a class="anchor" href="#_useful_tips_and_tricks_for_building_quarkus_apps_with_scala_common_patterns"></a>Useful tips and tricks for building Quarkus apps with Scala, common patterns</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_no_tests_were_found_how_can_that_be"><a class="anchor" href="#_no_tests_were_found_how_can_that_be"></a>"No tests were found"?! How can that be?</h3>
+<div class="paragraph">
+<p>JUnit requires tests to return type <code>void</code>. Scala functions which are not annotated with <code>: Unit</code> return type <code>Scala.Nothing</code>, rather than <code>void</code>.
+This means that tests such as the <code>undiscoverable test</code> below will never be detected by JUnit.</p>
+</div>
+<div class="paragraph">
+<p>See this issue for more information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/junit-team/junit5/issues/2659" class="bare">https://github.com/junit-team/junit5/issues/2659</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Please voice your support for a better developer experience around this behavior if it feels poor to you, by commenting on this issue:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/junit-team/junit5/issues/242" class="bare">https://github.com/junit-team/junit5/issues/242</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">@QuarkusTest
+class MyTest:
+
+  @Test
+  def `undiscoverable test` =
+    assert(1 == 1)
+
+  @Test
+  def `discoverable test`: Unit =
+    assert(2 == 2)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_scala_jackson_and_the_addon_on_enum_module_for_json_support"><a class="anchor" href="#_configuring_scala_jackson_and_the_addon_on_enum_module_for_json_support"></a>Configuring Scala Jackson and the addon-on "Enum" module for JSON support</h3>
+<div class="paragraph">
+<p>You probably want JSON support for case class and enum serialization.
+There are two things you need to enable this, as of the time of writing:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The standard Jackson Scala module</p>
+</li>
+<li>
+<p>An addon module from one of the Jackson Scala maintainers for Scala 3 enums that hasn&#8217;t made its way into the official module yet</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To set this up:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add the following to your dependencies</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- JSON Serialization Dependencies --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.github.pjfanning&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-module-scala3-enum_3&lt;/artifactId&gt;
+    &lt;version&gt;2.12.3&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.module&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-module-scala_2.13&lt;/artifactId&gt;
+    &lt;version&gt;2.12.4&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up something like the below in your codebase:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.scala.DefaultScalaModule
+import com.github.pjfanning.`enum`.EnumModule
+import io.quarkus.jackson.ObjectMapperCustomizer
+
+import javax.inject.Singleton
+
+// https://quarkus.io/guides/rest-json#jackson
+@Singleton
+class Scala3ObjectMapperCustomizer extends ObjectMapperCustomizer:
+  def customize(mapper: ObjectMapper): Unit =
+    // General Scala support
+    // https://github.com/FasterXML/jackson-module-scala
+    mapper.registerModule(DefaultScalaModule)
+    // Suport for Scala 3 Enums
+    // https://github.com/pjfanning/jackson-module-scala3-enum
+    mapper.registerModule(EnumModule)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The API is usable like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">import com.fasterxml.jackson.databind.ObjectMapper
+import io.quarkus.test.junit.QuarkusTest
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.{DisplayName, Test}
+
+import javax.inject.Inject
+import scala.collection.JavaConverters.*
+
+
+enum AnEnum:
+  case A extends AnEnum
+  case B extends AnEnum
+
+case class Other(foo: String)
+case class Something(name: String, someEnum: AnEnum, other: Other)
+
+@QuarkusTest
+class Scala3ObjectMapperCustomizerTest:
+
+  @Inject
+  var objectMapper: ObjectMapper = null
+
+  @Test
+  def `Jackson ObjectMapper can parse Scala 3 members`:
+    val sampleSomethingJSON: String = """
+    {
+    "name": "My Something",
+    "someEnum": "A",
+    "other": {
+        "foo": "bar"
+      }
+    }
+    """
+    val parsed = objectMapper.readValue[Something](sampleSomethingJSON, classOf[Something])
+    assertEquals(parsed.name, "My Something")
+    assertEquals(parsed.someEnum, AnEnum.A)
+    assertEquals(parsed.other.foo, "bar")</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scala_dsl_for_rest_assured_similar_to_kotlin_dsl"><a class="anchor" href="#_scala_dsl_for_rest_assured_similar_to_kotlin_dsl"></a>Scala DSL for rest-assured (similar to Kotlin DSL)</h3>
+<div class="paragraph">
+<p>If you weren&#8217;t aware, Kotlin has a very nice DSL module for rest-assured that makes it far more ergonomic.
+With some finagling, it&#8217;s possible to replicate this (mostly) in Scala.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a working outline that supports everything but <code>.extract()</code>&#8201;&#8212;&#8201;a PR or issue comment adding the <code>.extract()</code> case is much-welcomed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Acknowledgements here should be given to Christopher Davenport from the Scala Discord for sharing the outline of how this sort of API could be written</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">import io.restassured.RestAssured.*
+import io.restassured.internal.{ResponseSpecificationImpl, ValidatableResponseImpl}
+import io.restassured.response.{ExtractableResponse, Response, ValidatableResponse}
+import io.restassured.specification.{RequestSender, RequestSpecification, ResponseSpecification}
+
+class GivenConstructor(givenBlock: RequestSpecification =&gt; RequestSpecification):
+  def When(whenBlock: RequestSpecification =&gt; Response): ExpectationConstructor =
+    ExpectationConstructor(givenBlock, whenBlock)
+
+  class ExpectationConstructor(
+      givenBlock: RequestSpecification =&gt; RequestSpecification,
+      whenBlock: RequestSpecification =&gt; Response
+  ):
+    def Then(validatable: ValidatableResponse =&gt; Unit) =
+      val appliedGiven: RequestSpecification = givenBlock.apply(`given`())
+      val appliedWhen: Response              = whenBlock.apply(appliedGiven)
+      validatable.apply(appliedWhen.`then`())
+
+object Given:
+  def apply(givenBlock: RequestSpecification =&gt; RequestSpecification): GivenConstructor = GivenConstructor(givenBlock)
+
+def When(whenBlock: RequestSpecification =&gt; Response) =
+  def blankGiven(givenBlock: RequestSpecification): RequestSpecification = `given`()
+  Given(blankGiven).When(whenBlock)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And the way it can be used, is like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">import io.quarkus.test.junit.QuarkusTest
+import org.hamcrest.CoreMatchers.`is`
+import org.acme.Given
+import org.junit.jupiter.api.{DisplayName, Test}
+
+@QuarkusTest
+class GreetingResourceTest:
+
+  @Test
+  def testDSL(): Unit =
+    Given {
+      _.params("something", "value")
+    }.When {
+      _.get("/hello").prettyPeek()
+    }.Then {
+      _.statusCode(200)
+    }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functional_http_routes_vert_x_handlers"><a class="anchor" href="#_functional_http_routes_vert_x_handlers"></a>Functional HTTP routes (Vert.x handlers)</h3>
+<div class="paragraph">
+<p>While Quarkus is heavily centered around REST-easy annotations for endpoints (being Java-oriented), it also exposes the underlying Vert.x instance.</p>
+</div>
+<div class="paragraph">
+<p>You can use this to write route handlers which are much more functional-feeling, and the API is similar to that of Express.js</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>I recommend this article by Clement Escoffier which covers this far more in-depth</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://quarkus.io/blog/magic-control/" class="bare">https://quarkus.io/blog/magic-control/</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-scala hljs" data-lang="scala">import io.quarkus.runtime.annotations.QuarkusMain
+import io.quarkus.runtime.{Quarkus, QuarkusApplication}
+import io.vertx.core.Vertx
+import io.vertx.ext.web.Router
+
+object Application:
+  def main(args: Array[String]): Unit =
+    Quarkus.run(classOf[Application], args*)
+
+@QuarkusMain
+class Application extends QuarkusApplication:
+  override def run(args: String*): Int =
+    val vertx = CDI.current().select(classOf[Vertx]).get()
+    val router = Router.router(vertx)
+    mkRoutes(router)
+    Quarkus.waitForExit()
+    0
+
+def mkRoutes(router: Router) =
+    router.get("/hello").handler(ctx =&gt; {
+        ctx.response.end("world")
+    })
+    router.post("/file-upload").handler(ctx =&gt; {
+        ctx.fileUploads.foreach(it =&gt; {
+            // Handle file
+        })
+        ctx.response.end("Got files")
+    })</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (C) 2020-2024 <a href="https://www.redhat.com">Red Hat</a> and individual contributors to <a href="https://github.com/quarkiverse/">Quarkiverse</a>.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/fontawesome-icon-defs.js"></script>
+<script async src="../../_/js/vendor/fontawesome.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
